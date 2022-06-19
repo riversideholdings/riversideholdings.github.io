@@ -1,6 +1,8 @@
-body{
-    scroll-behavior: smooth 0.2;
-}
+html {
+    scroll-behavior: smooth;
+    animation-duration: 3s;
+  }
+
 body h1{
     font-family: 'Times New Roman', Times, serif;
 }
@@ -55,4 +57,25 @@ body h1{
   .logorounded{
     box-shadow:0px 0px 18px 2px #52c9f8;
     border-radius: 250px;
+  }
+
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+    transition: ease-in 0.3S;
   }
