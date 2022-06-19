@@ -1,0 +1,55 @@
+body h1{
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-links{
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-links:hover{
+    text-decoration: none;
+    color: #43c2f3;
+    transition: ease-in 0.3s;
+}
+
+#dropp{
+    color: #43c2f3;
+    font-size: x-large;
+}
+.row{
+    row-gap: 20px;
+  
+}
+
+.green{
+    color: rgb(25, 139, 25);
+    font-size: x-large;
+  
+}
+
+.redicon{
+    color: rgb(206, 22, 22);
+    font-size: x-large;
+}
+
+
+  .moneygreen{
+    color: rgb(192, 125, 0);
+    font-size: x-large; 
+  }
+
+  .card:hover{
+    box-shadow:0px 0px 16px 6px #3586a6;
+    transition: ease-in 0.3s;
+  }
+
+  .nav-item{
+    padding: 10px;
+  }
+  
+  .logorounded{
+    box-shadow:0px 0px 18px 2px #52c9f8;
+    border-radius: 250px;
+  }
