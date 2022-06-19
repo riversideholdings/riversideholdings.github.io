@@ -70,7 +70,7 @@ function init() {
 
             populateCards.innerHTML += `
             <div class="col-sm-6">
-              <div class="card" style="width: 35rem; height: 50rem;">
+              <div class="card" style="width: 35rem; height: 50rem;" id="Card${invNumber}">
                 <div class="card-body">
                   <h4 class="card-title" id="inNum">Invoice Number: # ${invNumber}</h4>
                   <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${invDate}</h5>
@@ -206,4 +206,23 @@ function detailstap(clicked){
        
                 
       })
+}
+
+//Card${invNumber}
+
+function scrollToItem(){
+    var searchText = document.getElementById("SerachVal").value;
+    const element = document.getElementById("Card"+searchText);
+    element.scrollIntoView();
+
+    element.style = `box-shadow:0px 0px 16px 6px #3586a6;
+    transition: ease-in 0.3s;`;
+
+    const myTimeout = setTimeout(removefocus, 4000);
+
+    function removefocus() {
+        element.style = " ";
+    }
+
+
 }
