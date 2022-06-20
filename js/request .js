@@ -30,6 +30,7 @@ function init() {
 
           
           let structuredArr = [ ];
+          let awaitPaymentArr = [ ];
 
           var populateCards = document.getElementById("cardRows");
           var populateUnpaid = document.getElementById("unPaidcardRows")
@@ -68,53 +69,133 @@ function init() {
                 iconused ="credit-card";
             }
 
-            populateCards.innerHTML += `
-            <div class="col-sm-6">
-              <div class="card" style="width: 35rem; height: 50rem;" id="Card${invNumber}">
+            try{
+              populateCards.innerHTML += `
+              <div class="col-sm-6">
+                <div class="card" style="width: 35rem; height: 50rem;" id="Card${invNumber}">
+                  <div class="card-body">
+                    <h4 class="card-title" id="inNum">Invoice Number: # ${invNumber}</h4>
+                    <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${invDate}</h5>
+                    <p class="card-subtitle mb-2 text-muted"><i class="fa fa-user"></i>&nbsp;&nbsp; <b>${Recipient}</b></p>
+                    <hr></hr>
+                    <p class="card-text">Address: <b>${RecipientAddress}</b></h5>
+                    <h5 class="card-text">Discouts Applied: <b>${DiscountNotes}</b></h5>
+                    <hr></hr>
+                    <h4 class="card-text"><i class="fa fa-dolly"></i> Items: ${Pricesused}</h4>
+                    <p class="card-text">${combineItems}</p>
+                    <hr></hr>
+                    <h4 class="card-text"><i class="fa fa-sack-dollar moneygreen"></i> R ${invoiceTotal}</h4><br>
+                    <span><button type="button" id="${invNumber}" onclick="detailstap(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#detailCenter">Details</button></span>&nbsp;&nbsp;&nbsp;
+                    <span class="${coloring}"><i class="fa fa-${iconused}"></i>&nbsp; ${invstatus}</span>
+                  </div>
+                </div>
+              </div>`;
+            }
+            catch{
+              //console.log("You are seeing this because some code in the request.js is not part of this page.")
+            }
+
+
+            //contruction a proper structured array of the data
+            structuredArr.push({
+              "invNumber": invNumber, 
+              "invDate": invDate,
+              "RecipientName": Recipient,
+              "RecipientAddress": RecipientAddress,
+              "Pricesused": Pricesused,	
+              "milLitres330": ml330,
+              "milLitres500": ml500,
+              "mlLitres750": ml750,
+              "litres1": lt1,
+              "litres5": lt5,
+              "DiscountNotes": DiscountNotes, 
+              "invTotal": invoiceTotal,
+              "invStatus": invstatus,
+              });
+
+           
+          }
+           
+          //console.log(structuredArr);
+
+         
+          //this code populates only unpaid orders
+          var finder = structuredArr.filter(function(invoice, index){
+              if(invoice.invStatus == 'Awaiting Payment')
+              return true;
+     
+          });
+          //console.log(finder);
+
+          var tablepop =document.getElementById("unPaidcardRows");
+
+          for (let j = 0; j < finder.length; j++){
+            var invNum = finder[j].invNumber;
+            var invRecName = finder[j].RecipientName;
+            var invTot = finder[j].invTotal;
+            var address = finder[j].RecipientAddress;
+            var date = finder[j].invDate;
+            var status = finder[j].invStatus;
+            var iml300 = finder[j].milLitres330;
+            var iml500 = finder[j].milLitres500;
+            var iml750 = finder[j].mlLitres750;
+            var ilt1 = finder[j].litres1;
+            var ilt5 = finder[j].litres5;
+            var pused = finder[j].Pricesused;
+            var notes = finder[j].DiscountNotes;
+
+            var combineItems2 = `500ml cases: ${iml500}
+            <br>750ml cases: ${iml750} 
+            <br>1lt cases: ${ilt1}
+            <br>5lt cases: ${ilt5}
+            `;
+
+            try{
+              tablepop.innerHTML += `<tr>
+              <div class="col-sm-6">
+              <div class="card" style="width: 35rem; height: 50rem;" id="Card${invNum}">
                 <div class="card-body">
-                  <h4 class="card-title" id="inNum">Invoice Number: # ${invNumber}</h4>
-                  <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${invDate}</h5>
-                  <p class="card-subtitle mb-2 text-muted"><i class="fa fa-user"></i>&nbsp;&nbsp; <b>${Recipient}</b></p>
+                  <h4 class="card-title" id="inNum">Invoice Number: # ${invNum}</h4>
+                  <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${date}</h5>
+                  <p class="card-subtitle mb-2 text-muted"><i class="fa fa-user"></i>&nbsp;&nbsp; <b>${invRecName}</b></p>
                   <hr></hr>
-                  <p class="card-text">Address: <b>${RecipientAddress}</b></h5>
-                  <h5 class="card-text">Discouts Applied: <b>${DiscountNotes}</b></h5>
+                  <p class="card-text">Address: <b>${address}</b></h5>
+                  <h5 class="card-text">Discouts Applied: <b>${notes}</b></h5>
                   <hr></hr>
-                  <h4 class="card-text"><i class="fa fa-dolly"></i> Items: ${Pricesused}</h4>
-                  <p class="card-text">${combineItems}</p>
+                  <h4 class="card-text"><i class="fa fa-dolly"></i> Items: ${pused}</h4>
+                  <p class="card-text">${combineItems2}</p>
                   <hr></hr>
-                  <h4 class="card-text"><i class="fa fa-sack-dollar moneygreen"></i> R ${invoiceTotal}</h4><br>
-                  <span><button type="button" id="${invNumber}" onclick="detailstap(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#detailCenter">Details</button></span>&nbsp;&nbsp;&nbsp;
-                  <span class="${coloring}"><i class="fa fa-${iconused}"></i>&nbsp; ${invstatus}</span>
+                  <h4 class="card-text"><i class="fa fa-sack-dollar moneygreen"></i> R ${invTot}</h4><br>
+                  <span><button type="button" id="${invNum}" onclick="detailstap(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#detailCenter">Details</button></span>&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-info" id="${invNum}ed" data-toggle="modal" data-target="#EditCenter"><i class="fa fa-pen"></i></button>
+                  <span class="${coloring}2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-${iconused}"></i>&nbsp; ${status}</span>
                 </div>
               </div>
             </div>`;
-
+            }
+            catch{
+              //console.log("You are seeing this because some code in the request.js is not part of this page.")
+            }
             
-            //contruction a proper structured array of the data
-            structuredArr.push({
-                "invNumber": invNumber, 
-                "invDate": invDate,
-                "RecipientName": Recipient,
-                "RecipientAddress": RecipientAddress,
-                "Pricesused": Pricesused,	
-                "milLitres330": ml330,
-                "milLitres500": ml500,
-                "mlLitres750": ml750,
-                "litres1": lt1,
-                "litres5": lt5,
-                "DiscountNotes": DiscountNotes, 
-                "invTotal": invoiceTotal,
-                "invStatus": invstatus,
-            });
-
+          
           }
-                
+
+          //----------------------------------------------------
+         try{//script for incomplete orders
+          var num = finder.length;
+          document.getElementById("ordercount2").innerHTML = "Riverside Holdings orders: <b style='color:red;'>"+num+"</b> Orders not paid";
+          
+         }
+         catch{//script for complete orders
+          var numUn = finder.length;
           var num = structuredArr.length;
-          document.getElementById("ordercount").innerHTML = "Riverside Holdngs orders: <b>"+num+" Orders</b>";
-          //log array to console to check proper structure
-          //console.log("");
-          //console.log("Proper Structured Array combining the " + num + " Above");
-          //console.log(structuredArr)
+          var differenceNum =num - numUn;
+          document.getElementById("ordercount").innerHTML = "Riverside Holdings orders: <b style='color:#3586a6;'>"+num+" Orders on record.</b><br><b style='color:red;'>"+ numUn + "</b> Orders are not payed. <br><b style='color:rgb(25, 139, 25);'>"+differenceNum+"</b> Have been paid and completed.";
+         }
+        //log array to console to check proper structure
+        //console.log("");
+        //console.log("Proper Structured Array combining the " + num + " Above");
+        //console.log(structuredArr)
 
          
       })
@@ -226,4 +307,3 @@ function scrollToItem(){
 
 
 }
-

@@ -38,6 +38,10 @@ body h1{
     font-size: x-large;
 }
 
+.redicon2{
+  color: rgb(206, 22, 22);
+  font-size: 16px;
+}
 
   .moneygreen{
     color: rgb(192, 125, 0);
@@ -75,4 +79,13 @@ body h1{
     transition: ease-in 0.3S;
   }
 
-  
+  .frm-itemval{
+    width: 55px;
+
+  }
+  .itm-lable{
+    display: inline-block;
+    width: 100px;
+    row-gap: 5px;
+    text-align: right;
+  }

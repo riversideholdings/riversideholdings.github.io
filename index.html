@@ -44,7 +44,7 @@
       </div>
 
         <!--Fixed Header-->
-      <div class="row" id="div-top">
+      <div id="div-top">
         <div class="col-sm-4">
           <button class="openbtn" onclick="openNav()">☰</button>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -54,6 +54,7 @@
           <img src="img/Riverside_OG.png" id="imageTop" width="10%">
         </div> 
     </div>
+
 </header>
 
 <body>
@@ -62,22 +63,116 @@
         
         <h1>Dashboard</h1>
     
+        <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> &nbsp; Add New Order</button>
         <hr />
         <footer>
             <p id="yearDate"></p>
         </footer>
-    </div>   
+    </div> 
+    
+   
+    <!-- Modal -->
+  <div class="modal fade" id="newOrderFormCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle">New Order: <span id="order-num-new"></span></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="submit-new-order" id="orderForm">
+            <div class="form-group">
+              <label for="Invoice_Num">Invoice Number</label>
+              <input type="text" name="Invoice_Num" class="form-control" id="Invoice_num" placeholder="Enter Invoice Number" value="Enter Invoice Number">
+            </div>
+            <div class="form-group">
+              <label for="Invoice_Date">Date</label>
+              <input type="date" name="Invoice_Date" class="form-control" id="Invoice_Date">
+            </div>
+            <div class="form-group">
+              <label for="Recipient">Recipient Name</label>
+              <input type="text" name="Recipient" class="form-control" id="Recipient" placeholder="Enter recipient name">
+            </div>
+            <div class="form-group">
+              <label for="Recipient Address">Recipient Address</label>
+              <input type="text" name="Recipient Address" class="form-control" id="Recipient Address" placeholder="Enter recipient Address">
+            </div>
+            <!--price used option selection here-->
+            <div class="form-group">
+              <label for="Prices used">Price used</label>
+              <select class="form-control" name="Prices used" id="Prices used">
+                <option>Select Pricing used</option>
+                <option>Selling Price</option>
+                <option>Wholesale Price</option>
+                <option>Registration</option>
+                <option>Waterpreneur Price</option>
+              </select>
+            </div>
+            
+            <!--add a items selection-->
+            <div class="form-group">
+              <label for="Item Quantities">Item Quantities:</label><br>
+              <p>Leave value at zero if item is not in the order!</p>
+              <lable class="itm-lable">300ml Case:</lable>
+              <input type="number" class="frm-itemval" name="330ml" value="0"><br>
+              <lable class="itm-lable">500ml Case:</lable>
+              <input type="number" class="frm-itemval" name="500ml" value="0"><br>
+              <lable class="itm-lable">750ml Case:</lable>
+              <input type="number" class="frm-itemval" name="750ml" value="0"><br>
+              <lable class="itm-lable">1ltr Case:</lable>
+              <input type="number" class="frm-itemval" name="1lt" value="0"><br>
+              <lable class="itm-lable">5ltr Box:</lable>
+              <input type="number" class="frm-itemval" name="5lt" value="0">
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="Discount notes">Discount Notes</label>
+              <select class="form-control" name="Discount notes" id="Discount notes">
+                <option>none</option>
+                <option type="text">Enter discount Note</option>
+              </select>
+            </div> 
+            <div class="form-group">
+              <label for="Invoice Total">Invoice Total</label>
+              <input type="number" name="Invoice Total" class="form-control" id="Invoice Total" placeholder="Enter total">
+            </div>  
+            <!--status selection option selection here-->
+            <div class="form-group">
+              <label for="status">Order status</label>
+              <select class="form-control" name="status" id="status">
+                <option>Select status</option>
+                <option>Awaiting Payment</option>
+                <option>Paid</option>
+              </select>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="clearForm()" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp; Add Order</button>
+
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up"></i></button>
 
 <!--Script-->
 <script src="js/main.js"></script>
-<script src="js/request .js"></script>
+<script src="js/dashpage.js"></script>
+<script src="js/formsubmissions.js"></script>
 <script src="js/all.js"></script>
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="js/bootstrap.js"></script>
+
 
 </body>
 </html>
