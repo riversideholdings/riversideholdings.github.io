@@ -1,5 +1,6 @@
 //https://docs.google.com/spreadsheets/d/1B72XHR8ff7JqN9Pj52RBjFFPUt5dmtrTJOaT2dUAeXk/edit?usp=sharing
-
+var editModTitle = document.getElementById("InTitelMod");
+var editModBody = document.getElementById("modInBody");
 //==============get invoices=================================//
 //google spreedsheet data
 //1B72XHR8ff7JqN9Pj52RBjFFPUt5dmtrTJOaT2dUAeXk
@@ -149,7 +150,7 @@ function init() {
             <br>1lt cases: ${ilt1}
             <br>5lt cases: ${ilt5}
             `;
-
+            
             try{
               tablepop.innerHTML += `<tr>
               <div class="col-sm-6">
@@ -167,7 +168,7 @@ function init() {
                   <hr></hr>
                   <h4 class="card-text"><i class="fa fa-sack-dollar moneygreen"></i> R ${invTot}</h4><br>
                   <span><button type="button" id="${invNum}" onclick="detailstap(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#detailCenter">Details</button></span>&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-info" id="${invNum}ed" data-toggle="modal" data-target="#EditCenter"><i class="fa fa-pen"></i></button>
+                  <button class="btn btn-info" id="${invNum}ed" onclick="popmodalforupdate(this.id)" data-toggle="modal" data-target="#EditCenter"><i class="fa fa-pen"></i></button>
                   <span class="${coloring}2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-${iconused}"></i>&nbsp; ${status}</span>
                 </div>
               </div>
@@ -203,6 +204,89 @@ function init() {
          
 }
 
+function popmodalforupdate(clickedon){
+
+  //when u reach 100000 orders change this 
+  let invnummm = clickedon.slice(0,7)
+  editModTitle.innerHTML = "Invoice number: " + invnummm;
+
+
+
+  //the values of these have been set right at the top of the script
+  //InTitelMod
+  //modInBody
+  fetch(url)
+  .then(res => res.text())
+  .then(rep => {
+      //Remove additional text and extract only JSON:
+      const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
+      //rows of the data retrieved
+      const invoiceArr = jsonData.table.rows;
+      //=============LOG TO CONSOLE========================//
+      //console.log(jsonData);
+      //console.log(invoiceArr);
+
+      for (let i = 0; i < invoiceArr.length; i++) {
+    
+        var invNumber = invoiceArr[i].c[0].v;
+        var invDate = invoiceArr[i].c[1].v;
+        var Recipient = invoiceArr[i].c[2].v;
+        var RecipientAddress = invoiceArr[i].c[3].v;	
+        var Pricesused = invoiceArr[i].c[4].v;	
+        var ml330 = invoiceArr[i].c[5].v;	
+        var ml500 = invoiceArr[i].c[6].v;	
+        var ml750 = invoiceArr[i].c[7].v;	
+        var lt1	 = invoiceArr[i].c[8].v;
+        var lt5 = invoiceArr[i].c[9].v;	
+        var DiscountNotes = invoiceArr[i].c[10].v;	 
+        var invoiceTotal = invoiceArr[i].c[11].v;	
+        var invstatus = invoiceArr[i].c[12].v;
+
+        var combineItems = `500ml cases: ${ml500}
+        <br>750ml cases: ${ml750} 
+        <br>1lt cases: ${lt1}
+        <br>5lt cases: ${lt5}
+        `;
+
+        var coloring, iconused, detailtext;
+        if (invstatus == "Paid")
+        {
+            coloring = "green";
+            iconused ="circle-check";
+            detailtext = "The order has been complete and payed for!"
+            var addDangerBtn = " ";
+        }
+        else if (invstatus == "Awaiting Payment")
+        {
+            coloring = "redicon";
+            iconused ="credit-card";
+            detailtext = Recipient +" Has not payed for the order! <br> Status: <b>Not delivered</b>";
+            var addDangerBtn = `<button type="button" class="btn btn-danger">Send Reminder</button>`;
+        }
+
+        if(invnummm == invNumber)
+        {
+            editModBody.innerHTML=`
+            <form name="formupdate">
+              <div class="form-group">
+                <label for="status">Order status:</label>
+                <select class="form-control" name="status" id="status">
+                  <option>Awaiting Payment</option>
+                  <option>Paid</option>
+                </select>
+              </div>
+            </form>
+            `;
+        }
+        
+
+      }
+   
+            
+  })
+  
+ 
+}
 //populate modals
 var modTitle = document.getElementById("ModalLongTitle");
 var modBody = document.getElementById("modBody");
