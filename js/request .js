@@ -210,7 +210,7 @@ function popmodalforupdate(clickedon){
   let invnummm = clickedon.slice(0,7)
   editModTitle.innerHTML = "Invoice number: " + invnummm;
 
-
+ 
 
   //the values of these have been set right at the top of the script
   //InTitelMod
@@ -225,6 +225,7 @@ function popmodalforupdate(clickedon){
       //=============LOG TO CONSOLE========================//
       //console.log(jsonData);
       //console.log(invoiceArr);
+      var forminside = document.getElementById("formupdateValue");
 
       for (let i = 0; i < invoiceArr.length; i++) {
     
@@ -273,17 +274,7 @@ function popmodalforupdate(clickedon){
             <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${invDate}</h5>
             <p class="card-subtitle mb-2 text-muted"><i class="fa fa-user"></i>&nbsp;&nbsp; <b>${Recipient}</b></p>
             <p class="card-text">Address: <b>${RecipientAddress}</b></p>
-            <hr></hr>
-            <form name="formupdateValue">
-              <div class="form-group">
-                <label for="status">Change order status:</label>
-                <select class="form-control" onmouseup="validateoption()" on name="status" id="statusInMod">
-                  <option value="Awaiting Payment" onmouseup="validateoption()">Awaiting Payment</option>
-                  <option value="Paid" onmouseup="validateoption()">Paid</option>
-                </select>
-              </div>
-            </form>
-            <p id="status-progress"></p>
+            <hr></hr><p id="status-progress"></p>
             <br>
              `;
            
@@ -299,14 +290,14 @@ function popmodalforupdate(clickedon){
 }
 
 function validateoption(){
-  var dselectVAl = document.getElementById("statusInMod");
-  var selectedValue = dselectVAl.options[dselectVAl.selectedIndex].value;
+  //var dselectVAl = document.getElementById("statusInMod").value;
+  var selectedValue = document.querySelector('input[name="status"]:checked');
 
   var thatopt = document.getElementById("status-progress");
-  if(selectedValue == "Paid"){
+  if(selectedValue.value == "Paid"){
     thatopt.innerHTML =`The status of this order will change to: <br> <span class="green"><i class="fa fa-circle-check"></i>&nbsp;Paid</span>`;
   }
-  else if (selectedValue == "Awaiting Payment"){
+  else if (selectedValue.value == "Awaiting Payment"){
     thatopt.innerHTML =`The status of this order will change to: <br> <span class="redicon" ><i class="fa fa-credit-card"></i>&nbsp;Awaiting payment</span>`;
   }
 }

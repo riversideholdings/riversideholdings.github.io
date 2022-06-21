@@ -89,3 +89,10 @@ body h1{
     row-gap: 5px;
     text-align: right;
   }
+
+  .itm-lable2{
+    display: inline-block;
+    width: 135px;
+    row-gap: 5px;
+    text-align: right;
+  }
