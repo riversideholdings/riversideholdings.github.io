@@ -3,7 +3,9 @@ function updateOrderStatus(){
     var ie = document.getElementById("InTitelMod").innerHTML;
     var outBody = document.getElementById("outterModBodyIn");
     var invNumToUpdate = ie.replace("Invoice number: ",'');
+    var fott = document.getElementById("footermod");
     var statusSelected = document.querySelector('input[name="status"]:checked').value;
+
    
     //console.log(ie);
     console.log(invNumToUpdate);
@@ -30,13 +32,21 @@ function updateOrderStatus(){
     }
     })*/
 
+    //after updatig the status, success message is shown on the modal body outterModBodyIn
+    outBody.innerHTML = `<center><img src="img/loader.gif" width="30%" ></center>`
+
+    const timerout = setTimeout(loadercircle, 2000);
+    
     function loadercircle(){
         //after updatig the status, success message is shown on the modal body outterModBodyIn
-    outBody.innerHTML = `<center><img src="img/loader.gif" width="30%" ></center>`
-    }
+        outBody.innerHTML = `<h1>Order: ${invNumToUpdate} Has been Updated!</h1>`
+        fott.innerHTML = `<button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
+     };
+    
     
   }
   
   function formclearer(){
     document.getElementById("formupdateValue").reset();
   }
+
