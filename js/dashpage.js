@@ -29,9 +29,11 @@ function fetchlastInvNum(){
         //console.log(jsonData);
         //console.log(invoiceArr);
 
+        shownewInvNum();
+
       })
 
-      
+
   }
   
   function shownewInvNum(){
@@ -83,7 +85,7 @@ function fetchlastInvNum(){
 
         }
         
-        console.log(Arr);
+        //console.log(Arr);
 
         let arrayLegnth = Arr.length;
         //console.log(arrayLegnth-1 );
@@ -100,6 +102,12 @@ function fetchlastInvNum(){
 
         var ordernuminput = document.getElementById("Invoice_num");
         ordernuminput.value = document.getElementById("order-num-new").innerHTML;
+
+     
+        var counterinv = document.getElementById("completedorderCount");
+        counterinv.innerHTML = "Total Invoices on record: " + arrayLegnth; 
+
+        
       }) 
     
   }
