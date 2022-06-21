@@ -79,7 +79,7 @@ function init() {
                     <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${invDate}</h5>
                     <p class="card-subtitle mb-2 text-muted"><i class="fa fa-user"></i>&nbsp;&nbsp; <b>${Recipient}</b></p>
                     <hr></hr>
-                    <p class="card-text">Address: <b>${RecipientAddress}</b></h5>
+                    <p class="card-text">Address: <b>${RecipientAddress}</b></p>
                     <h5 class="card-text">Discouts Applied: <b>${DiscountNotes}</b></h5>
                     <hr></hr>
                     <h4 class="card-text"><i class="fa fa-dolly"></i> Items: ${Pricesused}</h4>
@@ -267,16 +267,26 @@ function popmodalforupdate(clickedon){
         if(invnummm == invNumber)
         {
             editModBody.innerHTML=`
-            <form name="formupdate">
+            <p>Your are about to update the status for the above mentioned invoice number!</p>
+            <p>if your are sure about your choice please procced to change status in the selection below and press "update Status" button to complete.</p>
+            <br>
+            <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${invDate}</h5>
+            <p class="card-subtitle mb-2 text-muted"><i class="fa fa-user"></i>&nbsp;&nbsp; <b>${Recipient}</b></p>
+            <p class="card-text">Address: <b>${RecipientAddress}</b></p>
+            <hr></hr>
+            <form name="formupdateValue">
               <div class="form-group">
-                <label for="status">Order status:</label>
-                <select class="form-control" name="status" id="status">
-                  <option>Awaiting Payment</option>
-                  <option>Paid</option>
+                <label for="status">Change order status:</label>
+                <select class="form-control" onmouseup="validateoption()" on name="status" id="statusInMod">
+                  <option value="Awaiting Payment">Awaiting Payment</option>
+                  <option value="Paid">Paid</option>
                 </select>
               </div>
             </form>
-            `;
+            <p id="status-progress"></p>
+            <br>
+             `;
+           
         }
         
 
@@ -286,6 +296,19 @@ function popmodalforupdate(clickedon){
   })
   
  
+}
+
+function validateoption(){
+  var dselectVAl = document.getElementById("statusInMod");
+  var selectedValue = dselectVAl.options[dselectVAl.selectedIndex].value;
+
+  var thatopt = document.getElementById("status-progress");
+  if(selectedValue == "Paid"){
+    thatopt.innerHTML =`The status of this order will change to: <br> <span class="green"><i class="fa fa-circle-check"></i>&nbsp;Paid</span>`;
+  }
+  else if (selectedValue == "Awaiting Payment"){
+    thatopt.innerHTML =`The status of this order will change to: <br> <span class="redicon" ><i class="fa fa-credit-card"></i>&nbsp;Awaiting payment</span>`;
+  }
 }
 //populate modals
 var modTitle = document.getElementById("ModalLongTitle");
