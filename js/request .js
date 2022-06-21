@@ -268,7 +268,7 @@ function popmodalforupdate(clickedon){
         {
             editModBody.innerHTML=`
             <p>Your are about to update the status for the above mentioned invoice number!</p>
-            <p>if your are sure about your choice please procced to change status in the selection below and press "update Status" button to complete.</p>
+            <p>if your are sure about your choice please proceed to change status in the selection below and press "update Status" button to complete.</p>
             <br>
             <h5 class="card-subtitle mb-2 text-muted"><i class="fa fa-calendar-days"></i> ${invDate}</h5>
             <p class="card-subtitle mb-2 text-muted"><i class="fa fa-user"></i>&nbsp;&nbsp; <b>${Recipient}</b></p>
@@ -278,8 +278,8 @@ function popmodalforupdate(clickedon){
               <div class="form-group">
                 <label for="status">Change order status:</label>
                 <select class="form-control" onmouseup="validateoption()" on name="status" id="statusInMod">
-                  <option value="Awaiting Payment">Awaiting Payment</option>
-                  <option value="Paid">Paid</option>
+                  <option value="Awaiting Payment" onmouseup="validateoption()">Awaiting Payment</option>
+                  <option value="Paid" onmouseup="validateoption()">Paid</option>
                 </select>
               </div>
             </form>
