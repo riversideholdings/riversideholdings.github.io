@@ -15,13 +15,13 @@ function updateOrderStatus(){
     Change order status: <p style="color:red;">please select an option</p>`; */
 
 
-    /*fetch("https://api.apispreadsheets.com/data/7WmZbgR1ICrqvHzJ/", {
+    fetch("https://api.apispreadsheets.com/data/7WmZbgR1ICrqvHzJ/", {
     method: "POST",
     body: JSON.stringify(
         {"data":
         {"status":statusSelected,},
         //this determines whch row to update
-        "query": "select*from26852whereInvoice_Num=" + invNumToUpdate}),
+        "query": `select*from26852whereInvoice_Num='${invNumToUpdate}'`}),
     
     }).then(res =>{
     if (res.status === 201){
@@ -30,7 +30,9 @@ function updateOrderStatus(){
     else{
         // ERROR
     }
-    })*/
+    })
+   
+
 
     //after updatig the status, success message is shown on the modal body outterModBodyIn
     outBody.innerHTML = `<center><img src="img/loader.gif" width="30%" ></center>`
