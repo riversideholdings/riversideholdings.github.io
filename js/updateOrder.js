@@ -41,7 +41,7 @@ function updateOrderStatus(){
     
     function loadercircle(){
         //after updatig the status, success message is shown on the modal body outterModBodyIn
-        outBody.innerHTML = `<h1>Order: ${invNumToUpdate} Has been Updated!</h1>`
+        outBody.innerHTML = `<h1 class="text-center">Order: ${invNumToUpdate} Has been Updated!</h1>`
         fott.innerHTML = `<button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
      };
     

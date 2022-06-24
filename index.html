@@ -51,7 +51,7 @@
           &nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <div class="col-sm-8 text-right" id="imagetct">
-          <span class="riverHeading">Riverside Holdings</span> &nbsp;
+          <span class="riverHeading" id="hwords">Riverside Holdings</span> &nbsp;
           <img src="img/Riverside_OG.png" id="imageTop" width="10%">
         </div> 
     </div>
@@ -59,7 +59,7 @@
 </header>
 
 <body>
-  <hr>
+
     <div class="container-md body-content">
         
         <h1>Dashboard</h1>
@@ -85,7 +85,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="moddBody">
           <form name="submit-new-order" id="orderForm">
             <div class="form-group">
               <label for="Invoice_Num">Invoice Number</label>
@@ -153,7 +153,7 @@
             </div>
         </div>
         
-        <div class="modal-footer">
+        <div class="modal-footer" id="mdofoot">
           <button type="button" class="btn btn-danger" onclick="clearForm()" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
           <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp; Add Order</button>
