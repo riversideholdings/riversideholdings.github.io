@@ -66,8 +66,8 @@ function fetchlastInvNum(){
           var invoiceTotal = invoiceArr[i].c[11].v;	
           var invstatus = invoiceArr[i].c[12].v;
 
-        //contruction a proper structured array of the data
-        Arr.push({
+          //contruction a proper structured array of the data
+          Arr.push({
             "invNumber": invNumber, 
             "invDate": invDate,
             "RecipientName": Recipient,
@@ -84,7 +84,26 @@ function fetchlastInvNum(){
           });
 
         }
-        
+
+           //this code populates only unpaid orders
+           var finder2 = Arr.filter(function(invoice, index){
+            if(invoice.invStatus == 'Awaiting Payment')
+            return true;});
+            for(var j = 0; j < 5; j++)
+            {
+
+              var tbodypop =document.getElementById("tbodyd");
+
+              tbodypop.innerHTML += `<tr>
+              <td>${finder2[j].invNumber}</td>
+              <td>${finder2[j].invDate}</td>
+              <td>${finder2[j].RecipientName}</td>
+              <td><center><div class="status-circle redglow"></div><center></td>
+              </tr>`;
+            }
+
+  
+        console.log(finder2)
         //console.log(Arr);
 
         let arrayLegnth = Arr.length;
@@ -105,9 +124,59 @@ function fetchlastInvNum(){
 
      
         var counterinv = document.getElementById("completedorderCount");
-        counterinv.innerHTML = "Total Invoices on record: " + arrayLegnth; 
+        counterinv.innerHTML =`<i class="fa-solid fa-file-invoice-dollar blue"></i>&nbsp;&nbsp; Total Invoices on record: <b style="color: #3586a6;">${arrayLegnth}</b>`; 
 
+           //this code populates only unpaid orders
+           var finder = Arr.filter(function(invoice, index){
+            if(invoice.invStatus == 'Awaiting Payment')
+            return true;});
+
+        try{//script for incomplete orders
+          var num = finder.length;
+          document.getElementById("ordercount2").innerHTML = `<i class="fa-solid fa-clipboard-list redicon"></i> &nbsp;&nbsp;Number of unpaid Orders: <b style='color:red;'>${num}</b>`;
+          
+         }
+         catch{//script for complete orders
+         }
+         var numUn = finder.length;
+         var num = Arr.length;
+         var differenceNum =num - numUn;
+         document.getElementById("ordercountComplete").innerHTML = `<i class="fa-solid fa-file-circle-check green"></i>&nbsp; Number of completed orders: <b style='color:rgb(25, 139, 25);'>${differenceNum}</b>`;
+        
         
       }) 
     
   }
+
+
+function clearfrmclient()
+{
+  document.getElementById("clientfrm").reset();
+}
+
+  const scriptURLclientfrm = 'https://script.google.com/macros/s/AKfycbyzUftviuOT_3lBRdMfhGPNoLdhSu9pEbLT6SVyskD-dwL_VSRDaiEr2cnMKcj56LsE/exec'
+    const formClient = document.forms['client-frm']
+  
+    formClient.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURLclientfrm, { method: 'POST', body: new FormData(formClient)})
+        .then(response => console.log('Success!', response), successClientfrm())
+        .catch(error => console.error('Error!', error.message))
+    })
+
+function successClientfrm(){
+
+  var outBodyClient = document.getElementById("modbodClient");
+    var fottClient = document.getElementById("modfootClient");
+
+  //after updatig the status, success message is shown on the modal body outterModBodyIn
+  outBodyClient.innerHTML = `<center><img src="img/loader.gif" width="30%" ></center>`
+
+  const timeroutc = setTimeout(loadercircle, 2000);
+  
+  function loadercircle(){
+      //after updatig the status, success message is shown on the modal body outterModBodyIn
+      outBodyClient.innerHTML = `<h1 class="text-center">Client Successfully added! <br><center><i class="fa fa-square-check green"></i></center></h1>`
+      fottClient.innerHTML = `<button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
+   }; 
+}
