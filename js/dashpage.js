@@ -63,7 +63,7 @@ function fetchlastInvNum(){
           var lt1	 = invoiceArr[i].c[8].v;
           var lt5 = invoiceArr[i].c[9].v;	
           var DiscountNotes = invoiceArr[i].c[10].v;	 
-          var invoiceTotal = invoiceArr[i].c[11].v;	
+          var invoiceTotal = (invoiceArr[i].c[11].v);	
           var invstatus = invoiceArr[i].c[12].v;
 
           //contruction a proper structured array of the data
@@ -84,11 +84,26 @@ function fetchlastInvNum(){
           });
 
         }
-
+    
+               
+        const sum2 = Arr.reduce((accumulator, object) => {
+          return accumulator + object.invTotal;
+        }, 0);
+      
+        document.getElementById("total-salesamnt").innerHTML = `<i class="fa-solid fa-coins" style="color: gold;"></i>&nbsp; Total Sales:<br> <b class="blue">R ${sum2}0</b>`;
+       
+       
            //this code populates only unpaid orders
            var finder2 = Arr.filter(function(invoice, index){
             if(invoice.invStatus == 'Awaiting Payment')
             return true;});
+
+            const sum = finder2.reduce((accumulator, object) => {
+              return accumulator + object.invTotal;
+            }, 0);
+          
+           document.getElementById("total-salesamnt-unpaid").innerHTML = `<i class="fa-solid fa-hand-holding-dollar redicon"></i>&nbsp; Total unpaid Sales:<br> <b class="redicon">R ${sum}0</b>`;
+        
             for(var j = 0; j < 5; j++)
             {
 
@@ -100,10 +115,30 @@ function fetchlastInvNum(){
               <td>${finder2[j].RecipientName}</td>
               <td><center><div class="status-circle redglow"></div><center></td>
               </tr>`;
+
+                    
+           
+
             }
 
+            //for paid orders
+            
+          var findPaid = Arr.filter(function(invoice, index){
+            if(invoice.invStatus == 'Paid')
+            return true;});
+
+            const sumpd = findPaid.reduce((accumulator, object) => {
+              return accumulator + object.invTotal;
+            }, 0);
+          
+           document.getElementById("total-salesamnt-paid").innerHTML = `<i class="fa-solid fa-check-double green"></i>&nbsp; Total completed Sales:<br> <b class="green">R ${sumpd}0</b>`;
+        
+
+            
+
+
   
-        console.log(finder2)
+        //console.log(finder2)
         //console.log(Arr);
 
         let arrayLegnth = Arr.length;
@@ -143,7 +178,11 @@ function fetchlastInvNum(){
          var differenceNum =num - numUn;
          document.getElementById("ordercountComplete").innerHTML = `<i class="fa-solid fa-file-circle-check green"></i>&nbsp; Number of completed orders: <b style='color:rgb(25, 139, 25);'>${differenceNum}</b>`;
         
-        
+         
+        var tbl = document.getElementById("tbodyd");
+        var n = tbl.rows.length;
+        document.getElementById("rowcount").innerHTML = `<td style="color:#43c2f3;">${n} Rows</td><td></td><td></td><td></td>`;
+         
       }) 
     
   }
