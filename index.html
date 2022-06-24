@@ -22,27 +22,36 @@
 <header>
     <!--Nav Bar-->
     <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <div class="collapse navbar-collapse" id="navbarNav"></div>
-         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-links"><img src="img/Riverside_OG.png" width="60%"></a>
-          </li>
-            <li class="nav-item active">
-              <a class="nav-links" href="index.html"><i class="fa fa-home"></i>&nbsp; Home <span class="sr-only">(current)</span></a>
-              <hr>
-            </li>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="collapse navbar-collapse" id="navbarNav"></div>
+           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-links" href="allorders.html"><i class="fa fa-boxes-packing"></i>&nbsp;  All orders</a>
-              <hr>
+              <a class="nav-links"><img src="img/Riverside_OG.png" width="60%"></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-links" href="unpaid.html"><i class="fa fa-box-open"></i>&nbsp; Unpaid Orders</a>
-              <hr>
-            </li>
-          </ul>
+              <li class="nav-item active">
+                <a class="nav-links" href="home.html"><i class="fa fa-home"></i>&nbsp; Home <span class="sr-only">(current)</span></a>
+                <hr>
+              </li>
+              <li class="nav-item">
+                <a class="nav-links" href="allorders.html"><i class="fa fa-boxes-packing"></i>&nbsp;  All orders</a>
+                <hr>
+              </li>
+              <li class="nav-item">
+                <a class="nav-links" href="unpaid.html"><i class="fa fa-box-open"></i>&nbsp; Unpaid Orders</a>
+                <hr>
+              </li>
+              <li class="nav-item">
+                <a class="nav-links" href="clients.html"><i class="fa fa-user"></i>&nbsp; Clients</a>
+                <hr>
+              </li>
+              <li class="nav-item">
+                <a class="nav-links" href="products.html"><i class="fa fa-bottle-water"></i>&nbsp; Products</a>
+                <hr>
+              </li>
+            </ul>
+            <a href="index.html" style="float: right; padding-right: 15px">Log out <i class="fa fa-right-from-bracket"></i></a>
+          </div>
         </div>
-      </div>
 
         <!--Fixed Header-->
       <div id="div-top">
@@ -61,116 +70,77 @@
 <body>
 
     <div class="container-md body-content">
-        
-        <h1>Dashboard</h1>
-    
-        <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> &nbsp; Add New Order</button>
-        <br>
-        <br>
+        <h1 class="text-center">Riverside Holdings management</h1><br>
+        <p id="tmecode"></p>
+        <h2>Log in <i class="fa-solid fa-right-to-bracket"></i></h2>
+        <p>Enter log in details.</p>
+        <p id="errorMess" style="color: red;"></p>
+        <div class="row">
+            <div class="col-sm-6">
+                <form class="from">
+                    <div class="form-group">
+                        <label for="Email-user">Email</label>
+                        <input type="email" name="Email-user" class="form-control" id="Email-user" placeholder="Enter your email" >
+                      </div>
+                      <div class="form-group">
+                        <label for="user-password">Password</label>
+                        <input type="password" name="user-password" class="form-control" id="user-password-field" placeholder="Enter your password">
+                        <input type="checkbox" onclick="showPass()"> Show Password<br>
+                      </div>
+                      <button type="button" onclick="submitformP()" class="btn btn-primary">Log in <i class="fa-solid fa-right-to-bracket"></i></button>&nbsp;
+                      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#resetPassCenter">Reset Password <i class="fa-solid fa-arrow-rotate-right"></i></button>
+
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <img src="img/Riverside_OG.png" width="50%" style="margin: auto; display:flex; align-self: center; justify-self: center;">
+            </div>
+        </div>
         <h4 id="completedorderCount"></h4>
         <hr />
         <footer>
             <p id="yearDate"></p>
         </footer>
     </div> 
-    
-   
-    <!-- Modal -->
-  <div class="modal fade" id="newOrderFormCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLongTitle">New Order: <span id="order-num-new"></span></h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="moddBody">
-          <form name="submit-new-order" id="orderForm">
-            <div class="form-group">
-              <label for="Invoice_Num">Invoice Number</label>
-              <input type="text" name="Invoice_Num" class="form-control" id="Invoice_num" placeholder="Enter Invoice Number" value="Enter Invoice Number">
-            </div>
-            <div class="form-group">
-              <label for="Invoice_Date">Date</label>
-              <input type="date" name="Invoice_Date" class="form-control" id="Invoice_Date">
-            </div>
-            <div class="form-group">
-              <label for="Recipient">Recipient Name</label>
-              <input type="text" name="Recipient" class="form-control" id="Recipient" placeholder="Enter recipient name">
-            </div>
-            <div class="form-group">
-              <label for="Recipient Address">Recipient Address</label>
-              <input type="text" name="Recipient Address" class="form-control" id="Recipient Address" placeholder="Enter recipient Address">
-            </div>
-            <!--price used option selection here-->
-            <div class="form-group">
-              <label for="Prices used">Price used</label>
-              <select class="form-control" name="Prices used" id="Prices used">
-                <option>Select Pricing used</option>
-                <option>Selling Price</option>
-                <option>Wholesale Price</option>
-                <option>Registration</option>
-                <option>Waterpreneur Price</option>
-              </select>
-            </div>
-            
-            <!--add a items selection-->
-            <div class="form-group">
-              <label for="Item Quantities">Item Quantities:</label><br>
-              <p>Leave value at zero if item is not in the order!</p>
-              <lable class="itm-lable">300ml Case:</lable>
-              <input type="number" class="frm-itemval" name="330ml" value="0"><br>
-              <lable class="itm-lable">500ml Case:</lable>
-              <input type="number" class="frm-itemval" name="500ml" value="0"><br>
-              <lable class="itm-lable">750ml Case:</lable>
-              <input type="number" class="frm-itemval" name="750ml" value="0"><br>
-              <lable class="itm-lable">1ltr Case:</lable>
-              <input type="number" class="frm-itemval" name="1lt" value="0"><br>
-              <lable class="itm-lable">5ltr Box:</lable>
-              <input type="number" class="frm-itemval" name="5lt" value="0">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="Discount notes">Discount Notes</label>
-              <select class="form-control" name="Discount notes" id="Discount notes">
-                <option>none</option>
-                <option type="text">Enter discount Note</option>
-              </select>
-            </div> 
-            <div class="form-group">
-              <label for="Invoice Total">Invoice Total</label>
-              <input type="number" name="Invoice Total" class="form-control" id="Invoice Total" placeholder="Enter total">
-            </div>  
-            <!--status selection option selection here-->
-            <div class="form-group">
-              <label for="status">Order status</label>
-              <select class="form-control" name="status" id="status">
-                <option>Select status</option>
-                <option>Awaiting Payment</option>
-                <option>Paid</option>
-              </select>
-            </div>
-        </div>
-        
-        <div class="modal-footer" id="mdofoot">
-          <button type="button" class="btn btn-danger" onclick="clearForm()" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-          <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp; Add Order</button>
 
-        </form>
+    <!-- Modal -->
+    <div class="modal fade" id="resetPassCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body" id="modbod2">
+                <form class="from" id="resetform">
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="text" name="Email" class="form-control" id="Email" placeholder="Enter your email" >
+                      </div>
+                      <div class="form-group">
+                        <label for="Password">New Password</label>
+                        <input type="password" name="Password" class="form-control" id="password-field" placeholder="Enter your password">
+                        <input type="checkbox" onclick="showPass2()"> Show Password<br>
+                      </div>
+                
+            </div>
+            <div class="modal-footer" id="modfoot">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" onclick="resetpass()">Change Password</button>
+            </form>
+            </div>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up"></i></button>
 
 <!--Script-->
 <script src="js/main.js"></script>
 <script src="js/updateOrder.js"></script>
-<script src="js/dashpage.js"></script>
-<script src="js/formsubmissions.js"></script>
+<script src="js/login.js"></script>
 <script src="js/all.js"></script>
 
 <!-- JavaScript Bundle with Popper -->

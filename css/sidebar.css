@@ -15,9 +15,9 @@
 
 /* The sidebar links */
 .sidebar a {
-  padding: 8px 8px 8px 32px;
+  padding: 0px 0px 0px 32px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   color: #000000;
   display: block;
   transition: 0.3s;
@@ -28,6 +28,7 @@
 .sidebar a:hover {
   color: #44c3f3;
   transition: ease-in 0.3s;
+  text-decoration: none;
 }
 
 /* Position and style the close button (top right corner) */

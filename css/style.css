@@ -7,8 +7,15 @@ body h1{
     font-family: 'Times New Roman', Times, serif;
 }
 body{
-  padding-top: 75px;
+  padding-top: 140px;
 }
+
+@media (max-width: 979px){
+  body{
+    padding-top: 80px;
+  }
+}
+
 .nav-links{
     color: white;
     font-size: 20px;

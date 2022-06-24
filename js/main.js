@@ -4,6 +4,23 @@ var year  = d.getFullYear();
 var dateTag = document.getElementById("yearDate");
 dateTag.innerHTML =  `Management panel &copy; ${year} - Riverside Holdings.` ;
 
+try{
+  setInterval(myTimer, 1000);
+}
+catch{
+  //
+}
+
+
+function myTimer() {
+  const d = new Date();
+  try{
+    document.getElementById("tmecode").innerHTML = d.toLocaleTimeString() + " (SAST)";
+  }
+  catch{
+
+  }  
+}
 
 //SCROLL TO FUNCTION
 //Get the button
