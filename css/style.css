@@ -117,7 +117,7 @@ body{
   }
   .itm-lable{
     display: inline-block;
-    width: 100px;
+    width: 250px;
     row-gap: 5px;
     text-align: right;
   }
@@ -128,3 +128,12 @@ body{
     row-gap: 5px;
     text-align: right;
   }
+
+/*reciepiet fields*/
+
+.newClient{
+  display: none;
+}
+.existin{
+  display: none;
+}

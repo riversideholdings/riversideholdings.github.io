@@ -26,10 +26,16 @@ function init() {
           //console.log(adminArr);
 
           var popcards = document.getElementById("cl_list");
+          var existcl = document.getElementById("exiRecipient");
 
           let nw = [ ];
           let awaitPaymentArr = [ ];
 
+           //check selected values in client add form /existing client
+           var exiselect = document.getElementById("exiRecipient");
+           var recpAddress = document.getElementById("Recipient Address");
+          
+           
           for (let i = 0; i < adminArr.length; i++) {
         
             var Client_Num = adminArr[i].c[0].v;
@@ -49,6 +55,13 @@ function init() {
                 "Contact_Person": ContactP
               });
 
+              try{
+                existcl.innerHTML += `<option>${Name}</option>`;
+              }
+              catch{
+
+              }
+              try{
               popcards.innerHTML += `<div class="col-sm-6">
               <div class="card" style="width: 36rem;">
               <div class="card-header">
@@ -62,9 +75,54 @@ function init() {
                 <button type="button" class="btn btn-danger">Remove client <i class="fa-solid fa-user-slash"></i></button>
               </div>
             </div><div>`;
+              }
+              catch{
+
+              }
           } 
-         
-          
-      
+
+              //var seectedValue = document.querySelector('input[name="options"]:selected');
+              try{
+                exiselect.addEventListener('change', function(){
+                  var result = nw.filter(obj => {
+                    return obj.Name === exiselect.value 
+                  })
+                  recpAddress.value = result[0].Address;
+              });
+              }
+              catch{
+                //
+              }
+             
+
       })        
 }
+
+function checkrecipient(){
+  var exicl = document.getElementById("existin");
+  var newcl = document.getElementById("newClient");
+
+  const exival = document.getElementById("exiRecipient");
+  const newval = document.getElementById("newRecipient")
+
+ //var dselectVAl = document.getElementById("statusInMod").value;
+ var selectedop= document.querySelector('input[name="options"]:checked');
+
+ var thatopt = document.getElementById("status-progress");
+ if(selectedop.value == "EXisting"){
+  exicl.style.display = "block";
+  exival.setAttribute('name', 'Recipient');
+  newcl.style.display = "none";
+  newval.setAttribute('name', 'excludet'); 
+}
+ else if (selectedop.value == "NEw"){
+  newcl.style.display = "block";
+  newval.setAttribute('name', 'Recipient'); 
+  exicl.style.display = "none";
+  exival.setAttribute('name', 'excludet'); 
+
+  document.getElementById("Recipient Address").value = " ";
+          
+ }
+}
+

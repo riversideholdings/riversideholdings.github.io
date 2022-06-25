@@ -90,7 +90,7 @@ function fetchlastInvNum(){
           return accumulator + object.invTotal;
         }, 0);
       
-        document.getElementById("total-salesamnt").innerHTML = `<i class="fa-solid fa-coins" style="color: gold;"></i>&nbsp; Total sales value invoiced:<br> <b class="blue">R ${sum2}0</b>`;
+        document.getElementById("total-salesamnt").innerHTML = `<i class="fa-solid fa-coins" style="color: gold;"></i>&nbsp; Total sales value invoiced:<br> <b>R ${sum2}0</b>`;
        
        
            //this code populates only unpaid orders
@@ -102,7 +102,7 @@ function fetchlastInvNum(){
               return accumulator + object.invTotal;
             }, 0);
           
-           document.getElementById("total-salesamnt-unpaid").innerHTML = `<i class="fa-solid fa-hand-holding-dollar redicon"></i>&nbsp; Total unpaid quoted orders:<br> <b class="redicon">R ${sum}0</b>`;
+           document.getElementById("total-salesamnt-unpaid").innerHTML = `<i class="fa-solid fa-hand-holding-dollar redicon"></i>&nbsp; Total unpaid quoted orders:<br> <b>R ${sum}0</b>`;
         
             for(var j = 0; j < 10; j++)
             {
@@ -135,7 +135,7 @@ function fetchlastInvNum(){
               return accumulator + object.invTotal;
             }, 0);
           
-           document.getElementById("total-salesamnt-paid").innerHTML = `<i class="fa-solid fa-check-double green"></i>&nbsp; Total completed sales value:<br> <b class="green">R ${sumpd}0</b>`;
+           document.getElementById("total-salesamnt-paid").innerHTML = `<i class="fa-solid fa-check-double green"></i>&nbsp; Total completed sales value:<br> <b>R ${sumpd}0</b>`;
         
 
             

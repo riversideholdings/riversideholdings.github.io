@@ -136,12 +136,29 @@
               <input type="date" name="Invoice_Date" class="form-control" id="Invoice_Date">
             </div>
             <div class="form-group">
-              <label for="Recipient">Recipient Name</label>
-              <input type="text" name="Recipient" class="form-control" id="Recipient" placeholder="Enter recipient name">
+              Select recipient type:<br>
+              <label for="option">Existing recipient</label>
+              <input type="radio" onclick="checkrecipient()" name="options"  id="options" placeholder="Enter recipient name" value="EXisting">
+               &nbsp; &nbsp; &nbsp;<label for="option">New recipient</label>
+              <input type="radio" onclick="checkrecipient()" name="options"  id="options" placeholder="Enter recipient name" value="NEw">
             </div>
+
+            <!--New receipient-->
+            <div class="form-group newClient" id="newClient">
+              <label for="Recipient">New recipient Name</label>
+              <input type="text" class="form-control" id="newRecipient" placeholder="Enter new recipient name">
+            </div>
+            <!--Existing reciepient-->
+            <div class="form-group existin" id="existin">
+              <label for="Exist-reciepient">Select existing recipient Name</label>
+              <select class="form-control" id="exiRecipient">
+                
+              </select>
+            </div>
+            
             <div class="form-group">
-              <label for="Recipient Address">Recipient Address</label>
-              <input type="text" name="Recipient Address" class="form-control" id="Recipient Address" placeholder="Enter recipient Address">
+              <label for="Recipient Address">Recipient address</label>
+              <input type="text" name="Recipient Address" class="form-control" id="Recipient Address" placeholder="Enter recipient address">
             </div>
             <!--price used option selection here-->
             <div class="form-group">
@@ -159,15 +176,15 @@
             <div class="form-group">
               <label for="Item Quantities">Item Quantities:</label><br>
               <p>Leave value at zero if item is not in the order!</p>
-              <lable class="itm-lable">300ml Case:</lable>
+              <lable class="itm-lable">300ml Designer Alkaline water case:</lable>
               <input type="number" class="frm-itemval" name="330ml" value="0"><br>
-              <lable class="itm-lable">500ml Case:</lable>
+              <lable class="itm-lable">500ml Designer Alkaline water case:</lable>
               <input type="number" class="frm-itemval" name="500ml" value="0"><br>
-              <lable class="itm-lable">750ml Case:</lable>
+              <lable class="itm-lable">750ml Designer Alkaline water case:</lable>
               <input type="number" class="frm-itemval" name="750ml" value="0"><br>
-              <lable class="itm-lable">1ltr Case:</lable>
+              <lable class="itm-lable">1ltr Designer Alkaline water case:</lable>
               <input type="number" class="frm-itemval" name="1lt" value="0"><br>
-              <lable class="itm-lable">5ltr Box:</lable>
+              <lable class="itm-lable">5ltr Designer Alkaline water box:</lable>
               <input type="number" class="frm-itemval" name="5lt" value="0">
             </div>
             <br>
@@ -254,6 +271,8 @@
 <script src="js/dashpage.js"></script>
 <script src="js/formsubmissions.js"></script>
 <script src="js/all.js"></script>
+<script src="js/requestClients.js"></script>
+
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
