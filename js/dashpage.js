@@ -109,14 +109,18 @@ function fetchlastInvNum(){
 
               var tbodypop =document.getElementById("tbodyd");
 
-              tbodypop.innerHTML += `<tr>
-              <td>${finder2[j].invNumber}</td>
-              <td>${finder2[j].invDate}</td>
-              <td>${finder2[j].RecipientName}</td>
-              <td><center><div class="status-circle redglow"></div><center></td>
-              </tr>`;
-
-                    
+              try{
+                tbodypop.innerHTML += `<tr>
+                <td>${finder2[j].invNumber}</td>
+                <td>${finder2[j].invDate}</td>
+                <td>${finder2[j].RecipientName}</td>
+                <td><center><div class="status-circle redglow"></div><center></td>
+                </tr>`;       
+              }
+              catch{
+                //
+              }
+             
            
 
             }
