@@ -193,7 +193,7 @@ function clearfrmclient()
   document.getElementById("clientfrm").reset();
 }
 
-  const scriptURLclientfrm = 'https://script.google.com/macros/s/AKfycbyzUftviuOT_3lBRdMfhGPNoLdhSu9pEbLT6SVyskD-dwL_VSRDaiEr2cnMKcj56LsE/exec'
+  const scriptURLclientfrm = 'https://script.google.com/macros/s/AKfycbx9m5Mw-agREUBUDkKJc8pfFasiGhzQj5sburFNtNy5S6YpYKHccIqnpftPejgyrIeo/exec'
     const formClient = document.forms['client-frm']
   
     formClient.addEventListener('submit', e => {
