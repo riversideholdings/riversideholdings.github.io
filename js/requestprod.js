@@ -78,12 +78,12 @@ function init(){
             <div class="card-body">
                 <h4 class="card-title"> ${Product}</h4>
                 <hr>
-                <h5 class="card-text"><b>Prices:</b></h5>
+                <h5 class="card-text"><b><i class="fa-solid fa-tags"></i> Prices:</b></h5>
                 <p>Wholesale Price: <b>${wholesaleP}</b></p>
                 <p>Retail Price: <b>${SellingP}</b></p>
                 <p>Waterpreneur Price: <b>${WaterpreneurP}</b></p>
                 <hr>
-                <button type="button" class="btn btn-primary">Details</button>
+                <button type="button" id="${Prd_Code}" class="btn btn-primary" data-toggle="modal" data-target="#prodCenter" >Details <i class="fa-solid fa-angles-right"></i></button>
             </div>
           </div></div>`;
 
@@ -93,7 +93,7 @@ function init(){
             }
         }
 
-        console.log(nw);
+      
 
     })        
 }
