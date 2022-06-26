@@ -71,7 +71,7 @@ function init() {
                 <b>${Client_Num}</b> <br><i class="fa fa-user"></i> Client Name: <b>${Name}</b>
               </div>
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-phone"></i> <a href="tel:+${Phone}" class="linkinclientinfo">+${Phone}</a>&nbsp;&nbsp;&nbsp;
+                <h5 class="card-title"><i class="fa-solid fa-phone"></i> <a href="tel:+27${Phone}" class="linkinclientinfo">+27${Phone}</a>&nbsp;&nbsp;&nbsp;
                  <i class="fa-solid fa-envelope"></i> <a href="mailto:${Email}" class="linkinclientinfo">${Email}</a></h5>
                 <p class="card-text"><i class="fa-solid fa-location-dot"></i>&nbsp;  ${Address}</p>
                 <button type="button" id="dt${Client_Num}" onclick="showclientDtls(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#clDetailsCenter">Details</button>
