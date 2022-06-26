@@ -394,8 +394,12 @@ function scrollToItem(){
     const element = document.getElementById("Card"+searchText);
     element.scrollIntoView();
 
-    element.style = `box-shadow:0px 0px 16px 6px #3586a6;
-    transition: ease-in 0.3s;`;
+    element.style = `
+    width: 35rem;
+    height: 50rem;
+    box-shadow:0px 0px 16px 6px #3586a6;
+    transition: ease-in 0.3s;
+    `;
 
     const myTimeout = setTimeout(removefocus, 4000);
 
