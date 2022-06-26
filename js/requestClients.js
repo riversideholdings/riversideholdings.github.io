@@ -59,6 +59,7 @@ function init() {
 
               try{
                 existcl.innerHTML += `<option>${Name}</option>`;
+                
               }
               catch{
 
@@ -83,10 +84,16 @@ function init() {
               catch{
 
               }
-          } 
+          }
 
               //var seectedValue = document.querySelector('input[name="options"]:selected');
               try{
+                //get last elelemt of an array
+                let lastElement = nw[nw.length - 1].Client_Num;
+                document.getElementById("lastarr").innerHTML =  lastElement.substring(3, 7);
+                //end//
+
+
                 var tClients = adminArr.length;
                 clCount.innerHTML = `<b style="font-size: 16px;">${tClients}</b>`;
           

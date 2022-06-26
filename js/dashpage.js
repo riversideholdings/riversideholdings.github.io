@@ -197,11 +197,25 @@ function clearfrmclient()
   document.getElementById("clientfrm").reset();
 }
 
+function setstr()
+{
+      var lastnumfrm = parseFloat(document.getElementById("lastarr").innerHTML);
+      var setClID = document.getElementById("lientIDInput");
+      var sname = document.getElementById("Client_Name").value;
+      var f3lettrs = sname.substring(0, 3).toUpperCase(); 
+      var n= lastnumfrm +1;
+      var concatstring = f3lettrs+n+"RH";
+
+      setClID.value = concatstring;
+      console.log(concatstring);
+}
+
   const scriptURLclientfrm = 'https://script.google.com/macros/s/AKfycbx9m5Mw-agREUBUDkKJc8pfFasiGhzQj5sburFNtNy5S6YpYKHccIqnpftPejgyrIeo/exec'
     const formClient = document.forms['client-frm']
   
     formClient.addEventListener('submit', e => {
       e.preventDefault()
+
       fetch(scriptURLclientfrm, { method: 'POST', body: new FormData(formClient)})
         .then(response => console.log('Success!', response), successClientfrm())
         .catch(error => console.error('Error!', error.message))
