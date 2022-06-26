@@ -10,7 +10,7 @@ const url2 = `${base2}&sheet=${sheetName2}&tq=${query2}`
 
 //DOM function lisatener
 const client = []
-document.addEventListener('DOMContentLoaded', init)
+document.addEventListener('DOMContentLoaded', init,popmodal)
  
 /*INT FUNCTION TO PROCCESS ***This function fetches data from the google sheet detailed above
 after the data is fethced in the function, it is then changed from an unstructures array 
@@ -29,13 +29,8 @@ function init(){
 
         let nw = [ ];
 
-         //check selected values in client add form /existing client
-         var exiselect = document.getElementById("exiRecipient");
-         var recpAddress = document.getElementById("Recipient Address");
-         var clCount = document.getElementById("clientCount");
+       
 
-
-         
         for (let i = 1; i < prodArr.length; i++) {
       
           var Prd_Code = prodArr[i].c[0].v;
@@ -61,15 +56,6 @@ function init(){
                 "img_url": imgUrl
             });
 
-           
-
-            try{
-              existcl.innerHTML += `<option>${Name}</option>`;
-              
-            }
-            catch{
-                //
-            }
             
             try{
             productDiv.innerHTML += `<div class="col-sm-6">
@@ -83,14 +69,73 @@ function init(){
                 <p>Retail Price: <b>${SellingP}</b></p>
                 <p>Waterpreneur Price: <b>${WaterpreneurP}</b></p>
                 <hr>
-                <button type="button" id="${Prd_Code}" class="btn btn-primary" data-toggle="modal" data-target="#prodCenter" >Details <i class="fa-solid fa-angles-right"></i></button>
+                <button type="button" id="${Prd_Code}" onclick="popmodal(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#prodCenter" >Details <i class="fa-solid fa-angles-right"></i></button>
             </div>
-          </div></div>`;
+            </div></div>`;
 
             }
             catch{
                 //
             }
+        }
+
+      
+
+    })        
+}
+
+function popmodal(btnideclick){
+
+    var idnum = btnideclick;
+
+    fetch(url2)
+    .then(res => res.text())
+    .then(rep => {
+        //Remove additional text and extract only JSON:
+        const jsonData2 = JSON.parse(rep.substring(47).slice(0, -2));
+        //rows of the data retrieved
+        const prodArr = jsonData2.table.rows;
+        //=============LOG TO CONSOLE========================//
+        //console.log(jsonData2);
+        //console.log(prodArr);
+
+        let nw = [ ];
+
+         //check selected values in client add form /existing client
+         var titprd = document.getElementById("mdtitprd");
+         var mdetprd = document.getElementById("modprd");
+         var ftdetprd = document.getElementById("footprd");
+         
+
+        for (let i = 1; i < prodArr.length; i++) {
+      
+          var Prd_Code = prodArr[i].c[0].v;
+          var Product =	prodArr[i].c[1].v;
+          var SellingP =	prodArr[i].c[2].v;
+          var WaterpreneurP =	prodArr[i].c[3].v;
+          var wholesaleP = prodArr[i].c[4].v;
+          var packSize = prodArr[i].c[5].v;
+          var PalletSize= prodArr[i].c[6].v;
+          var imgUrl = prodArr[i].c[7].v;
+
+          
+
+          //contruction a proper structured array of the data
+          nw.push({
+                "Prd_Code":	Prd_Code,
+                "Product": Product,	
+                "Selling_Price": SellingP,	
+                "Waterpreneur_Price": WaterpreneurP,	
+                "wholesale_Price": wholesaleP,
+                "Pack_Size": packSize,
+                "Pallet_Size": PalletSize,
+                "img_url": imgUrl
+            });
+
+           if(idnum == Prd_Code){
+            titprd.innerHTML = `${Product}`;
+           }
+            
         }
 
       
