@@ -140,3 +140,14 @@
     font-size: 22px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.linkinclientinfo{
+  text-decoration: none;
+  color: black;
+}
+
+.linkinclientinfo:hover{
+  color: #44c3f3;
+  transition: ease-in 0.3s;
+  text-decoration: none;
+}
