@@ -72,6 +72,11 @@
         <h1>Products</h1>
         <p>All redistribution products: <span id="clientCount"></span></p>
 
+        <hr>
+        <h3>Edit Stock</h3>
+        <button type="button" class="btn btn-primary">Update Stock Levles <i class="fa-solid fa-arrow-trend-up"></i></button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#prodAddCenter">Add Product <i class="fa-solid fa-bottle-water"></i></button>
+        <hr>
         <div id="prod_List" Class="row">
             
         </div>
@@ -82,7 +87,7 @@
         </footer>
     </div> 
 
-    <!-- Modal -->
+    <!-- Modal details -->
 <div class="modal fade" id="prodCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -97,6 +102,66 @@
         </div>
         <div class="modal-footer" id="footprd">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal del -->
+<div class="modal fade" id="prodDelCenter" tabindex="-1" role="dialog" aria-labelledby="DelCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title" id="prdDelTitle"></span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modprdDel">
+    
+        </div>
+        <div class="modal-footer" id="footprdDel">
+          <button type="button" onclick="Deleteprd()" class="btn btn-success">Confirm</button>
+         </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal Add -->
+<div class="modal fade" id="prodAddCenter" tabindex="-1" role="dialog" aria-labelledby="addCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="prdaddTitle">Enter new product details.</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modprdAdd">
+            <form name="submitPrd">
+                <label>Product_Code:</label>
+                <input type="text" class="form-control" name="Prd_Code" maxlength = "12" minlength="12" required>
+                <label>Product Name:</label>
+                <input type="text" class="form-control" name="Product" id="prdctName" required>
+                <label>Selling Price:</label>
+                <input type="number" class="form-control" name="Selling Price" required>
+                <label>Waterpreneur Price:</label>
+                <input type="number" class="form-control" name="Waterpreneur Price" required>
+                <label>wholesale Price:</label>
+                <input type="number" class="form-control" name="wholesale Price" required>
+                <label>Pack Size:</label>
+                <input type="text" class="form-control" name="Pack Size" required>
+                <label>Pallet Size:</label>
+                <input type="text" class="form-control" name="Pallet Size" required>
+                <label>img url:</label>
+                <input type="text" class="form-control" name="img url" required>
+                <label>Stock level:</label>
+                <input type="number" class="form-control" name="Stock Levels" required>
+
+        </div>
+        <div class="modal-footer" id="footprdAdd">
+          <button type="submit"  class="btn btn-primary">Add </button>
+          </form>
          </div>
       </div>
     </div>

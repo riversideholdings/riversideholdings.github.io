@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- html2canvas library -->
+    <script src="js/jspdf/html2canvas.min.js"></script>
+    <!-- jsPDF library -->
+    <script src="js/jspdf/jspdf.min.js"></script>
 </head>
 
 <header>
@@ -76,13 +80,11 @@
             <p id="tmecode"></p><p id="lastarr" hidden></p>
             <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> &nbsp; Add New Order</button>&nbsp;
             <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i class="fa fa-user-plus"></i> &nbsp; Add Client</button>
-            <br> <br>
-            <h4 style="font-family: 'Times New Roman', Times, serif;">Client info</h4>
-            <hr>
-            <h4><i class="fa-solid fa-people-group"></i>&nbsp; Available clients: <span id="clientCount"></span> </h4><a href="clients.html"><button type="button" class="btn btn-info">View All &nbsp;<i class="fa fa-user"></i></button></a>
+            <br> 
+             <h4 style="font-family: 'Times New Roman', Times, serif;">Stock levels</h4>
+             
             <hr>
             <h4 style="font-family: 'Times New Roman', Times, serif;">Invoice Statistics</h4>
-            <hr>
             <h4 id="completedorderCount"></h4>
             <h4 id="ordercountComplete"></h4>  
             <h4 id="ordercount2"></h4>
@@ -110,6 +112,11 @@
               </tfoot>
             </table>
             <a  href="unpaid.html" ><button type="button"class="btn btn-info text-center">View More <i class="fa fa-angles-right"></i></button></a>
+
+            <br>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Client info</h4>
+            <hr>
+            <h4><i class="fa-solid fa-people-group"></i>&nbsp; Available clients: <span id="clientCount"></span> </h4><a href="clients.html"><button type="button" class="btn btn-info">View All &nbsp;<i class="fa fa-user"></i></button></a>
           </div>
         </div>
         <footer>
@@ -121,7 +128,7 @@
    
     <!-- Modal add order-->
   <div class="modal fade" id="newOrderFormCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="exampleModalLongTitle">New Order: <span id="order-num-new"></span></h4>
@@ -181,15 +188,17 @@
               <label for="Item Quantities">Item Quantities:</label><br>
               <p>Leave value at zero if item is not in the order!</p>
               <lable class="itm-lable">300ml Designer Alkaline water case:</lable>
-              <input type="number" class="frm-itemval" name="330ml" value="0"><br>
+              <input type="number" class="frm-itemval" name="330ml" id="300mlinput" value="0"><br>
               <lable class="itm-lable">500ml Designer Alkaline water case:</lable>
-              <input type="number" class="frm-itemval" name="500ml" value="0"><br>
+              <input type="number" class="frm-itemval" name="500ml" id="500mlinput" value="0"><br>
               <lable class="itm-lable">750ml Designer Alkaline water case:</lable>
-              <input type="number" class="frm-itemval" name="750ml" value="0"><br>
+              <input type="number" class="frm-itemval" name="750ml" id="750mlinput" value="0"><br>
               <lable class="itm-lable">1ltr Designer Alkaline water case:</lable>
-              <input type="number" class="frm-itemval" name="1lt" value="0"><br>
+              <input type="number" class="frm-itemval" name="1lt" id="1linput" value="0"><br>
               <lable class="itm-lable">5ltr Designer Alkaline water box:</lable>
-              <input type="number" class="frm-itemval" name="5lt" value="0">
+              <input type="number" class="frm-itemval" name="5lt" id="5linput" value="0">
+              <br><br>
+              <button type="button" onclick="calculatetot()" class="btn btn-warning form-control">Calculate Total</button>
             </div>
             <br>
             <div class="form-group">
@@ -200,8 +209,8 @@
               </select>
             </div> 
             <div class="form-group">
-              <label for="Invoice Total">Invoice Total</label>
-              <input type="number" name="Invoice Total" class="form-control" id="Invoice Total" placeholder="Enter total">
+              <label for="Invoice Total">Invoice Total</label>&nbsp;<em>(Your total is auto calculated)</em>
+              <input type="text" name="Invoice Total" class="form-control" id="Invoice Total" placeholder="Enter total">
             </div>  
             <!--status selection option selection here-->
             <div class="form-group">
@@ -277,6 +286,7 @@
 <script src="js/formsubmissions.js"></script>
 <script src="js/all.js"></script>
 <script src="js/requestClients.js"></script>
+<script src="js/requestprod.js"></script>
 
 
 <!-- JavaScript Bundle with Popper -->
