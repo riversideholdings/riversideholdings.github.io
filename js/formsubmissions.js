@@ -31,7 +31,21 @@ function cicr(){
     function loadercircle(){
         //after updatig the status, success message is shown on the modal body outterModBodyIn
         outterBody.innerHTML = `<h4 class="text-center">Invoice Number: ${inv} Has been added to orders</h4>
-        <br><span class="green"><i class="fa fa-square-check"></i></span>`;
-        footMod.innerHTML = `<button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
+        <br><center><span class="green"><i class="fa fa-square-check"></i></span></center>
+        <br>
+        <h4 class="text-center">Please ensure you download and save the <b>.pdf</b> invoice below. 
+        <br><br><i class="fa-regular fa-file-pdf redicon"></i></h4>
+        <hr>
+        <div id="My invoice">
+            <h1 class="text-center">
+            The invoice download option will not work at the moment, it is still under development. 
+            <br><br>
+            <i class="fa-solid fa-code"></i>
+            </h1>
+        </div>`;
+
+        footMod.innerHTML = `
+        <button type="button" class="btn btn-success">Download .pdf <i class="fa-solid fa-file-arrow-down"></i></i></button>&nbsp;
+        <button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
      };
 }

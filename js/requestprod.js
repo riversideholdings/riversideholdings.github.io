@@ -394,19 +394,28 @@ function calculatetot(){
   
         }
 
-        console.log(priceArr);
+        //console.log(priceArr);
         
+        try{
         //do final calculation
         var p = ml300input * priceArr[0].Price;
         var q = ml500input * priceArr[1].Price;
         var r = ml750input * priceArr[2].Price;
         var s = Ltr1input * priceArr[4].Price;
         var t = Ltr5input * priceArr[5].Price;
+        }
+        catch{
+            //erro here
+        }
 
         var totalPrice = p+q+r+s+t;
-        console.log(totalPrice.toFixed(2));
+        //console.log(totalPrice.toFixed(2));
 
         InvoiceTotal.value = totalPrice.toFixed(2);
 
     })       
 }
+
+document.getElementById("Prices used").addEventListener('change', function(){
+    calculatetot();
+});
