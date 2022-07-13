@@ -69,6 +69,10 @@ function init() {
                 coloring = "redicon";
                 iconused ="credit-card";
             }
+            else if (invstatus == "Void"){
+              coloring = "redicon";
+              iconused = "ban";
+            }
 
             try{
               populateCards.innerHTML += `

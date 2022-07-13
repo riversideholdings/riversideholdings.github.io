@@ -83,6 +83,9 @@ function init(){
             catch{
                 //
             }
+
+            var stkdiv = document.getElementById("Stock");
+            stkdiv.innerHTML += `<p>${Product.replace('Designer Alkaline water', ' ')}: <b style="font-size: 18px">${stockLevel}</b></p>`;
         }
 
       
@@ -396,6 +399,7 @@ function calculatetot(){
 
         //console.log(priceArr);
         
+
         try{
         //do final calculation
         var p = ml300input * priceArr[0].Price;
@@ -416,6 +420,11 @@ function calculatetot(){
     })       
 }
 
+try{
 document.getElementById("Prices used").addEventListener('change', function(){
     calculatetot();
 });
+}
+catch{
+    //
+}

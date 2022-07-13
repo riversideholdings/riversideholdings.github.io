@@ -1,0 +1,75 @@
+#invHeader{
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 28pt;
+    color: white;
+    background-color: #0F556C;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#bodyHead{
+	color: #2D628C;
+}
+
+.gothicFont{
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	color: #2D628C;
+}
+.gothicFontblk{
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	color: black;
+}
+
+.fright{
+	text-align: right;
+}
+.fleft{
+	text-align: left;
+}
+
+.boldred{
+	color: #C00000;
+	font-weight: bold;
+}
+
+.bg-darkyblue{
+	background-color: #0F556C;
+}
+
+/*invoice table */
+
+.bdr-bottom{
+  border-bottom-width: 3pt; 
+  border-bottom-style: solid;
+  border-color: #0F556C;
+}
+
+.bdr-bottomthin{
+  border-bottom-width: 1pt; 
+  border-bottom-style: solid;
+  border-color: #0F556C;
+}
+
+.bdr-top{
+  border-top-width: 3pt; 
+  border-top-style: solid;
+  border-color: #0F556C;
+}
+
+.darkblc{
+	background-color: #0F556C;
+	color: white;
+}
+
+.bglightbl{
+	background-color: lightBlue;
+}
+
+.brd-right{
+	border-right-width: 0.5pt; 
+	border-right-style: solid;
+	border-color: black;
+}
