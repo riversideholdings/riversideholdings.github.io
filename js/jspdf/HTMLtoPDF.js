@@ -1,3 +1,5 @@
+var source = document.getElementById("element-Invoice");
+
 
 function printToPdf(){
 var elementHTML = document.getElementById('element-Invoice');
@@ -49,107 +51,105 @@ function emailHtml() {
 
    console.log(fontsAv);
 
+    //draw back rectangel for invoice block
+    doc.setDrawColor(15, 85, 108);
+    doc.setLineWidth(60.0);
+    doc.line(160, 10, 160, 34);    // filled square 
+
     //add text
-    doc.setFont("");
+    doc.setFont("Helvetica");
+    //doc.setFont('Century Gothic', 'normal');
     doc.setFontType("Bold");
+    doc.setTextColor(255,255,255);
     doc.setFontSize(28);
-    doc.text(130, 30, 'Invoice');
+    doc.text(145, 25, 'Invoice');
+  
+    //add a line 
+    doc.setDrawColor(15, 85, 108);
+    doc.setLineWidth(1.0);
+    doc.line(20, 34, 190, 34);
 
     doc.setFontType("italic");
     doc.setTextColor(51,124,173);
-    doc.setFontSize(11);
+    doc.setFontSize(12);
     doc.text(20, 40, 'Baneberry Balloon General Traders (pty) ltd trading as');
 
     doc.setFontType("Bold");
-    doc.setFontSize(12);
+    doc.setFontSize(14);
     doc.text(20, 45, 'Riverside Holdings');
 
     doc.setFontType("italic");
-    doc.setFontSize(11);
+    doc.setFontSize(12);
     doc.text(20, 55, 'Phone: +27 73 1040 341');
     doc.text(20, 60, 'Email: riversideholdings.za@gmail.com');
 
+    //add text
     doc.setFontType("Bold");
     doc.setFontSize(12);
-    doc.text(130, 70, 'To:');
+    doc.text(138, 55, 'Date:');
+    doc.text(130, 60, 'Invoice #:');
+
+    //add a line
+    doc.setDrawColor(51,124,173);
+    doc.setLineWidth(1.0);
+    doc.line(20, 63, 190, 63);
+
+    //add text
+    doc.setFontType("Bold");
+    doc.setFontSize(12);
+    doc.text(141, 75, 'To:');
 
     doc.setFontType("Bold");
     doc.setFontSize(12);
-    doc.text(130, 80, 'Address:');
+    doc.text(132, 85, 'Address:');
+
+    //lines to form my table
+    //add a line 
+    doc.setDrawColor(15, 85, 108);
+    doc.setLineWidth(5.0);
+    doc.line(20, 112, 190, 112);
+
+    doc.setDrawColor(0, 0, 0);
+    doc.setLineWidth(0.2);
+    doc.line(150, 192, 150, 112);
+    //add a line 
+    doc.setDrawColor(0, 0, 0);
+    doc.setLineWidth(1.0);
+    doc.line(20, 172, 190, 172);
+    //add a line 
+    doc.setDrawColor(0, 0, 0);
+    doc.setLineWidth(1.0);
+    doc.line(20, 187, 190, 187);
+     //add a line 
+    doc.setDrawColor(0, 0, 0);
+    doc.setLineWidth(0.2);
+    doc.line(20, 192, 190, 192);
+   
+    //Add banking details
+    //add text
+    doc.setTextColor(0,0,0);
+    doc.setFontType("Bold");
+    doc.setFontSize(14);
+    doc.text(20, 212, ' Banking Details:');
+    doc.text(70, 212, 'First National Bank (FNB)');
+    doc.text(80, 245, 'Thank you for your business.');
+
+    doc.setFontSize(12);
+    doc.setFontType("italic");
+    doc.text(20, 220, ' Account Number:');
+    doc.text(70, 220, '62794424615:');
+    doc.text(20, 225, ' Account Holder:');
+    doc.text(70, 225, 'Nwabisa Gxumisa:');
+    doc.text(20, 230, ' Brach Code:')
+    doc.text(70, 230, '250655:')
+
+     //add a line 
+    doc.setDrawColor(15, 85, 108);
+    doc.setLineWidth(1.0);
+    doc.line(20, 250, 190, 250);
+
+
  
     // Save the PDF
     doc.save('TestRH.pdf');
-}
-
-function methodanother(){
-  const axios = require('axios')
-const FormData = require('form-data')
-const fs = require('fs')
-
-const formData = new FormData()
-formData.append('instructions', JSON.stringify({
-  parts: [
-    {
-      html: "index.html",
-      assets: [
-        "style.css",
-        "Inter-Regular.ttf",
-        "Inter-Medium.ttf",
-        "Inter-Bold.ttf",
-        "SpaceMono-Regular.ttf",
-        "logo.svg"
-      ]
-    }
-  ]
-}))
-formData.append('index.html', fs.createReadStream('index.html'))
-formData.append('style.css', fs.createReadStream('style.css'))
-formData.append('Inter-Regular.ttf', fs.createReadStream('Inter-Regular.ttf'))
-formData.append('Inter-Medium.ttf', fs.createReadStream('Inter-Medium.ttf'))
-formData.append('Inter-Bold.ttf', fs.createReadStream('Inter-Bold.ttf'))
-formData.append('SpaceMono-Regular.ttf', fs.createReadStream('SpaceMono-Regular.ttf'))
-formData.append('logo.svg', fs.createReadStream('logo.svg'))
-
-;(async () => {
-  try {
-    const response = await axios.post('https://api.pspdfkit.com/build', formData, {
-      headers: formData.getHeaders({
-          'Authorization': 'Bearer pdf_live_HmKND0yQTiiXOqFkisPgUYvAqmWI7MW1UfilNwbF52g'
-      }),
-      responseType: "stream"
-    })
-
-    response.data.pipe(fs.createWriteStream("result.pdf"))
-  } catch (e) {
-    const errorString = await streamToString(e.response.data)
-    console.log(errorString)
-  }
-})()
-
-function streamToString(stream) {
-  const chunks = []
-  return new Promise((resolve, reject) => {
-    stream.on("data", (chunk) => chunks.push(Buffer.from(chunk)))
-    stream.on("error", (err) => reject(err))
-    stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")))
-  })
-}
-
-}
-
-
-function lastmethod(){
-  var source = window.document.getElementById("element-Invoice")[0];
-
-  var doc = new jsPDF({
-    orientation: 'landscape'
-  });
-  doc.setFont("Century Gothic");
-  doc.setFontType("normal");
-  doc.setFontSize(18);
-  doc.setTextColor(100);
-  doc.fromHTML(elementHTML, 15, 15, {
-    'width': 170,
-    'elementHandlers': specialElementHandlers
-  });
 }
