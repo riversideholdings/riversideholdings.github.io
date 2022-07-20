@@ -74,32 +74,63 @@
 
 <body>
 
-    <div class="container-lg body-content">
+  <div class="container-lg body-content">
       <h1>Dashboard</h1>
-        <div class="row">
-          <div class="col-sm-6">
+          
             <p id="tmecode"></p><p id="lastarr" hidden></p>
             <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> &nbsp; Add New Order</button>&nbsp;
             <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i class="fa fa-user-plus"></i> &nbsp; Add Client</button>
-            <br> 
-            <hr>
-             <h4 style="font-family: 'Times New Roman', Times, serif;">Stock levels</h4>
-            <div id="Stock">
-              
+            <br><br>
+
+             <!-- revenue tabs-->
+          <div class="row">
+            <div class="col-sm-4">
+              <div id="rev1" class="tabDivDisplay"><h3 id="total-salesamnt"></h3></div>
             </div>
-            <hr>
-            <h4 style="font-family: 'Times New Roman', Times, serif;">Invoice Statistics</h4>
-            <h4 id="completedorderCount"></h4>
-            <h4 id="ordercountComplete"></h4>  
-            <h4 id="ordercount2"></h4>
-            <hr>
-            <h4 style="font-family: 'Times New Roman', Times, serif;">Sales Statistics</h4>
-            <h3 id="total-salesamnt"></h3><br>
-            <h3 id="total-salesamnt-unpaid"></h3><br>
-            <h3 id="total-salesamnt-paid"></h3>
+            <div class="col-sm-4">
+              <div id="rev3" class="tabDivDisplay"><h3 id="total-salesamnt-unpaid"></h3></div>
+            </div>
+            <div class="col-sm-4">
+              <div id="rev2" class="tabDivDisplay"><h3 id="total-salesamnt-paid"></h3></div>
+            </div>
           </div>
-          <div class="col-sm-6" style="padding-left: 7px;">
-            <h2>Unpaid Order list</h2>
+          <br><br>
+
+            <!-- Information tabs-->
+          <div class="row">
+            <div class="col-sm-4">
+              <div id="charty" class="tabDivDisplay text-light">
+                <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Sales Ratio</b></h4>
+                <h6>All Sales Percentage <span id="v1"></span></h6>
+                <div class="bgdiv3"><div id="ratiobr1"></div></div>
+                <h6>Total Revenue <span id="v2"></span></h6>
+                <div class="bgdiv3"><div id="ratiobr2"></div></div>
+                <h6>Unpaid Percentage <span id="v3"></span></h6>
+                <div class="bgdiv3"><div id="ratiobr3"></div></div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="tabDivDisplay" id="Stock">
+                <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Stock Levels</b></h4>
+                
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="tabDivDisplay" id="InvStat">
+              <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Invoice Statistics</b></h4>
+              <h4 id="completedorderCount"></h4>
+              <h4 id="ordercountComplete"></h4>  
+              <h4 id="ordercount2"></h4>
+              </div>
+            </div>
+
+          </div>
+
+            <!--Client table -->
+            <br>
+            <h2 style="font-family: 'Times New Roman', Times, serif;">Unpaid Orders list</h2>
             <p>Click on "view More" to view all unpaid orders</p>
             <table class="table">
               <thead class="thead bg-dark text-light">
@@ -116,13 +147,11 @@
               </tfoot>
             </table>
             <a  href="unpaid.html" ><button type="button"class="btn btn-info text-center">View More <i class="fa fa-angles-right"></i></button></a>
-
             <br>
-            <h4 style="font-family: 'Times New Roman', Times, serif;">Client info</h4>
             <hr>
-            <h4><i class="fa-solid fa-people-group"></i>&nbsp; Available clients: <span id="clientCount"></span> </h4><a href="clients.html"><button type="button" class="btn btn-info">View All &nbsp;<i class="fa fa-user"></i></button></a>
-          </div>
-        </div>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Client information</h4>
+            <h5><i class="fa-solid fa-people-group"></i> Available clients: &nbsp;<span id="clientCount"></span> </h5>
+            <a href="clients.html"><button type="button" class="btn btn-primary">View All &nbsp;<i class="fa fa-user"></i></button></a>
         <hr>
         
         <a href="htmltest2pdf.html"><h1>Tester page</h1></a>

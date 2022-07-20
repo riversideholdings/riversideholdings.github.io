@@ -135,16 +135,33 @@ function fetchlastInvNum(){
               return accumulator + object.invTotal;
             }, 0);
           
-           document.getElementById("total-salesamnt-paid").innerHTML = `<i class="fa-solid fa-check-double green"></i>&nbsp; Total completed sales value:<br> <b>R ${sumpd.toFixed(2)}</b>`;
+           document.getElementById("total-salesamnt-paid").innerHTML = `<i class="fa-solid fa-check-double green"></i>&nbsp; Total revenue:<br> <b>R ${sumpd.toFixed(2)}</b>`;
         
+        var tsales = document.getElementById("ratiobr1");
+        var trevenue = document.getElementById("ratiobr2");
+        var tunpaid = document.getElementById("ratiobr3");
 
-            
+        var tVals = document.getElementById("v1");
+        var tValr = document.getElementById("v2");
+        var tValu = document.getElementById("v3");
 
+        //this statement creates the rations
+        var totalSum = sum + sumpd + sum2; 
 
-  
+        var percentRevenue = (sumpd/totalSum)*100;
+        trevenue.style.width = Math.round(percentRevenue) + "%";  
+        tValr.innerHTML = Math.round(percentRevenue) + "%";
+
+        var percentUnpaid = (sum/totalSum)*100;
+        tunpaid.style.width = Math.round(percentUnpaid) + "%";  
+        tValu.innerHTML = Math.round(percentUnpaid) + "%";
+
+        var percentAllInv = (sum2/totalSum)*100;
+        tsales.style.width = Math.round(percentAllInv) + "%";  
+        tVals.innerHTML = Math.round(percentAllInv) + "%"; 
+
         //console.log(finder2)
         //console.log(Arr);
-
         let arrayLegnth = Arr.length;
         //console.log(arrayLegnth-1 );
   
@@ -163,7 +180,7 @@ function fetchlastInvNum(){
 
      
         var counterinv = document.getElementById("completedorderCount");
-        counterinv.innerHTML =`<i class="fa-solid fa-file-invoice-dollar blue"></i>&nbsp;&nbsp; Total Invoices on record: <b style="color: #3586a6;">${arrayLegnth}</b>`; 
+        counterinv.innerHTML =`<i class="fa-solid fa-file-invoice-dollar"></i>&nbsp;&nbsp; Total Invoices on record: <b>${arrayLegnth}</b>`; 
 
            //this code populates only unpaid orders
            var finder = Arr.filter(function(invoice, index){
@@ -172,7 +189,7 @@ function fetchlastInvNum(){
 
         try{//script for incomplete orders
           var num = finder.length;
-          document.getElementById("ordercount2").innerHTML = `<i class="fa-solid fa-clipboard-list redicon"></i> &nbsp;&nbsp;Number of unpaid Orders: <b style='color:red;'>${num}</b>`;
+          document.getElementById("ordercount2").innerHTML = `<i class="fa-solid fa-clipboard-list"></i> &nbsp;&nbsp;Number of unpaid Orders: <b>${num}</b>`;
           
          }
          catch{//script for complete orders
@@ -180,7 +197,7 @@ function fetchlastInvNum(){
          var numUn = finder.length;
          var num = Arr.length;
          var differenceNum =num - numUn;
-         document.getElementById("ordercountComplete").innerHTML = `<i class="fa-solid fa-file-circle-check green"></i>&nbsp; Number of completed orders: <b style='color:rgb(25, 139, 25);'>${differenceNum}</b>`;
+         document.getElementById("ordercountComplete").innerHTML = `<i class="fa-solid fa-file-circle-check"></i>&nbsp; Number of completed orders: <b>${differenceNum}</b>`;
         
          
         var tbl = document.getElementById("tbodyd");
