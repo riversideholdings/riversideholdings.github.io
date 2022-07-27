@@ -88,7 +88,8 @@ function init() {
                     <hr></hr>
                     <h4 class="card-text"><i class="fa fa-dolly"></i> Items: ${Pricesused}</h4>
                     <p class="card-text">${combineItems}</p>
-                    <hr></hr>
+                    </div>
+                    <div class="card-foot" style="padding-left: 15px; padding-bottom: 10px;">
                     <h4 class="card-text"><i class="fa fa-sack-dollar moneygreen"></i> R ${invoiceTotal}</h4><br>
                     <span><button type="button" id="${invNumber}" onclick="detailstap(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#detailCenter">Details</button></span>&nbsp;&nbsp;&nbsp;
                     <span class="${coloring}"><i class="fa fa-${iconused}"></i>&nbsp; ${invstatus}</span>
@@ -169,7 +170,8 @@ function init() {
                   <hr></hr>
                   <h4 class="card-text"><i class="fa fa-dolly"></i> Items: ${pused}</h4>
                   <p class="card-text">${combineItems2}</p>
-                  <hr></hr>
+                  </div>
+                  <div class="card-foot" style="padding-left: 15px; padding-bottom: 10px;">
                   <h4 class="card-text"><i class="fa fa-sack-dollar moneygreen"></i> R ${invTot}</h4><br>
                   <span><button type="button" id="${invNum}" onclick="detailstap(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#detailCenter">Details</button></span>&nbsp;&nbsp;&nbsp;
                   <button class="btn btn-info" id="${invNum}ed" onclick="popmodalforupdate(this.id)" data-toggle="modal" data-target="#EditCenter"><i class="fa fa-pen"></i></button>
@@ -246,6 +248,7 @@ function popmodalforupdate(clickedon){
         var DiscountNotes = invoiceArr[i].c[10].v;	 
         var invoiceTotal = invoiceArr[i].c[11].v;	
         var invstatus = invoiceArr[i].c[12].v;
+        var invDeliveryStat = invoiceArr[i].c[13].v;
 
         var combineItems = `500ml cases: ${ml500}
         <br>750ml cases: ${ml750} 
@@ -265,8 +268,13 @@ function popmodalforupdate(clickedon){
         {
             coloring = "redicon";
             iconused ="credit-card";
-            detailtext = Recipient +" Has not payed for the order! <br> Status: <b>Not delivered</b>";
+            detailtext = Recipient +` Has not payed for the order!`;
             var addDangerBtn = `<button type="button" class="btn btn-danger">Send Reminder</button>`;
+        }
+        else if (invstatus == "Void"){
+          coloring = "redicon";
+          iconused ="ban";
+          detailtext = `Order has been canceled!`
         }
 
         if(invnummm == invNumber)
@@ -303,6 +311,9 @@ function validateoption(){
   }
   else if (selectedValue.value == "Awaiting Payment"){
     thatopt.innerHTML =`The status of this order will change to: <br> <span class="redicon" ><i class="fa fa-credit-card"></i>&nbsp;Awaiting payment</span>`;
+  }
+  else if (selectedValue.value == "Void"){
+    thatopt.innerHTML =`The status of this order will change to: <br> <span class="redicon" ><i class="fa fa-ban"></i>&nbsp;Void</span>`
   }
 }
 //populate modals
@@ -341,6 +352,7 @@ function detailstap(clicked){
             var DiscountNotes = invoiceArr[i].c[10].v;	 
             var invoiceTotal = invoiceArr[i].c[11].v;	
             var invstatus = invoiceArr[i].c[12].v;
+            var invDeliveryStat = invoiceArr[i].c[13].v;
 
             var combineItems = `500ml cases: ${ml500}
             <br>750ml cases: ${ml750} 
@@ -360,8 +372,13 @@ function detailstap(clicked){
             {
                 coloring = "redicon";
                 iconused ="credit-card";
-                detailtext = Recipient +" Has not payed for the order! <br> Status: <b>Not delivered</b>";
+                detailtext = Recipient +` Has not payed for the order!`;
                 var addDangerBtn = `<button type="button" class="btn btn-danger">Send Reminder</button>`;
+            }
+            else if (invstatus == "Void"){
+              coloring = "redicon";
+              iconused ="ban";
+              detailtext = `Order has been canceled!`
             }
 
             if(clicked == invNumber)
@@ -376,6 +393,7 @@ function detailstap(clicked){
                 <h4><i class="fa fa-dolly"></i>&nbsp; Items:</h4><p class="card-text">${combineItems}</p>
                 <hr>
                 <p>${detailtext}</p>
+                <p>Delivery Status: <b>${invDeliveryStat}</b></p>
                 <hr>
                 <span class="${coloring}"><i class="fa fa-${iconused}"></i>&nbsp; ${invstatus}</span>
                 `;

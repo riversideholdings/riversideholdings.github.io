@@ -70,6 +70,12 @@
         <p id="tmecode"></p>
         <p id="ordercount2">Riverside Holdings orders</p>
 
+        <!--Search field-->
+        <p><b>Enter order number, e.g RH02001</b></p>
+        <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="SerachVal">
+                <button class="btn btn-primary col-sm-4" type="button" onclick="scrollToItem()">Find order</button>
+        </form>
         <br>
         
          <!--cards-->
@@ -125,7 +131,9 @@
             <label class="itm-lable2" for="status">Paid</label>
             <input type="radio" onclick="validateoption()" id="statusInMod" name="status" value="Paid"><br>
             <label class="itm-lable2" for="status">Awaiting Payment</label>
-            <input type="radio" onclick="validateoption()" id="statusInMod" name="status" value="Awaiting Payment">
+            <input type="radio" onclick="validateoption()" id="statusInMod" name="status" value="Awaiting Payment"><br>
+            <label class="itm-lable2" for="status">Void Invoice</label>
+            <input type="radio" onclick="validateoption()" id="statusInMod" name="status" value="Void">
           </div>
       </div>
       <div class="modal-footer" id="footermod">

@@ -5,11 +5,19 @@ function updateOrderStatus(){
     var invNumToUpdate = ie.replace("Invoice number: ",'');
     var fott = document.getElementById("footermod");
     var statusSelected = document.querySelector('input[name="status"]:checked').value;
+    var deliveryStatus = "";
 
-   
+    if(statusSelected == "Void"){
+        deliveryStatus = "Canceled";
+    }
+    else{
+        deliveryStatus = "Delivered";
+    }
+
     //console.log(ie);
     console.log(invNumToUpdate);
     console.log(statusSelected);
+    console.log(deliveryStatus);
 
     /* document.getElementById("alerterlbl").innerHTML = `<i class="fa fa-spinner"></i> 
     Change order status: <p style="color:red;">please select an option</p>`; */
@@ -19,7 +27,8 @@ function updateOrderStatus(){
     method: "POST",
     body: JSON.stringify(
         {"data":
-        {"status":statusSelected,},
+        {"status":statusSelected,
+         "Delivery status": deliveryStatus,},
         //this determines whch row to update
         "query": `select*from26852whereInvoice_Num='${invNumToUpdate}'`}),
     

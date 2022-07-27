@@ -180,7 +180,7 @@ function fetchlastInvNum(){
 
      
         var counterinv = document.getElementById("completedorderCount");
-        counterinv.innerHTML =`<i class="fa-solid fa-file-invoice-dollar"></i>&nbsp;&nbsp; Total Invoices on record: <b>${arrayLegnth}</b>`; 
+        counterinv.innerHTML =`<i class="fa-solid fa-file-invoice-dollar whiteicn"></i><span class="alnright">Number of invoices: <b>${arrayLegnth}</b></span>`; 
 
            //this code populates only unpaid orders
            var finder = Arr.filter(function(invoice, index){
@@ -189,7 +189,7 @@ function fetchlastInvNum(){
 
         try{//script for incomplete orders
           var num = finder.length;
-          document.getElementById("ordercount2").innerHTML = `<i class="fa-solid fa-clipboard-list"></i> &nbsp;&nbsp;Number of unpaid Orders: <b>${num}</b>`;
+          document.getElementById("ordercount2").innerHTML = `<i class="fa-solid fa-clipboard-list whiteicn"></i><span class="alnright">Unpaid Orders: <b>${num}</b></span>`;
           
          }
          catch{//script for complete orders
@@ -197,12 +197,12 @@ function fetchlastInvNum(){
          var numUn = finder.length;
          var num = Arr.length;
          var differenceNum =num - numUn;
-         document.getElementById("ordercountComplete").innerHTML = `<i class="fa-solid fa-file-circle-check"></i>&nbsp; Number of completed orders: <b>${differenceNum}</b>`;
+         document.getElementById("ordercountComplete").innerHTML = `<i class="fa-solid fa-file-circle-check whiteicn"></i><span class="alnright">Completed orders: <b>${differenceNum}</b></span>`;
         
          
         var tbl = document.getElementById("tbodyd");
         var n = tbl.rows.length;
-        document.getElementById("rowcount").innerHTML = `<td style="color:#43c2f3;">${n} Rows</td><td></td><td></td><td></td>`;
+        document.getElementById("rowcount").innerHTML = `<tr><td style="color:#43c2f3;">${n} Rows</td><td></td><td></td><td></td></tr>`;
          
       }) 
     

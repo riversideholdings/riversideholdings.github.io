@@ -86,7 +86,7 @@ function init(){
 
             try{ 
             var stkdiv = document.getElementById("Stock");
-            stkdiv.innerHTML += `<p>${Product.replace('Designer Alkaline water', ' ')}: <b style="font-size: 18px">${stockLevel}</b></p>`;
+            stkdiv.innerHTML += `<p>${Product.replace('Designer Alkaline water', ' ')}: <span class="alnright"><b style="font-size: 18px">${stockLevel}</b></p><span`;
             }
             catch{
                 //
