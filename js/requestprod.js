@@ -32,7 +32,7 @@ function init(){
 
        
 
-        for (let i = 1; i < prodArr.length; i++) {
+        for (let i = 0; i < prodArr.length; i++) {
       
           var Prd_Code = prodArr[i].c[0].v;
           var Product =	prodArr[i].c[1].v;
@@ -84,8 +84,13 @@ function init(){
                 //
             }
 
+            try{ 
             var stkdiv = document.getElementById("Stock");
             stkdiv.innerHTML += `<p>${Product.replace('Designer Alkaline water', ' ')}: <b style="font-size: 18px">${stockLevel}</b></p>`;
+            }
+            catch{
+                //
+            }
         }
 
       

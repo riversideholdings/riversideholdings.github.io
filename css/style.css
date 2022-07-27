@@ -54,6 +54,12 @@ body{
     color: rgb(206, 22, 22);
     font-size: x-large;
 }
+
+.whiteicn{
+  color: rgb(255, 255, 255);
+  font-size: xx-large;
+}
+
 .goldenicon{
   color: rgb(230, 172, 87);
   font-size: x-large;

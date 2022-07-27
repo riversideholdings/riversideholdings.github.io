@@ -90,7 +90,7 @@ function fetchlastInvNum(){
           return accumulator + object.invTotal;
         }, 0);
       
-        document.getElementById("total-salesamnt").innerHTML = `<i class="fa-solid fa-coins" style="color: gold;"></i>&nbsp; Total sales value invoiced:<br> <b>R ${sum2.toFixed(2)}</b>`;
+        document.getElementById("total-salesamnt").innerHTML = `<center><i class="fa-solid fa-coins whiteicn"></i><br>Total value invoiced:<br> <b>R ${sum2.toFixed(2)}</b></center>`;
        
        
            //this code populates only unpaid orders
@@ -102,7 +102,7 @@ function fetchlastInvNum(){
               return accumulator + object.invTotal;
             }, 0);
           
-           document.getElementById("total-salesamnt-unpaid").innerHTML = `<i class="fa-solid fa-hand-holding-dollar redicon"></i>&nbsp; Total unpaid quoted orders:<br> <b>R ${sum.toFixed(2)}</b>`;
+           document.getElementById("total-salesamnt-unpaid").innerHTML = `<center><i class="fa-solid fa-hand-holding-dollar whiteicn"></i><br>Total unpaid orders:<br> <b>R ${sum.toFixed(2)}</b></center>`;
         
             for(var j = 0; j < 10; j++)
             {
@@ -135,7 +135,7 @@ function fetchlastInvNum(){
               return accumulator + object.invTotal;
             }, 0);
           
-           document.getElementById("total-salesamnt-paid").innerHTML = `<i class="fa-solid fa-check-double green"></i>&nbsp; Total revenue:<br> <b>R ${sumpd.toFixed(2)}</b>`;
+           document.getElementById("total-salesamnt-paid").innerHTML = `<center><i class="fa-solid fa-money-bill-trend-up whiteicn"></i><br>Total revenue:<br> <b>R ${sumpd.toFixed(2)}</b></center>`;
         
         var tsales = document.getElementById("ratiobr1");
         var trevenue = document.getElementById("ratiobr2");

@@ -60,6 +60,15 @@ function init() {
       })        
 }
 
+const input = document.getElementById('loginfrm')
+input.onkeydown = (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    submitformP();
+  }
+};
+
+
 function submitformP(){
     fetch(url)
         .then(res => res.text())
@@ -144,6 +153,14 @@ function resetfrm()
 {
     document.getElementById("resetform")
 }
+
+const resetin = document.getElementById('resetform')
+resetin.onkeydown = (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    resetpass();
+  }
+};
 
 function resetpass()
 {

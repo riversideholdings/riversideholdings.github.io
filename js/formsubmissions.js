@@ -45,7 +45,7 @@ function cicr(){
         </div>`;
 
         footMod.innerHTML = `
-        <button type="button" class="btn btn-success">Download .pdf <i class="fa-solid fa-file-arrow-down"></i></i></button>&nbsp;
+        <button type="button" onclick="printToPdf()" class="btn btn-success">Download .pdf <i class="fa-solid fa-file-arrow-down"></i></i></button>&nbsp;
         <button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
      };
 }
