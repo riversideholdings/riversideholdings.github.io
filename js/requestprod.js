@@ -148,28 +148,43 @@ function popmodal(btnideclick){
                 "StockLevel": stockLevel
             });
 
-           if(idnum == Prd_Code){
-            titprd.innerHTML = `${Product}`;
-            mdetprd.innerHTML =`
-            <h4 class="card-text"><b><i class="fa-solid fa-tags redicon"></i> Prices:</b> (per case)</h4>
-                <p>Wholesale Price: <b>${wholesaleP}</b></p>
-                <p>Retail Price: <b>${SellingP}</b></p>
-                <p>Waterpreneur Price: <b>${WaterpreneurP}</b></p>
-                <hr>
-                <h4 class="card-text"><b><i class="fa-solid fa-box-archive goldenicon"></i> Packages</b></h4>
-                <p><i class="fa-solid fa-boxes-stacked"></i> Case/Box Qty: <b>${packSize}</b></p>
-                <p><i class="fa-solid fa-box"></i> Pallet Size: <b>${PalletSize}</b></p>
-                <hr>
-                <h4 class="card-text"><b><i class="fa-solid fa-warehouse"></i> Units in Stock</b></h4>
-                <p><i class="fa-solid fa-boxes-stacked"></i> Units: <b>${stockLevel}</b></p>`;
-           }
-            
+        try{
+                if(idnum == Prd_Code){
+                titprd.innerHTML = `${Product}`;
+                mdetprd.innerHTML =`
+                <h4 class="card-text"><b><i class="fa-solid fa-tags redicon"></i> Prices:</b> (per case)</h4>
+                    <p>Wholesale Price: <b>${wholesaleP}</b></p>
+                    <p>Retail Price: <b>${SellingP}</b></p>
+                    <p>Waterpreneur Price: <b>${WaterpreneurP}</b></p>
+                    <hr>
+                    <h4 class="card-text"><b><i class="fa-solid fa-box-archive goldenicon"></i> Packages</b></h4>
+                    <p><i class="fa-solid fa-boxes-stacked"></i> Case/Box Qty: <b>${packSize}</b></p>
+                    <p><i class="fa-solid fa-box"></i> Pallet Size: <b>${PalletSize}</b></p>
+                    <hr>
+                    <h4 class="card-text"><b><i class="fa-solid fa-warehouse"></i> Units in Stock</b></h4>
+                    <p><i class="fa-solid fa-boxes-stacked"></i> Units: <b>${stockLevel}</b></p>`;
+                }
+            }catch{
+
+            }  
+
+        try{
+            var xitm = document.getElementById("StkLevels");
+            xitm.innerHTML += `<option>${Product}</option>`;
+
+           
+        }catch{
+
+        }
+    
         }
 
       
 
     })        
 }
+
+
 
 function findprdToDel(idOfPrd){
     let clickedprd = idOfPrd.replace('De', '');

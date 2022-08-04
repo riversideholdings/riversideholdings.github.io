@@ -90,8 +90,11 @@ function fetchlastInvNum(){
           return accumulator + object.invTotal;
         }, 0);
       
+        try{
         document.getElementById("total-salesamnt").innerHTML = `<center><i class="fa-solid fa-coins whiteicn"></i><br>Total value invoiced:<br> <b>R ${sum2.toFixed(2)}</b></center>`;
-       
+        }catch{
+          //
+        }
        
            //this code populates only unpaid orders
            var finder2 = Arr.filter(function(invoice, index){
@@ -102,9 +105,13 @@ function fetchlastInvNum(){
               return accumulator + object.invTotal;
             }, 0);
           
-           document.getElementById("total-salesamnt-unpaid").innerHTML = `<center><i class="fa-solid fa-hand-holding-dollar whiteicn"></i><br>Total unpaid orders:<br> <b>R ${sum.toFixed(2)}</b></center>`;
-        
-            for(var j = 0; j < 10; j++)
+           try{
+            document.getElementById("total-salesamnt-unpaid").innerHTML = `<center><i class="fa-solid fa-hand-holding-dollar whiteicn"></i><br>Total unpaid orders:<br> <b>R ${sum.toFixed(2)}</b></center>`;
+           }catch{
+            //
+           }
+
+            for(var j = 0; j < finder2.length; j++)
             {
 
               var tbodypop =document.getElementById("tbodyd");
@@ -135,8 +142,9 @@ function fetchlastInvNum(){
               return accumulator + object.invTotal;
             }, 0);
           
+          try{
            document.getElementById("total-salesamnt-paid").innerHTML = `<center><i class="fa-solid fa-money-bill-trend-up whiteicn"></i><br>Total revenue:<br> <b>R ${sumpd.toFixed(2)}</b></center>`;
-        
+          
         var tsales = document.getElementById("ratiobr1");
         var trevenue = document.getElementById("ratiobr2");
         var tunpaid = document.getElementById("ratiobr3");
@@ -203,7 +211,10 @@ function fetchlastInvNum(){
         var tbl = document.getElementById("tbodyd");
         var n = tbl.rows.length;
         document.getElementById("rowcount").innerHTML = `<tr><td style="color:#43c2f3;">${n} Rows</td><td></td><td></td><td></td></tr>`;
-         
+      }catch{
+        //
+      }
+        
       }) 
     
   }

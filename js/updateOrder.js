@@ -61,3 +61,6 @@ function updateOrderStatus(){
     document.getElementById("formupdateValue").reset();
   }
 
+  function clearStkForm(){
+    document.getElementById("submitPrdstkup").reset();
+  }
