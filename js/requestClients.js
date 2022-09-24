@@ -146,12 +146,12 @@ function clearfrmclients(){
 
 var clNum, clName, clPhone, clAddress, clEmail, clContactp;
 
-  clNum = document.getElementById("clNumber");
-  clName = document.getElementById("Client_Name");
-  clPhone = document.getElementById("Phone-Num");
-  clAddress = document.getElementById("Client_Address");
-  clEmail = document.getElementById("Client_Email");
-  clContactp = document.getElementById("ContactP");
+  clNum = document.getElementById("clNumber1");
+  clName = document.getElementById("Client_Name1");
+  clPhone = document.getElementById("Phone-Num1");
+  clAddress = document.getElementById("Client_Address1");
+  clEmail = document.getElementById("Client_Email1");
+  clContactp = document.getElementById("ContactP1");
 
 
 function updateClientInfo(clickedbtn)
@@ -199,9 +199,9 @@ function updateClientInfo(clickedbtn)
 
 function finalupdateexc(){
    var outBody = document.getElementById("outterModBodyIn");
-   var fott = document.getElementById("modfootClient");
+   var fott = document.getElementById("modfootClient1");
    
-   var clNumImp = document.getElementById("clNumber").innerHTML;
+   var clNumImp = document.getElementById("clNumber1").innerHTML;
 
   fetch("https://api.apispreadsheets.com/data/87RJ4h2q5QqHBkUg/", {
       method: "POST",
