@@ -122,9 +122,7 @@ function submitformP(){
                   }
                 }
               }
-              else{
-                err.innerHTML = "Login Fail";
-              }
+             
               
               console.log(arrTest);
 

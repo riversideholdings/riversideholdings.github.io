@@ -9,6 +9,7 @@ const sheetName = 'Invoice - records';
 const query = encodeURIComponent('Select *')
 const url = `${base}&sheet=${sheetName}&tq=${query}`
 
+
 //DOM function lisatener
 const data = []
 document.addEventListener('DOMContentLoaded', fetchlastInvNum, shownewInvNum, graphs)
@@ -29,6 +30,9 @@ function fetchlastInvNum() {
       //console.log(jsonData);
       //console.log(invoiceArr);
 
+      
+
+      
       shownewInvNum();
       graphs();
 
@@ -37,6 +41,7 @@ function fetchlastInvNum() {
 
 }
 
+var totalsalesmade = document.getElementById("total-salesamnt-paid");
 /*===========================================================================================
 THIS FUNCTION PRODUCES INFORMATION FOR THE COLORFULL BLOCKS AT THE TOP OF THE FINANCE SECTION
 ============================================================================================*/
@@ -89,6 +94,27 @@ function shownewInvNum() {
 
       }
 
+       //for paid orders
+
+       var findPaid = Arr.filter(function (invoice, index) {
+        if (invoice.invStatus == 'Paid')
+          return true;
+      });
+
+      const sumpd = findPaid.reduce((accumulator, object) => {
+        return accumulator + object.invTotal;
+      }, 0);
+
+      var totalsaleinc =  sumpd.toFixed(2);
+
+      if (localStorage.length > 0){
+        localStorage.clear();
+        localStorage.setItem("income", totalsaleinc);
+      }else{
+        localStorage.setItem("income", totalsaleinc);
+      }
+
+      
 
       const sum2 = Arr.reduce((accumulator, object) => {
         return accumulator + object.invTotal;
@@ -136,24 +162,16 @@ function shownewInvNum() {
 
       }
 
-      //for paid orders
-
-      var findPaid = Arr.filter(function (invoice, index) {
-        if (invoice.invStatus == 'Paid')
-          return true;
-      });
-
-      const sumpd = findPaid.reduce((accumulator, object) => {
-        return accumulator + object.invTotal;
-      }, 0);
+     
 
       try {
-        document.getElementById("total-salesamnt-paid").innerHTML = `<center><i class="fa-solid fa-money-bill-trend-up whiteicn"></i><br>Total revenue:<br> <b>R ${sumpd.toFixed(2)}</b></center>`;
-
+        totalsalesmade.innerHTML = `<center><i class="fa-solid fa-money-bill-trend-up whiteicn"></i><br>Total revenue:<br> <b>R ${sumpd.toFixed(2)}</b></center>`;
+        
+        var totalincome = document.getElementById("totalin").innerHTML = `Total revenue: <b>R ${sumpd.toFixed(2)}</b>`;
         var tsales = document.getElementById("ratiobr1");
         var trevenue = document.getElementById("ratiobr2");
         var tunpaid = document.getElementById("ratiobr3");
-
+ 
         var tVals = document.getElementById("v1");
         var tValr = document.getElementById("v2");
         var tValu = document.getElementById("v3");

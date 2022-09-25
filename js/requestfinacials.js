@@ -31,7 +31,11 @@ function init() {
             var expTotal = document.getElementById("total-col");
             var expTotal2 = document.getElementById("total-col2");
             var Allep = document.getElementById("allExpTotal");
+            var Allepblk = document.getElementById("allExpTotal-blk");
+            var xval = parseFloat(localStorage.getItem("income"));
 
+            var totalincome = document.getElementById("totalin");
+            var totalprofits = document.getElementById("fprofits");
 
             let arrex = [];
             var totalcol = 0;
@@ -105,8 +109,12 @@ function init() {
             expTotal.innerHTML = "R " +expn.toFixed(2);
             expTotal2.innerHTML = "R " +sal.toFixed(2);
             var a = expn+sal;
-            Allep.innerHTML = "Total Expenses: R " + a.toFixed(2);
+            Allep.innerText = "Total Expenses: R " + a.toFixed(2);
+            Allepblk.innerHTML = `Total Expenses: <b>R ${a.toFixed(2)}</b>`;
+            var calulate = xval.toFixed(2)-a.toFixed(2);
+            totalprofits.innerHTML = `Total Profits: <b>R ${calulate.toFixed(2)}</b>`;
 
+            console.log(xval)
 
         })
 
