@@ -156,3 +156,21 @@ body{
   display: none;
 }
 
+#monthlydivbar{
+  display: none;
+}
+#monthlydivline{
+  display: block;
+}
+
+#btn2{
+  display: none;
+}
+
+#btn-ex2{
+  display: none;
+}
+
+#expenses-sect{
+  display: none;
+}

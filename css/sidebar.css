@@ -1,16 +1,24 @@
 /* The sidebar menu */
 .sidebar {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 3; /* Stay on top */
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 3;
+  /* Stay on top */
   top: 0;
   left: 0;
-  background-color: rgb(255, 255, 255); /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-  box-shadow:0px 0px 18px 2px #5e5e5e;
+  background-color: rgb(255, 255, 255);
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidebar */
+  box-shadow: 0px 0px 18px 2px #5e5e5e;
 }
 
 /* The sidebar links */
@@ -21,7 +29,7 @@
   color: #000000;
   display: block;
   transition: 0.3s;
- 
+
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -60,185 +68,209 @@
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-  transition: margin-left .5s; /* If you want a transition effect */
+  transition: margin-left .5s;
+  /* If you want a transition effect */
   padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+  .sidebar {
+    padding-top: 15px;
+  }
+
+  .sidebar a {
+    font-size: 18px;
+  }
 }
 
-#div-top{
-    position: fixed;
-    top:0px;
-    width: 100%;
-    background-color: #337cad;
-    box-shadow:0px 0px 18px 2px #5e5e5e;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    z-index: 2;
-    align-items: center;
-    align-self: center;
-    justify-self: center;
-    
+#div-top {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #337cad;
+  box-shadow: 0px 0px 18px 2px #5e5e5e;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  z-index: 2;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+
 }
 
-#imageTop{   
-    border-radius: 100px; 
-    padding: 5px;
-    right: 0px;
+#imageTop {
+  border-radius: 100px;
+  padding: 5px;
+  right: 0px;
 }
 
 @media screen and (max-width: 600px) {
-    #imageTop{
-        float: right;
-        border-radius: 80px;
-        width:21%;
-    }
-    #img-small{
-        position: relative;
-        right: 5px;
-        margin: 5px;
-    }
-    #hwords{
-      display: none;
-    }
-    #imagetct{
-        position: absolute;
-        top:0px;
-        float: right;
-    }
-
-    .riverHeading{
-        float: right;
-        position: relative;
-        top: 0;
-        color: white;
-        font-size: 20px;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    }
-
+  #imageTop {
+    float: right;
+    border-radius: 80px;
+    width: 21%;
   }
 
-  #img-small{
+  #img-small {
+    position: relative;
+    right: 5px;
+    margin: 5px;
+  }
+
+  #hwords {
     display: none;
-}
+  }
 
-.closebtn a{
-    text-decoration: none;
+  #imagetct {
+    position: absolute;
+    top: 0px;
+    float: right;
+  }
 
-}
-.closebtn:hover{
-    text-decoration: none;
-    color: #337cad;
-}
-
-.riverHeading{
+  .riverHeading {
+    float: right;
+    position: relative;
+    top: 0;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
 }
 
-.linkinclientinfo{
+#img-small {
+  display: none;
+}
+
+.closebtn a {
+  text-decoration: none;
+
+}
+
+.closebtn:hover {
+  text-decoration: none;
+  color: #337cad;
+}
+
+.riverHeading {
+  color: white;
+  font-size: 22px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.linkinclientinfo {
   text-decoration: none;
   color: black;
 }
 
-.linkinclientinfo:hover{
+.linkinclientinfo:hover {
   color: #44c3f3;
   transition: ease-in 0.3s;
   text-decoration: none;
 }
 
 /*Dashboard*/
-#Stock{
-    color: white;
-    width: 98%;
-    height: 258px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: rgb(22, 79, 153);
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+#Stock {
+  color: white;
+  width: 98%;
+  height: 258px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(22, 79, 153);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-#InvStat{
-    color: white;
-    width: 98%;
-    height: 258px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: rgb(56, 177, 207);
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+#InvStat {
+  color: white;
+  width: 98%;
+  height: 258px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(56, 177, 207);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-#charty{
-    width: 98%;
-    height: 258px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: rgb(24, 28, 31);
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;   
+#charty {
+  width: 98%;
+  height: 258px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(24, 28, 31);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-#rev1{
-    width: 98%;
-    padding: 10px;
-    background-color: rgb(56, 177, 207);
-    color: white;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.1) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+#rev1 {
+  width: 98%;
+  padding: 10px;
+  background-color: rgb(56, 177, 207);
+  color: white;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.1) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-#rev2{
-    width: 98%;
-    padding: 10px;
-    background-color: rgb(22, 79, 153);
-    color: white;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.1) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+#rev2 {
+  width: 98%;
+  padding: 10px;
+  background-color: rgb(22, 79, 153);
+  color: white;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.1) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-#rev3{
-    width: 98%;
-    padding: 10px;
-    background-color: rgb(51,124,173);
-    color: white;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.1) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+#rev3 {
+  width: 98%;
+  padding: 10px;
+  background-color: rgb(51, 124, 173);
+  color: white;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.1) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-#ratiobr1{
-    height: 20px;
-    border-radius: 30px;
-    background-color: rgb(56, 177, 207);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-#ratiobr2{
-    height: 20px;
-    border-radius: 30px;
-    background-color: rgb(22, 79, 153);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-#ratiobr3{
-    height: 20px;
-    border-radius: 30px;
-    background-color: rgb(51,124,173);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-.bgdiv3{
-    width: 98%;
-    height: 20px;
-    border-radius: 30px;
-    background-color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
-}
-.tabDivDisplay{
-    transition: transform ease 300ms;
+#ratiobr1 {
+  height: 20px;
+  border-radius: 30px;
+  background-color: rgb(56, 177, 207);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.tabDivDisplay:hover{
-    transform: translate(0, -10px);
+#ratiobr2 {
+  height: 20px;
+  border-radius: 30px;
+  background-color: rgb(22, 79, 153);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#ratiobr3 {
+  height: 20px;
+  border-radius: 30px;
+  background-color: rgb(51, 124, 173);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.bgdiv3 {
+  width: 98%;
+  height: 20px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.tabDivDisplay {
+  transition: transform ease 300ms;
+}
+
+.tabDivDisplay:hover {
+  transform: translate(0, -10px);
+}
+
+#moreif {
+  color: white;
+  width: 98%;
+  height: 258px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(22, 79, 153);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
