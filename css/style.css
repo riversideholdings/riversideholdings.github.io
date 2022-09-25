@@ -10,6 +10,8 @@ body h1,h3,h2{
 }
 body{
   padding-top: 125px;
+  scroll-behavior: smooth;
+  animation-duration: 3s;
 }
 
 @media (max-width: 979px){

@@ -513,14 +513,18 @@ function showEx(x){
   var btnid = x;
 
   var exp = document.getElementById("expenses-sect");
-  var exbtn = document.getElementById(btnid);
+  var exbtn1 = document.getElementById("btn-ex");
+  var exbtn2 = document.getElementById("btn-ex2");
+
 
   if(btnid == "btn-ex"){
     exp.style.display = "block";
-    exbtn.style.display = "none";
+    exbtn1.style.display = "none";
+    exbtn2.style.display = "block";
   }
   else if(btnid == "btn-ex2"){
     exp.style.display = "none";
-    exbtn.style.display = "none";
+    exbtn2.style.display = "none";
+    exbtn1.style.display = "block";
   }
 }
