@@ -26,13 +26,15 @@ function init() {
             //console.log(jsonData);
             //console.log(expenseArr);
 
-            var salaries = document.getElementById("tbody-Salaries")
-            var expenses = document.getElementById("tbody-Stock")
-
+            var salaries = document.getElementById("tbody-Salaries");
+            var expenses = document.getElementById("tbody-Stock");
+            var expTotal = document.getElementById("total-col");
+            var expTotal2 = document.getElementById("total-col2");
+            var Allep = document.getElementById("allExpTotal");
 
 
             let arrex = [];
-
+            var totalcol = 0;
 
             for (let i = 0; i < expenseArr.length; i++) {
 
@@ -48,7 +50,7 @@ function init() {
                 arrex.push({
                     "Date": Date,
                     "Desc": desc,
-                    "Amount": amnt,
+                    "Amount": parseFloat(amnt.toFixed(2)),
                     "classification": classification,
                 });
 
@@ -60,6 +62,7 @@ function init() {
                         <td>${desc}</td>
                         <td>R ${amnt.toFixed(2)}</td>
                     </tr>`
+                    totalcol = amnt++;
 
                 }
 
@@ -71,11 +74,39 @@ function init() {
                         <td>${desc}</td>
                         <td>R ${amnt.toFixed(2)}</td>
                     </tr>`
-
+                    totalcol = amnt++;
                 }
 
-
             }
+
+            
+
+            var x,y;
+
+                //december
+                x = arrex.filter(function (expense, index) {
+                    if (expense.classification == "salary")
+                    return true;
+                });
+                const sal = x.reduce((accumulator, object) => {
+                    return accumulator + object.Amount;
+                }, 0);
+
+                //december
+                y = arrex.filter(function (expense, index) {
+                    if (expense.classification == "expense")
+                    return true;
+                });
+                const expn = y.reduce((accumulator, object) => {
+                    return accumulator + object.Amount;
+                }, 0);
+
+         
+            expTotal.innerHTML = "R " +expn.toFixed(2);
+            expTotal2.innerHTML = "R " +sal.toFixed(2);
+            var a = expn+sal;
+            Allep.innerHTML = "Total Expenses: R " + a.toFixed(2);
+
 
         })
 

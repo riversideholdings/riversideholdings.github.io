@@ -134,7 +134,8 @@
 
         <div class="col-sm-4">
           <div class="tabDivDisplay" id="moreif">
-
+            <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Relative calculations</b></h4>
+            <p>Total Expenses</p>
           </div>
         </div>
 
@@ -190,12 +191,11 @@
         </div>
       </div>
       <hr color="grey">
-      <br>
     </section>
 
     <section id="expenses-sect">
       <h2 style="font-family: 'Times New Roman', Times, serif;">Expenses</h2>
-    
+      <h4 style="font-family: 'Times New Roman', Times, serif;" id="allExpTotal"></h4>
       <div class="row">
         <div class="col-sm-6">
           <h4 style="font-family: 'Times New Roman', Times, serif;">Stock & utilities</h4>
@@ -210,6 +210,13 @@
             <tbody class="tbody" id="tbody-Stock">
 
             </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td><b class="pull-right">Total:</b></td>
+                <td id="total-col" style="font-weight: bold;"></td>
+              </tr>
+            </tfoot>
           </table>
 
         </div>
@@ -227,6 +234,15 @@
             <tbody class="tbody" id="tbody-Salaries">
 
             </tbody>
+            <tfoot>
+              <tr>
+                <tr>
+                  <td></td>
+                  <td><b class="pull-right">Total:</b></td>
+                  <td id="total-col2" style="font-weight: bold;"></td>
+                </tr>
+              </tr>
+            </tfoot>
           </table>
 
         </div>
