@@ -97,7 +97,7 @@ function submitformP(){
               }
               else if(fEmail != "" && fPass != "")
               {
-                for (let i = 1; i < arrTest.length; i++)
+                for (let i = 0; i < arrTest.length; i++)
                 {
                   
                   var d2Email = arrTest[i].c[3].v;
@@ -114,9 +114,19 @@ function submitformP(){
                     {
                       err.innerHTML = "Incorrect Password / Email!";
                     }
+
+                    
+                  }
+                  else{
+                    err.innerHTML = "Login Fail";
                   }
                 }
               }
+              else{
+                err.innerHTML = "Login Fail";
+              }
+              
+              console.log(arrTest);
 
   })
 }
