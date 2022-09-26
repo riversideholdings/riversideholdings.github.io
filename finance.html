@@ -177,14 +177,14 @@
 
       <div class="row">
         <div class="col-sm-3">
-          <button type="button" id="btn1" onclick="changechart(this.id)" class="btn btn-success"><i
+          <button type="button" id="btn1" onclick="changechart(this.id)" class="btn btn-success form-control"><i
               class="fa-solid fa-chart-column"></i> View Bar Chart</button>
-          <button type="button" id="btn2" onclick="changechart(this.id)" class="btn btn-success"><i
+          <button type="button" id="btn2" onclick="changechart(this.id)" class="btn btn-success form-control"><i
               class="fa-solid fa-chart-line"></i> View Line Chart</button>
         </div>
         <div class="col-sm-3">
-          <a href="#expenses-sect"><button type="button" id="btn-ex" onclick="showEx(this.id)" class="btn btn-primary">View Expenses:</button></a>
-          <a href="#graph-section"><button type="button" id="btn-ex2" onclick="showEx(this.id)" class="btn btn-primary">Hide Expenses</button></a>
+          <a href="#expenses-sect"><button type="button"  id="btn-ex" onclick="showEx(this.id)" class="btn btn-primary form-control"><i class="fa-solid fa-comment-dollar"></i> View Expenses:</button></a>
+          <a href="#graph-section"><button type="button" id="btn-ex2" onclick="showEx(this.id)" class="btn btn-primary form-control"><i class="fa-solid fa-eye-slash"></i> Hide Expenses</button></a>
         </div>
         <div class="col-sm-3">
 
@@ -217,7 +217,7 @@
               <tr>
                 <td></td>
                 <td><b class="pull-right">Total:</b></td>
-                <td id="total-col" style="font-weight: bold;"></td>
+                <td id="total-col" class="col-sm-3"  style="font-weight: bold;"></td>
               </tr>
             </tfoot>
           </table>
@@ -225,7 +225,7 @@
         </div>
 
         <div class="col-sm-6">
-          <h4 style="font-family: 'Times New Roman', Times, serif;">Salaries</h4>
+          <h4 style="font-family: 'Times New Roman', Times, serif;">Salary & wages</h4>
 
           <table class="table">
             <tr class="bg-primary">
@@ -242,7 +242,7 @@
                 <tr>
                   <td></td>
                   <td><b class="pull-right">Total:</b></td>
-                  <td id="total-col2" style="font-weight: bold;"></td>
+                  <td class="col-sm-3" id="total-col2" style="font-weight: bold;"></td>
                 </tr>
               </tr>
             </tfoot>

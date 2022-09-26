@@ -113,8 +113,10 @@ function init() {
             Allepblk.innerHTML = `Total Expenses: <b>R ${a.toFixed(2)}</b>`;
             var calulate = xval.toFixed(2)-a.toFixed(2);
             totalprofits.innerHTML = `Total Profits: <b>R ${calulate.toFixed(2)}</b>`;
-
-            console.log(xval)
+            
+            if(xval = NaN){
+                window.location.reload(true);
+            }
 
         })
 
