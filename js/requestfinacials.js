@@ -33,9 +33,10 @@ function init() {
             var Allep = document.getElementById("allExpTotal");
             var Allepblk = document.getElementById("allExpTotal-blk");
             var xval = parseFloat(localStorage.getItem("income"));
-
+            var Tunpaid = parseFloat(localStorage.getItem("unpaidAmnts"))
             var totalincome = document.getElementById("totalin");
             var totalprofits = document.getElementById("fprofits");
+            var esimatedProfits = document.getElementById("estProfit");
 
             let arrex = [];
             var totalcol = 0;
@@ -112,9 +113,17 @@ function init() {
             Allep.innerText = "Total Expenses: R " + a.toFixed(2);
             Allepblk.innerHTML = `Total Expenses: <b>R ${a.toFixed(2)}</b>`;
             var calulate = xval.toFixed(2)-a.toFixed(2);
-            totalprofits.innerHTML = `Total Profits: <b>R ${calulate.toFixed(2)}</b>`;
+            totalprofits.innerHTML = `Total Realtime Profits: <b>R ${calulate.toFixed(2)}</b>`;
+            
+            var estCalculate = calulate + Tunpaid;
+            esimatedProfits.innerHTML = `Est. Profit: <b>R ${estCalculate.toFixed(2)}</b>
+            `;
             
             if(xval = NaN){
+                window.location.reload(true);
+            }
+
+            if(estCalculate = NaN){
                 window.location.reload(true);
             }
 

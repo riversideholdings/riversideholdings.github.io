@@ -94,6 +94,17 @@ function shownewInvNum() {
 
       }
 
+      //this code populates only unpaid orders
+      var finder2 = Arr.filter(function (invoice, index) {
+        if (invoice.invStatus == 'Awaiting Payment')
+          return true;
+      });
+
+      const sum = finder2.reduce((accumulator, object) => {
+        return accumulator + object.invTotal;
+      }, 0);
+
+
        //for paid orders
 
        var findPaid = Arr.filter(function (invoice, index) {
@@ -106,12 +117,15 @@ function shownewInvNum() {
       }, 0);
 
       var totalsaleinc =  sumpd.toFixed(2);
+      var totUnpaid = sum.toFixed(2);
 
       if (localStorage.length > 0){
         localStorage.clear();
         localStorage.setItem("income", totalsaleinc);
+        localStorage.setItem("unpaidAmnts", totUnpaid)
       }else{
         localStorage.setItem("income", totalsaleinc);
+        localStorage.setItem("unpaidAmnts", totUnpaid)
       }
 
       
@@ -126,15 +140,7 @@ function shownewInvNum() {
         //
       }
 
-      //this code populates only unpaid orders
-      var finder2 = Arr.filter(function (invoice, index) {
-        if (invoice.invStatus == 'Awaiting Payment')
-          return true;
-      });
-
-      const sum = finder2.reduce((accumulator, object) => {
-        return accumulator + object.invTotal;
-      }, 0);
+      
 
       try {
         document.getElementById("total-salesamnt-unpaid").innerHTML = `<center><i class="fa-solid fa-hand-holding-dollar whiteicn"></i><br>Total unpaid orders:<br> <b>R ${sum.toFixed(2)}</b></center>`;
