@@ -114,12 +114,10 @@ function submitformP(){
                     {
                       err.innerHTML = "Incorrect Password / Email!";
                     }
-
+                    
                     
                   }
-                  else{
-                    err.innerHTML = "Login Fail";
-                  }
+                 
                 }
               }
              

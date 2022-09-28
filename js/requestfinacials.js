@@ -119,11 +119,11 @@ function init() {
             esimatedProfits.innerHTML = `Est. Profit: <b>R ${estCalculate.toFixed(2)}</b>
             `;
             
-            if(xval = NaN){
+            if(xval == NaN){
                 window.location.reload(true);
             }
 
-            if(estCalculate = NaN){
+            if(estCalculate == NaN){
                 window.location.reload(true);
             }
 

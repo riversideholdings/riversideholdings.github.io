@@ -38,30 +38,32 @@ function printToPdf(){
     doc.setFontSize(14);
     doc.text(20, 45, 'Riverside Holdings');
 
-    doc.setFontType("italic");
+    doc.setFontType("normal");
+    doc.setFontSize(11);
+    doc.text(20, 55, 'Reg Number: 2022/431104/07');
     doc.setFontSize(12);
-    doc.text(20, 55, 'Phone: +27 73 1040 341');
-    doc.text(20, 60, 'Email: riversideholdings.za@gmail.com');
+    doc.text(20, 60, 'Phone: +27 73 1040 341');
+    doc.text(20, 65, 'Email: riversideholdings.za@gmail.com');
 
     //add text
     doc.setFontType("Bold");
     doc.setFontSize(12);
-    doc.text(138, 55, 'Date:');doc.setTextColor(0,0,0);doc.text(148, 55, invDate);
+    doc.text(138, 60, 'Date:');doc.setTextColor(0,0,0);doc.text(148, 60, invDate);
 
     doc.setTextColor(51,124,173);
-    doc.text(130, 60, 'Invoice #:');doc.setTextColor(192,0,0);doc.text(148, 60, invNumber);
+    doc.text(130, 65, 'Invoice #:');doc.setTextColor(192,0,0);doc.text(148, 65, invNumber);
 
     //add a line
     doc.setDrawColor(51,124,173);
     doc.setLineWidth(1.0);
-    doc.line(20, 63, 190, 63);
+    doc.line(20, 69, 190, 69);
 
 
     //add text
     doc.setTextColor(51,124,173);
     doc.setFontType("Bold");
     doc.setFontSize(12);
-    doc.text(141, 75, 'To:');doc.setTextColor(0,0,0);doc.text(148, 75, nameaToaddress);
+    doc.text(141, 76, 'To:');doc.setTextColor(0,0,0);doc.text(148, 76, nameaToaddress);
 
     doc.setTextColor(51,124,173);
     doc.setFontType("Bold");
@@ -69,15 +71,22 @@ function printToPdf(){
     var splitaddress = doc.splitTextToSize(Address, 40);
     doc.text(132, 85, 'Address:');doc.setTextColor(0,0,0);doc.text(148, 85,splitaddress);
 
+    doc.setTextColor(51,124,173);
+    doc.text(133, 103, 'Reg No:');doc.setTextColor(0,0,0);doc.text(148, 103,"012/456/7780");
+    doc.setTextColor(51,124,173);
+    doc.text(131, 109, 'VAT No:');doc.setTextColor(0,0,0);doc.text(148, 109,"012/54678/90");
+
     //lines to form my table
     //add a line 
     doc.setDrawColor(15, 85, 108);
     doc.setLineWidth(5.0);
-    doc.line(20, 112, 190, 112);
+    doc.line(20, 115, 190, 115);
 
+    //this is the vertical line
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.2);
-    doc.line(150, 192, 150, 112);
+    doc.line(147, 192, 147, 115);
+
     //add a line 
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(1.0);
@@ -103,9 +112,9 @@ function printToPdf(){
     doc.setFontSize(12);
     doc.setFontType("italic");
     doc.text(20, 220, ' Account Number:');
-    doc.text(70, 220, '62794424615:');
+    doc.text(70, 220, '63001956094:');
     doc.text(20, 225, ' Account Holder:');
-    doc.text(70, 225, 'Nwabisa Gxumisa:');
+    doc.text(70, 225, 'Baneberry Balloon General Traders (pty) ltd:');
     doc.text(20, 230, ' Brach Code:')
     doc.text(70, 230, '250655:')
 
