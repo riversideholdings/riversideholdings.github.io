@@ -46,14 +46,14 @@ function fetchlastInvNum(){
         const invoiceArr = jsonData.table.rows;
         //=============LOG TO CONSOLE========================//
         //console.log(jsonData);
-        //console.log(invoiceArr);
+        console.log(invoiceArr);
 
         let Arr = [];
   
         for (let i = 0; i < invoiceArr.length; i++) {
       
           var invNumber = invoiceArr[i].c[0].v;
-          var invDate = invoiceArr[i].c[1].v;
+          var invDate = invoiceArr[i].c[1].f;
           var Recipient = invoiceArr[i].c[2].v;
           var RecipientAddress = invoiceArr[i].c[3].v;	
           var Pricesused = invoiceArr[i].c[4].v;	
@@ -115,12 +115,15 @@ function fetchlastInvNum(){
             {
 
               var tbodypop =document.getElementById("tbodyd");
+              
 
               try{
                 tbodypop.innerHTML += `<tr>
+                <td><b>${j+1}</b></td>
                 <td>${finder2[j].invNumber}</td>
                 <td>${finder2[j].invDate}</td>
-                <td>${finder2[j].RecipientName}</td>
+                <td><i class="fa fa-user"></i>&nbsp;&nbsp; ${finder2[j].RecipientName}</td>
+                <td>R ${finder2[j].invTotal}</td>
                 <td><center><div class="status-circle redglow"></div><center></td>
                 </tr>`;       
               }
@@ -170,6 +173,7 @@ function fetchlastInvNum(){
 
         //console.log(finder2)
         //console.log(Arr);
+
         let arrayLegnth = Arr.length;
         //console.log(arrayLegnth-1 );
   
