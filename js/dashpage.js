@@ -120,7 +120,7 @@ function fetchlastInvNum(){
               try{
                 tbodypop.innerHTML += `<tr>
                 <td class="DontShowmeonsmallScreen"><b>${j+1}</b></td>
-                <td>${finder2[j].invNumber}</td>
+                <td><b>${finder2[j].invNumber}<b/></td>
                 <td>${finder2[j].invDate}</td>
                 <td><i class="fa fa-user"></i>&nbsp;&nbsp; ${finder2[j].RecipientName}</td>
                 <td class="DontShowmeonsmallScreen">R ${finder2[j].invTotal}</td>
