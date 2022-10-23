@@ -19,7 +19,7 @@ body{
     padding-top: 80px;
   }
 }
-@media (min-width: 2000px){
+@media (max-width: 2000px){
   body{
     scroll-behavior: smooth;
     animation-duration: 3s;
@@ -51,6 +51,7 @@ body{
     color: #43c2f3;
     font-size: x-large;
 }
+
 .row{
     row-gap: 20px;
   
@@ -106,7 +107,16 @@ body{
 
 }
 
+@media (max-width: 600px){
+  .DontShowmeonsmallScreen{
+    display: none;
+  }
+  
+}
 
+#cl_list{
+  display: none;
+}
 #cardRows{
   display: none;
 }

@@ -77,11 +77,41 @@
         <p id="tmecode"></p><p id="lastarr" hidden ></p>
         <p>All current clients: <span id="clientCount"></span></p>
         <hr>
-        <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i class="fa fa-user-plus"></i> &nbsp; Add Client</button>
-        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i class="fa fa-user-plus"></i> &nbsp; Add Client</button>
+
+            <button type="button" class="btn btn-primary" style="display: flex; float: right; display: none;" id="viewTable"
+              onclick="hideviewtbClients(this.id)"><i class="fa-solid fa-list"></i> &nbsp; View as Table</button>
+            <button type="button" class="btn btn-primary" style="display: flex; float: right;" id="viewcards"
+              onclick="hideviewtbClients(this.id)"><i class="fa-solid fa-address-card"></i> &nbsp; View as Cards</button>
+          </div>
+        </div>
+
         <br>
-        <div id="cl_list" Class="row" >
+        <!--Client list-->
+        <div id="cl_list" Class="row">
             
+        </div>
+
+        <!--Client Table-->
+        <div id="clienttable">
+          <table class="table table-hover table-striped">
+            <thead class="thead bg-dark text-light">
+              <th>#</th>
+              <th class="DontShowmeonsmallScreen">Client ID</th>
+              <th>Client</th>
+              <th class="DontShowmeonsmallScreen">Phone</th>
+              <th class="DontShowmeonsmallScreen">Email</th>
+              <th class="DontShowmeonsmallScreen">Physical Address</th>
+              <th>Details</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </thead>
+            <tbody class="tbody" id="allClients">
+    
+            </tbody>
+          </table>
         </div>
 
         <footer>

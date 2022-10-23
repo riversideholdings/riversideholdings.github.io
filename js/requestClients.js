@@ -27,6 +27,7 @@ function init() {
 
           var popcards = document.getElementById("cl_list");
           var existcl = document.getElementById("exiRecipient");
+          var popclTable = document.getElementById("allClients");
 
           let nw = [ ];
           let awaitPaymentArr = [ ];
@@ -80,6 +81,24 @@ function init() {
               </div>
             </div><div>`;
 
+              }
+              catch{
+
+              }
+              
+
+              try{
+                popclTable.innerHTML +=`<tr>
+                <td><b>${i+1}</b></td>
+                <td class="DontShowmeonsmallScreen">${Client_Num}</td>
+                <td>${Name}</td>
+                <td class="DontShowmeonsmallScreen">+27${Phone}</td>
+                <td class="DontShowmeonsmallScreen">${Email}</td>
+                <td class="DontShowmeonsmallScreen">${Address}</td>
+                <td><button type="button" id="dt${Client_Num}" onclick="showclientDtls(this.id)" class="btn btn-primary" data-toggle="modal" data-target="#clDetailsCenter"><span class="DontShowmeonsmallScreen">Details</span> &nbsp;<span><i class="fa-regular fa-eye"></i></span></button></td>
+                <td><button type="button" id="Ed${Client_Num}" class="btn btn-info" onclick="updateClientInfo(this.id)" data-toggle="modal" data-target="#clientEditCenter"><i class="fa fa-pencil"></i></button></td>
+                <td><button type="button" id="del${Client_Num}" onclick="findClientToDelete(this.id)" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal"><i class="fa-solid fa-trash-can"></i></button></td>
+                </tr>`;
               }
               catch{
 
@@ -350,4 +369,30 @@ function showclientDtls(clickedDtbtn){
       }
   });
 
+}
+
+function hideviewtbClients(c){
+  var btnid = c;
+
+  var tablebtn = document.getElementById("viewTable");
+  var cardsbtn = document.getElementById("viewcards");
+
+  var tableCli = document.getElementById("clienttable");
+  var cardsCli = document.getElementById("cl_list");
+
+
+  if (btnid == "viewTable") {
+    cardsCli.style.display = "none";
+    tableCli.style.display = "block";
+    cardsbtn.style.display = "block";
+    tablebtn.style.display = "none";
+    
+  }
+  else if (btnid == "viewcards") {
+    tableCli.style.display = "none";
+    cardsCli.style.display = "block";
+    tablebtn.style.display = "block";
+    cardsbtn.style.display = "none";
+    
+  }
 }

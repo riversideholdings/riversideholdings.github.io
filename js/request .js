@@ -115,10 +115,10 @@ function init() {
               <td><b>${i + 1}</b></td>
               <td>${invNumber}</td>
               <td>${invDate}</td>
-              <td><i class="fa fa-user"></i>&nbsp;&nbsp; ${Recipient}</td>
-              <td>R ${invoiceTotal}</td>
+              <td class="DontShowmeonsmallScreen"><i class="fa fa-user"></i>&nbsp;&nbsp; ${Recipient}</td>
+              <td class="DontShowmeonsmallScreen">R ${invoiceTotal}</td>
               <td><center>${classcolr}</center></td>
-              <td><center><button type="button" class="btn btn-primary" id="${invNumber}" onclick="detailstap(this.id)" data-toggle="modal" data-target="#detailCenter">View Details</button></center></td>
+              <td><center><button type="button" class="btn btn-primary" id="${invNumber}" onclick="detailstap(this.id)" data-toggle="modal" data-target="#detailCenter"><span class="DontShowmeonsmallScreen">View Details</span> &nbsp;<span><i class="fa-regular fa-eye"></i></span></button></center></td>
               </tr>`;
         }
         catch {
@@ -225,10 +225,10 @@ function init() {
               <td><b>${j + 1}</b></td>
               <td>${invNum}</td>
               <td>${date}</td>
-              <td><i class="fa fa-user"></i>&nbsp;&nbsp; ${invRecName}</td>
-              <td>R ${invTot}</td>
-              <td><center>${classcolr}</center></td>
-              <td><center><button type="button" class="btn btn-primary" id="${invNum}" onclick="detailstap(this.id)" data-toggle="modal" data-target="#detailCenter">View Details</button></center></td>
+              <td class="DontShowmeonsmallScreen"><i class="fa fa-user"></i>&nbsp;&nbsp; ${invRecName}</td>
+              <td class="DontShowmeonsmallScreen">R ${invTot}</td>
+              <td class="DontShowmeonsmallScreen"><center>${classcolr}</center></td>
+              <td><center><button type="button" class="btn btn-primary" id="${invNum}" onclick="detailstap(this.id)" data-toggle="modal" data-target="#detailCenter"><span class="DontShowmeonsmallScreen">View Details</span> &nbsp;<span><i class="fa-regular fa-eye"></i></span></button></center></td>
               <td> <button class="btn btn-info" id="${invNum}ed" onclick="popmodalforupdate(this.id)" data-toggle="modal" data-target="#EditCenter"><i class="fa fa-pen"></i></button></td>
               </tr>`;
         }

@@ -90,14 +90,14 @@
       </div>
       <div class="col-sm-6">
         <button type="button" class="btn btn-success" style="display: flex; float: right; display: none;" id="vieTable"
-          onclick="hideviewTableUnpaid(this.id)">View as Table</button>
+          onclick="hideviewTableUnpaid(this.id)"><i class="fa-solid fa-list"></i> &nbsp; View as Table</button>
         <button type="button" class="btn btn-success" style="display: flex; float: right;" id="viecards"
-          onclick="hideviewTableUnpaid(this.id)">View as Cards</button>
+          onclick="hideviewTableUnpaid(this.id)"><i class="fa-solid fa-address-card"></i> &nbsp;  View as Cards</button>
         <br>
       </div>
 
     </div>
-
+<br>
     <!--cards-->
       <div id="unPaidcardRows" class="row clintele">
 
@@ -110,9 +110,9 @@
           <th>#</th>
           <th>Order_Num</th>
           <th>Date</th>
-          <th>Recipient</th>
-          <th>Invoice Total</th>
-          <th>Status</th>
+          <th class="DontShowmeonsmallScreen">Recipient</th>
+          <th class="DontShowmeonsmallScreen">Invoice Total</th>
+          <th class="DontShowmeonsmallScreen">Status</th>
           <th>
             <center>Details</center>
           </th>
