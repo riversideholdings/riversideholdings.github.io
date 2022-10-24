@@ -36,6 +36,7 @@ function init() {
            var exiselect = document.getElementById("exiRecipient");
            var recpAddress = document.getElementById("Recipient Address");
            var clCount = document.getElementById("clientCount");
+           var recpientId = document.getElementById("recpID");
   
   
            
@@ -121,6 +122,8 @@ function init() {
                     return obj.Name === exiselect.value 
                   })
                   recpAddress.value = result[0].Address;
+                  recpientId.innerHTML = "(Client ID: "+ result[0].Client_Num+ " )";
+                  document.getElementById("recpIdInput").value = result[0].Client_Num;
               });
               }
               catch{
@@ -362,7 +365,8 @@ function showclientDtls(clickedDtbtn){
           <h5><i class="fa fa-envelope"></i> ${Email}</h5>
           <p><i class="fa-solid fa-map-location"></i> ${Address}</p>
           <hr>
-          <h5><i class="fa-solid fa-square-phone"></i> Contact Person: <b>${ContactP}<b></h5>`;
+          <h5><i class="fa-solid fa-square-phone"></i> Contact Person: <b>${ContactP}<b></h5>
+          <button type="button" class="btn btn-success" id="TableRow${Client_Num}" onclick="showOrderPage(this.id)"><i class="fa-solid fa-file-invoice"></i> &nbsp; View Clients Invoices</button>`;
           
         }
         

@@ -1,3 +1,15 @@
+function clearLocal() {
+  var idToKeep = localStorage.getItem("ClientID");
+  //onsole.log(idToKeep);
+
+  //localStorage.setItem("maintainID", idToKeep);
+
+  localStorage.removeItem("maintainID");
+  //console.log("ClientID has been removed from local Storage");
+  //console.log(localStorage);
+
+}
+
 //https://docs.google.com/spreadsheets/d/1B72XHR8ff7JqN9Pj52RBjFFPUt5dmtrTJOaT2dUAeXk/edit?usp=sharing
 var editModTitle = document.getElementById("InTitelMod");
 var editModBody = document.getElementById("modInBody");
@@ -52,6 +64,7 @@ function init() {
         var DiscountNotes = invoiceArr[i].c[10].v;
         var invoiceTotal = invoiceArr[i].c[11].v;
         var invstatus = invoiceArr[i].c[12].v;
+        var client_Id = invoiceArr[i].c[14].v;
 
         var combineItems = `500ml cases: ${ml500}
             <br>750ml cases: ${ml750} 
@@ -141,12 +154,67 @@ function init() {
           "DiscountNotes": DiscountNotes,
           "invTotal": invoiceTotal,
           "invStatus": invstatus,
+          "ClientIDd": client_Id
         });
-
 
       }
 
-      //console.log(structuredArr);
+      //this statement will only execute in the personalised users page
+      var usersTableOrders = document.getElementById("CustomersOrders");
+      var UserIDToUse = localStorage.getItem("ClientID")
+
+      //console.log(UserIDToUse);
+
+      //this code populates orders based on their id/inv num
+      var findByID = structuredArr.filter(function (invoice, index) {
+        if (invoice.ClientIDd == UserIDToUse && invoice.invStatus != "Void")
+          return true;
+      });
+      //console.log(findByID);
+
+      for (let u = 0; u < findByID.length; u++) {
+
+        var invNumID = findByID[u].invNumber;
+        var invRecNameID = findByID[u].RecipientName;
+        var invTotID = findByID[u].invTotal;
+        var addressID = findByID[u].RecipientAddress;
+        var dateID = findByID[u].invDate;
+        var statusID = findByID[u].invStatus;
+
+        try {
+          document.getElementById("ClientNAme").innerHTML = invRecNameID;
+
+          var classcolr2 = "";
+          if (statusID == "Paid") {
+            classcolr2 = `<div class="status-circle-green greenglow"></div>`;
+          }
+          else if (statusID == "Awaiting Payment") {
+            classcolr2 = `<div class="status-circle redglow"></div>`;
+          }
+          else {
+            classcolr2 = `<div class="status-circle redglow"></div>`;
+          }
+          usersTableOrders.innerHTML += `<tr id="tr${invNumID}">
+              <td><b>${u + 1}</b></td>
+              <td>${invNumID}</td>
+              <td>${dateID}</td>
+              <td class="DontShowmeonsmallScreen"><i class="fa fa-user"></i>&nbsp;&nbsp; ${invRecNameID}</td>
+              <td class="DontShowmeonsmallScreen">R ${invTotID}</td>
+              <td><center>${classcolr2}</center></td>
+              <td><center><button type="button" class="btn btn-primary" id="${invNumID}" onclick="detailstap(this.id)" data-toggle="modal" data-target="#detailCenter"><span class="DontShowmeonsmallScreen">View Details</span> &nbsp;<span><i class="fa-regular fa-eye"></i></span></button></center></td>
+              </tr>`;
+        }
+        catch {
+
+
+        }
+
+
+      }
+      //var totalinv = invTotID++;
+      //document.getElementById("TotalInv").innerHTML = totalinv;
+
+
 
 
       //this code populates only unpaid orders
@@ -459,36 +527,58 @@ function detailstap(clicked) {
 
 function scrollToItem() {
   var searchText = document.getElementById("SerachVal").value;
-  const element = document.getElementById("Card" + searchText);
-  element.scrollIntoView();
 
-  element.style = `
+  try {
+    const element = document.getElementById("Card" + searchText);
+    element.scrollIntoView();
+
+    element.style = `
     width: 35rem;
     height: 50rem;
     box-shadow:0px 0px 16px 6px #3586a6;
     transition: ease-in 0.3s;
     `;
 
-  const myTimeout = setTimeout(removefocus, 4000);
+    const myTimeout = setTimeout(removefocus, 4000);
 
-  function removefocus() {
-    element.style = " ";
+    function removefocus() {
+      element.style = " ";
+    }
   }
+  catch {
+    if (searchText == ""){
+      alert("Please enter something in the textbox")
+    }
+    else{
+      alert("Please use only Capital letters, and Numbers in the text Box, Enter order numbers like this, e.g RH02001")
+    }
+    
+  }
+
 }
 
 function findOrder() {
   var searchText = document.getElementById("SerachVal").value;
   var foundTablerow = document.getElementById("tr" + searchText);
+  try {
+    foundTablerow.scrollIntoView();
+    foundTablerow.style = "background-color: gold";
 
-  foundTablerow.scrollIntoView();
-  foundTablerow.style = "background-color: gold";
+    const endHighlight = setTimeout(myEndFunction, 30000);
 
-  const endHighlight = setTimeout(myEndFunction, 30000);
-
-  function myEndFunction() {
-    foundTablerow.style = "background-color: none";
+    function myEndFunction() {
+      foundTablerow.style = "background-color: none";
+    }
   }
-
+  catch {
+    if (searchText == ""){
+      alert("Please enter something in the textbox")
+    }
+    else{
+      alert("Please use only Capital letters, and Numbers in the text Box, Enter order numbers like this, e.g RH02001")
+    }
+    
+  }
 
 }
 

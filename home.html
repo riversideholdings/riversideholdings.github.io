@@ -82,9 +82,9 @@
       <h1>Dashboard <i class="fa-solid fa-gauge"></i></h1>
           
             <p id="tmecode"></p><p id="lastarr" hidden ></p>
-            <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> &nbsp; Add Order</button>&nbsp;
-            <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i class="fa fa-user-plus"></i> &nbsp; Add Client</button>
-            <button type="button" class="btn btn-danger" onclick="printToPdf()"><i class="fa-regular fa-file-pdf"></i> &nbsp; Print invoice</button>
+            <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> &nbsp;Add Order</button>&nbsp;
+            <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i class="fa fa-user-plus"></i> &nbsp;Add Client</button>
+            <button type="button" class="btn btn-danger" onclick="printToPdf()"><i class="fa-regular fa-file-pdf"></i> Print an invoice</button>
             <br><br>
 
              <!-- revenue tabs-->
@@ -202,14 +202,18 @@
             </div>
             <!--Existing reciepient-->
             <div class="form-group existin" id="existin">
-              <label for="Exist-reciepient">Select existing recipient Name</label>
+              <label for="Exist-reciepient">Select existing recipient Name:</label>&nbsp;<span id="recpID"></span><br>
               <select class="form-control" id="exiRecipient">
                 
               </select>
             </div>
-            
+
+            <!--this is hidden jusst to capture the id of the recipient-->
+            <input type="text" id="recpIdInput" name="Client ID" hidden>
+
             <div class="form-group">
               <label for="Recipient Address">Recipient address</label>
+              
               <input type="text" name="Recipient Address" class="form-control" id="Recipient Address" placeholder="Enter recipient address">
             </div>
             <!--price used option selection here-->

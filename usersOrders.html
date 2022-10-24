@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="MySight Shopping website" />
+  <meta name="author" content="Mila Mbopha" />
+
+  <title>Riverside Holdings</title>
+
+  <link rel="icon" href="img/Riverside_crop.png">
+  <!--css styles-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
+
+<header>
+  <!--Nav Bar-->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="collapse navbar-collapse" id="navbarNav"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-links"><img src="img/Riverside_OG.png" width="60%"></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-links" href="home.html"><i class="fa fa-home"></i>&nbsp; Home <span
+            class="sr-only">(current)</span></a>
+        <hr>
+      </li>
+      <li class="nav-item">
+        <a class="nav-links" href="finance.html"><i class="fa fa-building-columns"></i>&nbsp; Finance</a>
+        <hr>
+      </li>
+      <li class="nav-item">
+        <a class="nav-links" href="allorders.html"><i class="fa fa-boxes-packing"></i>&nbsp; All orders</a>
+        <hr>
+      </li>
+      <li class="nav-item">
+        <a class="nav-links" href="unpaid.html"><i class="fa fa-box-open"></i>&nbsp; Unpaid Orders</a>
+        <hr>
+      </li>
+      <li class="nav-item">
+        <a class="nav-links" href="clients.html"><i class="fa fa-user"></i>&nbsp; Clients</a>
+        <hr>
+      </li>
+      <li class="nav-item">
+        <a class="nav-links" href="products.html"><i class="fa fa-bottle-water"></i>&nbsp; Products</a>
+        <hr>
+      </li>
+    </ul>
+    <a href="index.html" style="float: right; padding-right: 15px">Log out <i class="fa fa-right-from-bracket"></i></a>
+  </div>
+  </div>
+
+  <!--Fixed Header-->
+  <div id="div-top">
+    <div class="col-sm-4">
+      <button class="openbtn" onclick="openNav()">☰</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-sm-8 text-right" id="imagetct">
+      <span class="riverHeading" id="hwords">Riverside Holdings</span> &nbsp;
+      <img src="img/Riverside_OG.png" id="imageTop" width="10%">
+    </div>
+  </div>
+</header>
+
+<body onload="clearLocal()">
+  <div class="container-md body-content">
+    <h1>All Orders for: <span id="ClientNAme"></span><i class="fa fa-boxes-packing"></i></h1>
+    <h5 id="ordercount" hidden>Riverside Holdings orders</h5>
+    <h4><span id="TotalInv"></span></h4>
+
+    <br>
+    <!--Search field-->
+    <p><b>Enter order number, e.g RH02001</b></p>
+    <div class="row">
+      <div class="col-sm-6">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="SerachVal">
+          <button class="btn btn-primary col-sm-4" type="button" onclick="scrollToItem()" id="scroll-to-cards">Find order</button>
+          <button class="btn btn-primary col-sm-4" type="button" onclick="findOrder()" id="highlight-Row">Find order</button>
+        </form>
+      </div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+    <br>
+
+
+    <div id="tableOrders">
+      <!--Table view-->
+      <table class="table table-hover table-striped">
+        <thead class="thead bg-dark text-light">
+          <th>#</th>
+          <th>Order_Num</th>
+          <th>Date</th>
+          <th class="DontShowmeonsmallScreen">Recipient</th>
+          <th class="DontShowmeonsmallScreen">Invoice Total</th>
+          <th>Status</th>
+          <th><center>Details</center></th>
+        </thead>
+        <tbody class="tbody" id="CustomersOrders">
+
+        </tbody>
+      </table>
+      <a href="clients.html" class="btn btn-success"><i class="fa-solid fa-chevron-left"></i> Back to Clients</a>
+      <button type="button" class="btn btn-danger" style="float: right;"><i class="fa-solid fa-download"></i> Download Statement</button>
+    </div>
+
+    <hr />
+    <footer>
+      <p id="yearDate"></p>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="detailCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="ModalLongTitle">Modal title</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modBody">
+        </div>
+        <div class="modal-footer">
+          <h4 id="modTotal"></h4>&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <span id="btnDangerAl"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up"></i></button>
+
+  <!--Script-->
+  <script src="js/main.js"></script>
+  <script src="js/updateOrder.js"></script>
+  <script src="js/request .js"></script>
+  <script src="js/all.js"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

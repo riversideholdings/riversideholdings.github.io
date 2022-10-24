@@ -46,7 +46,7 @@ function fetchlastInvNum(){
         const invoiceArr = jsonData.table.rows;
         //=============LOG TO CONSOLE========================//
         //console.log(jsonData);
-        console.log(invoiceArr);
+        //console.log(invoiceArr);
 
         let Arr = [];
   
@@ -269,3 +269,16 @@ function successClientfrm(){
       fottClient.innerHTML = `<button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
    }; 
 }
+
+function showOrderPage(d){
+  var userId = d.replace("TableRow", "");
+
+  //save this id value in local storage to use it to populate the users page
+  localStorage.setItem("ClientID", userId);
+
+  //console.log(userId)
+
+  window.open('usersOrders.html', '_self');
+ 
+}
+
