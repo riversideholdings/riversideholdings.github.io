@@ -73,24 +73,27 @@
 
 <body onload="clearLocal()">
   <div class="container-md body-content">
-    <h1>All Orders for: <span id="ClientNAme"></span><i class="fa fa-boxes-packing"></i></h1>
+    <h2 class="text-center">Statement of account: <span id="ClientNAme"></span> <i class="fa-solid fa-square-poll-vertical"></i></h2>
     <h5 id="ordercount" hidden>Riverside Holdings orders</h5>
-    <h4><span id="TotalInv"></span></h4>
 
-    <br>
-    <!--Search field-->
-    <p><b>Enter order number, e.g RH02001</b></p>
+    <!--Details-->
+    <p>Baneberry Balloon General Traders (pty) ltd trading as <br><b>Riverside Holdings</b></p>
+    <p>
+      Reg Number: <b>2022/431104/07</b><br>
+      Address: <b>ERF 11, Flagstaff 4810</b>
+    </p>
+
+    <p>
+      Phone: <b>+27 73 1040 341</b><br>
+      Email: <b>riversideholdings.za@gmail.com</b>
+    </p>
+
     <div class="row">
       <div class="col-sm-6">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="SerachVal">
-          <button class="btn btn-primary col-sm-4" type="button" onclick="scrollToItem()" id="scroll-to-cards">Find order</button>
-          <button class="btn btn-primary col-sm-4" type="button" onclick="findOrder()" id="highlight-Row">Find order</button>
-        </form>
+       
       </div>
       <div class="col-sm-6">
-        <a href="clients.html" class="btn btn-success"><i class="fa-solid fa-chevron-left"></i> Back to Clients</a>
-        <button type="button" onclick="window.open('viewStatement.html', '_self')" class="btn btn-danger" style="float: right;"><i class="fa-solid fa-eye"></i> View Statement</button>
+        
       </div>
     </div>
     <br>
@@ -101,18 +104,62 @@
       <table class="table table-hover table-striped">
         <thead class="thead bg-dark text-light">
           <th>#</th>
-          <th>Order_Num</th>
           <th>Date</th>
           <th class="DontShowmeonsmallScreen">Description</th>
-          <th class="DontShowmeonsmallScreen">Invoice Total</th>
-          <th>Status</th>
-          <th><center>Details</center></th>
+          <th>Amount</th>
+          <th class="DontShowmeonsmallScreen">Payment Status</th>
+          <th>Account Balance</th>
         </thead>
-        <tbody class="tbody" id="CustomersOrders">
+        <tbody class="tbody" id="CustomersOrdersStatement">
 
         </tbody>
+        <tfoot class="tfoot" id="footStatement">
+
+        </tfoot>
       </table>
 
+      <div class="row">
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5">
+          <table class="table table-striped">
+            <thead class="thead bg-dark text-light">
+              <th>Description</th>
+              <th>Amount</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="info"><b>Total Invoices</b></td>
+                <td id="totInv">h</td>
+              </tr>
+              <tr>
+                <td class="info"><b>Total Paid</b></td>
+                <td id="totPaid">h</td>
+              </tr>
+              <tr>
+                <td class="info"><b>Total Outstanding</b></td>
+                <td id="totOut">h</td>
+              </tr>
+              <tr>
+                <td><b></b></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="info"><b>Credit</b></td>
+                <td id="totCredit">h</td>
+              </tr>
+              <tr>
+                <td class="info"><b>Total Outstanding</b></td>
+                <td id="FinTotal">h</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <hr>
+
+      <a href="clients.html" class="btn btn-success"><i class="fa-solid fa-chevron-left"></i> Back to Clients</a>
+      <button type="button" class="btn btn-danger" style="float: right;"><i class="fa-solid fa-download"></i> Downlaod Statement</button>
      
     </div>
 

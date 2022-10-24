@@ -159,9 +159,12 @@ function init() {
 
       }
 
+      
+
       //this statement will only execute in the personalised users page
       var usersTableOrders = document.getElementById("CustomersOrders");
-      var UserIDToUse = localStorage.getItem("ClientID")
+      var usertblStatementpage = document.getElementById("CustomersOrdersStatement");
+      var UserIDToUse = localStorage.getItem("ClientID");
 
       //console.log(UserIDToUse);
 
@@ -171,6 +174,8 @@ function init() {
           return true;
       });
       //console.log(findByID);
+
+      
 
       for (let u = 0; u < findByID.length; u++) {
 
@@ -185,20 +190,24 @@ function init() {
           document.getElementById("ClientNAme").innerHTML = invRecNameID;
 
           var classcolr2 = "";
+          var colorOFf ="";
           if (statusID == "Paid") {
             classcolr2 = `<div class="status-circle-green greenglow"></div>`;
+            colorOFf = "greenclr";
           }
           else if (statusID == "Awaiting Payment") {
             classcolr2 = `<div class="status-circle redglow"></div>`;
+            colorOFf = "redclr";
           }
           else {
             classcolr2 = `<div class="status-circle redglow"></div>`;
+            colorOFf = "redclr";
           }
           usersTableOrders.innerHTML += `<tr id="tr${invNumID}">
               <td><b>${u + 1}</b></td>
               <td>${invNumID}</td>
               <td>${dateID}</td>
-              <td class="DontShowmeonsmallScreen"><i class="fa fa-user"></i>&nbsp;&nbsp; ${invRecNameID}</td>
+              <td class="DontShowmeonsmallScreen ${colorOFf}">${statusID}</td>
               <td class="DontShowmeonsmallScreen">R ${invTotID}</td>
               <td><center>${classcolr2}</center></td>
               <td><center><button type="button" class="btn btn-primary" id="${invNumID}" onclick="detailstap(this.id)" data-toggle="modal" data-target="#detailCenter"><span class="DontShowmeonsmallScreen">View Details</span> &nbsp;<span><i class="fa-regular fa-eye"></i></span></button></center></td>
@@ -207,8 +216,30 @@ function init() {
         catch {
 
 
+          
         }
 
+        //for statementpage
+        try{
+          usertblStatementpage.innerHTML += `<tr id="tr${invNumID}">
+              <td><b>${u + 1}</b></td>
+              <td>${dateID}</td>
+              <td>${invNumID}</td>
+              <td class="DontShowmeonsmallScreen">R ${invTotID.toFixed(2)}</td>
+              <td class="DontShowmeonsmallScreen ${colorOFf}">${statusID}</td>
+              <td>To be Calculated</td>
+              </tr>`;
+        }
+        catch{
+
+        }
+
+        /*====================================================================
+        in this section all extensive statement calculations are done here
+        ====================================================================*/
+        const sumAllInv = findByID.reduce((accumulator, object) => {
+          return accumulator + object.invTotal;
+        }, 0);
 
       }
       //var totalinv = invTotID++;

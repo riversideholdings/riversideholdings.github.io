@@ -12,6 +12,7 @@ body{
   padding-top: 125px;
   scroll-behavior: smooth;
   animation-duration: 3s;
+
 }
 
 @media (max-width: 979px){
@@ -55,6 +56,16 @@ body{
 .row{
     row-gap: 20px;
   
+}
+
+.greenclr{
+  color: rgb(15, 185, 0);
+  font-weight: bold;
+}
+
+.redclr{
+  color: red;
+  font-weight: bold;
 }
 
 .green{
