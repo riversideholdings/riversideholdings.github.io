@@ -237,16 +237,58 @@ function init() {
         /*====================================================================
         in this section all extensive statement calculations are done here
         ====================================================================*/
+        var TotalInvTb, TotalOutTb, CreditTb, TotalDueTb;
+
+        try{
+        TotalInvTb = document.getElementById("totInv");
+        TotalOutTb = document.getElementById("totOut");
+        TotalDueTb = document.getElementById("FinTotal");
+        CreditTb = document.getElementById("totCredit");
+        
+        //sum all the invoices
         const sumAllInv = findByID.reduce((accumulator, object) => {
           return accumulator + object.invTotal;
         }, 0);
 
+        TotalInvTb.innerHTML = "R " + sumAllInv.toFixed(2);
+
+        //find only unpaid filter
+        var findUnpaid = findByID.filter(function (invoice, index) {
+          if (invoice.invStatus == 'Awaiting Payment')
+            return true;
+  
+        });
+
+        //sum all unpaid invoices
+        const sumAllUnpaidInv = findUnpaid.reduce((accumulator, object) => {
+          return accumulator + object.invTotal;
+        }, 0);
+
+        TotalOutTb.innerHTML = "R "+ sumAllUnpaidInv.toFixed(2);
+
+        //find only paid
+        var findPaid = findByID.filter(function (invoice, index) {
+          if (invoice.invStatus == 'Paid')
+            return true;
+  
+        });
+
+        var xPay = localStorage.getItem("ClientsPayment");
+
+        var clsPay = sumAllInv-xPay;
+
+        TotalDueTb.innerHTML = "R"+ clsPay.toFixed(2);
+
+
+        }
+        catch{
+
+        }
+        //=========================================================
+        //End of extensive calculations
+        //=========================================================
+
       }
-      //var totalinv = invTotID++;
-      //document.getElementById("TotalInv").innerHTML = totalinv;
-
-
-
 
       //this code populates only unpaid orders
       var finder = structuredArr.filter(function (invoice, index) {
