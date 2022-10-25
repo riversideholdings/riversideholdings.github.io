@@ -188,6 +188,7 @@ function init() {
 
         try {
           document.getElementById("ClientNAme").innerHTML = invRecNameID;
+         
 
           var classcolr2 = "";
           var colorOFf ="";
@@ -221,6 +222,7 @@ function init() {
 
         //for statementpage
         try{
+          document.getElementById("ClientNAmeG").innerHTML = invRecNameID;
           usertblStatementpage.innerHTML += `<tr id="tr${invNumID}">
               <td><b>${u + 1}</b></td>
               <td>${dateID}</td>

@@ -57,6 +57,7 @@ function init() {
                
                 TotalPaidTb.innerHTML = "R " + clsPayments.toFixed(2);
             
+                //console.log(findClsPayments)
 
         })
         
