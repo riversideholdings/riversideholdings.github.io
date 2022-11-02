@@ -91,7 +91,7 @@ function fetchlastInvNum(){
         }, 0);
       
         try{
-        document.getElementById("total-salesamnt").innerHTML = `<center><i class="fa-solid fa-coins whiteicn"></i><br>Total value invoiced:<br> <b>R ${sum2.toFixed(2)}</b></center>`;
+        document.getElementById("total-salesamnt").innerHTML = `<center><i class="fa-solid fa-coins whiteicn smallscreen-alignleft"></i><br class="DontShowmeonsmallScreen"> <span class="smallscreen-alignleft">&nbsp;Total value invoiced:</span><br class="DontShowmeonsmallScreen"> <b class="smallscreen-alignright">R ${sum2.toFixed(2)}</b></center>`;
         }catch{
           //
         }
@@ -106,7 +106,7 @@ function fetchlastInvNum(){
             }, 0);
           
            try{
-            document.getElementById("total-salesamnt-unpaid").innerHTML = `<center><i class="fa-solid fa-hand-holding-dollar whiteicn"></i><br>Total unpaid orders:<br> <b>R ${sum.toFixed(2)}</b></center>`;
+            document.getElementById("total-salesamnt-unpaid").innerHTML = `<center><i class="fa-solid fa-hand-holding-dollar whiteicn smallscreen-alignleft"></i><br class="DontShowmeonsmallScreen"><span class="smallscreen-alignleft">&nbsp;Total unpaid orders:</span><br class="DontShowmeonsmallScreen"> <b class="smallscreen-alignright">R ${sum.toFixed(2)}</b></center>`;
            }catch{
             //
            }
@@ -146,7 +146,7 @@ function fetchlastInvNum(){
             }, 0);
           
           try{
-           document.getElementById("total-salesamnt-paid").innerHTML = `<center><i class="fa-solid fa-money-bill-trend-up whiteicn"></i><br>Total revenue:<br> <b>R ${sumpd.toFixed(2)}</b></center>`;
+           document.getElementById("total-salesamnt-paid").innerHTML = `<center><i class="fa-solid fa-money-bill-trend-up whiteicn smallscreen-alignleft"></i><br class="DontShowmeonsmallScreen"><span class="smallscreen-alignleft">&nbsp;Total revenue:</span><br class="DontShowmeonsmallScreen"> <b class="smallscreen-alignright">R ${sumpd.toFixed(2)}</b></center>`;
           
         var tsales = document.getElementById("ratiobr1");
         var trevenue = document.getElementById("ratiobr2");
