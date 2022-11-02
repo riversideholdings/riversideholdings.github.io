@@ -16,10 +16,12 @@ function myTimer() {
   const d = new Date();
   try{
     document.getElementById("tmecode").innerHTML = d.toLocaleTimeString() + " (SAST)";
+    
   }
   catch{
 
   }  
+  hideloader();
 }
 
 //SCROLL TO FUNCTION
@@ -57,3 +59,35 @@ function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
 
 }
+
+//loader
+
+//document.onreadystatechange = function() {
+//  if (document.readyState !== "complete") {
+//      
+//      document.querySelector("#loader-gif").style.visibility = "visible";
+//  } else {
+//      document.querySelector("#loader-gif").style.display = "none";
+//      document.querySelector("body").style.visibility = "visible";
+//  }
+//};
+
+var tblordrs = document.getElementById("allOrdersT");
+
+function chekrws(){
+  if(tblordrs.rows.length == 0){
+
+  }
+  else if (tblordrs.rows.length > 0) {
+    hideloader();
+  }
+  
+}
+
+function hideloader(){
+  var loader = document.getElementById("loader-gif");
+  var body = document.querySelector("body");
+  
+  loader.style.display = "none"
+}
+

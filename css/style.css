@@ -5,14 +5,17 @@ html {
 .row h3,h2{
   font-family: 'Times New Roman', Times, serif;
 }
-body h1,h3,h2{
+body h1,h3,h2,h4,h5{
     font-family: 'Times New Roman', Times, serif;
 }
 body{
   padding-top: 125px;
   scroll-behavior: smooth;
   animation-duration: 3s;
+}
 
+.newRoman{
+  font-family: 'Times New Roman', Times, serif;
 }
 
 @media (max-width: 979px){
