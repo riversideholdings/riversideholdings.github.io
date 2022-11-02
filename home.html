@@ -85,14 +85,17 @@
 
     <p id="tmecode"></p>
     <p id="lastarr" hidden></p>
-    <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal"
-      data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> Add Order</button>
-    <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i
-        class="fa fa-user-plus"></i> Add Client</button>
-    <button type="button" class="btn btn-danger" onclick="printToPdf()"><i class="fa-regular fa-file-pdf"></i> Print
-      invoice</button>
-    <br><br>
-
+    <div class="DontShowmeonsmallScreen">
+      <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal"
+        data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> Add Order</button>
+      <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i
+          class="fa fa-user-plus"></i> Add Client</button>
+      <button type="button" class="btn btn-danger" onclick="printToPdf()"><i class="fa-regular fa-file-pdf"></i> Print
+        invoice</button>
+    </div>
+    <br>
+    
+    <h4>Finacials</h4>
     <!-- revenue tabs-->
     <div class="row">
       <div class="col-sm-4">
@@ -113,6 +116,73 @@
     </div>
     <br><br>
 
+    <div class="col-sm-12" id="smallscreennavs">
+      <div>
+        <div class="row" style="padding-left: 15px; padding-right: 15px;">
+          <div class="icn-nav col" onclick="window.open('allorders.html', '_self')">
+            <div class="col-sm-12"><i class="fa-solid fa-dolly"></i></div>
+          </div>&nbsp;&nbsp;
+          <div class="icn-nav col" onclick="window.open('clients.html', '_self')">
+            <div class="col-sm-12"><i class="fa-solid fa-users"></i></div>
+          </div>&nbsp;&nbsp;
+          <div class="icn-nav col" onclick="window.open('finance.html', '_self')">
+            <div class="col-sm-12"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-left: 15px; padding-right: 22px;">
+          <div class="col">
+            <center>
+              <h5>All Orders</h5>
+            </center>
+          </div>&nbsp;&nbsp;
+          <div class="col">
+            <center>
+              <h5>Clients</h5>
+            </center>
+          </div>&nbsp;&nbsp;
+          <div class="col">
+            <center>
+              <h5>Finance</h5>
+            </center>
+          </div><br>
+        </div>
+        <br>
+      </div>
+      <div>
+        <div class="row" style="padding-left: 15px; padding-right: 15px;">
+          <div class="icn-nav col" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter">
+            <div class="col-sm-12"><i class="fa-solid fa-file-circle-plus goldenicon"></i></div>
+          </div>&nbsp;&nbsp;
+          <div class="icn-nav col" data-toggle="modal" data-target="#clientCenter">
+            <div class="col-sm-12"><i class="fa fa-user-plus green"></i></div>
+          </div>&nbsp;&nbsp;
+          <div class="icn-nav col" onclick="printToPdf()">
+            <div class="col-sm-12"><i class="fa-regular fa-file-pdf redicon"></i></div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-left: 15px; padding-right: 22px;">
+          <div class="col">
+            <center>
+              <h5>Add a new order</h5>
+            </center>
+          </div>&nbsp;&nbsp;
+          <div class="col">
+            <center>
+              <h5>Add a Client</h5>
+            </center>
+          </div>&nbsp;&nbsp;
+          <div class="col">
+            <center>
+              <h5>Print an invoice</h5>
+            </center>
+          </div><br>
+        </div>
+        <br>
+      </div>
+    </div>
+
     <!-- Information tabs-->
     <div class="row">
       <div class="col-sm-4">
@@ -130,34 +200,6 @@
           <div class="bgdiv3">
             <div id="ratiobr3"></div>
           </div>
-        </div>
-      </div>
-
-      <div class="col-sm-12" id="smallscreennavs">
-        <div>
-          <div class="row" style="padding-left: 15px; padding-right: 22px;">
-            <div class="icn-nav col">
-              <div class="col-sm-12"><i class="fa-solid fa-dolly"></i></div>
-            </div>&nbsp;&nbsp;
-            <div class="icn-nav col">
-              <div class="col-sm-12"><i class="fa-solid fa-users"></i></div>
-            </div>&nbsp;&nbsp;
-            <div class="icn-nav col">
-              <div class="col-sm-12"><i class="fa-solid fa-money-bill-trend-up"></i></div>
-            </div><br>
-          </div>
-          <div class="row" style="padding-left: 15px; padding-right: 22px;">
-            <div class="col">
-              <center><h5>All Orders</h5></center>
-            </div>&nbsp;&nbsp;
-            <div class="col">
-              <center><h5>Clients</h5></center>
-            </div>&nbsp;&nbsp;
-            <div class="col">
-              <center><h5>Finance</h5></center>
-            </div><br>
-          </div>
-          <br>
         </div>
       </div>
 

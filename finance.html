@@ -89,6 +89,8 @@
       <h1>Finance <i class="fa fa-building-columns"></i></h1>
 
       <p id="tmecode"></p>
+      <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#addpayCenter"><i
+          class="fa-solid fa-registered"></i> &nbsp; Add Payment</button><br>
       <p id="lastarr" hidden></p>
       <br>
 
@@ -134,17 +136,18 @@
 
         <div class="col-sm-4">
           <div class="tabDivDisplay" id="moreif">
-            <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Relative calculations</b></h4>
+            <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Relative calculations</b>
+            </h4>
             <p id="totalin"></p>
             <p id="allExpTotal-blk"></p>
             <p id="estProfit"></p>
             <i class="fa fa-question-circle" id="quest">
               <span class="tooltiptext">
-               The Estimated profit is an estimate of the
-               total profits including the unpaid orders
-               that are still pending.
+                The Estimated profit is an estimate of the
+                total profits including the unpaid orders
+                that are still pending.
               </span>
-              </i>
+            </i>
             <hr>
             <p id="fprofits"></p>
           </div>
@@ -181,7 +184,7 @@
 
       <hr color="black">
       <h4>Menue</h4>
-      
+
 
       <div class="row">
         <div class="col-sm-3">
@@ -191,8 +194,11 @@
               class="fa-solid fa-chart-line"></i> View Line Chart</button>
         </div>
         <div class="col-sm-3">
-          <a href="#expenses-sect"><button type="button"  id="btn-ex" onclick="showEx(this.id)" class="btn btn-primary form-control"><i class="fa-solid fa-comment-dollar"></i> View Expenses:</button></a>
-          <a href="#graph-section"><button type="button" id="btn-ex2" onclick="showEx(this.id)" class="btn btn-primary form-control"><i class="fa-solid fa-eye-slash"></i> Hide Expenses</button></a>
+          <a href="#expenses-sect"><button type="button" id="btn-ex" onclick="showEx(this.id)"
+              class="btn btn-primary form-control"><i class="fa-solid fa-comment-dollar"></i> View
+              Expenses:</button></a>
+          <a href="#graph-section"><button type="button" id="btn-ex2" onclick="showEx(this.id)"
+              class="btn btn-primary form-control"><i class="fa-solid fa-eye-slash"></i> Hide Expenses</button></a>
         </div>
         <div class="col-sm-3">
 
@@ -225,7 +231,7 @@
               <tr>
                 <td></td>
                 <td><b class="pull-right">Total:</b></td>
-                <td id="total-col" class="col-sm-3"  style="font-weight: bold;"></td>
+                <td id="total-col" class="col-sm-3" style="font-weight: bold;"></td>
               </tr>
             </tfoot>
           </table>
@@ -247,11 +253,11 @@
             </tbody>
             <tfoot>
               <tr>
-                <tr>
-                  <td></td>
-                  <td><b class="pull-right">Total:</b></td>
-                  <td class="col-sm-3" id="total-col2" style="font-weight: bold;"></td>
-                </tr>
+              <tr>
+                <td></td>
+                <td><b class="pull-right">Total:</b></td>
+                <td class="col-sm-3" id="total-col2" style="font-weight: bold;"></td>
+              </tr>
               </tr>
             </tfoot>
           </table>
@@ -290,6 +296,52 @@
     </div>
   </div>
 
+  <!-- Modal add payment-->
+  <div class="modal fade" id="addpayCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="titlepaymod"><i class="fa-solid fa-registered"></i> Add Payment </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="moddBodypay">
+          <form>
+
+            <div class="form-group">
+              <label for="Invoice_Num">Select Payment Date:</label>
+              <input type="date" name="Date" class="form-control" id="Invoice_num">
+            </div>
+
+            <div class="form-group">
+              <label for="Invoice_Num">Enter Description:</label>
+              <input type="text" name="Description" class="form-control" id="Invoice_num" placeholder="Enter payment description...">
+            </div>
+
+            
+            <input type="text" id="recpIdInput" name="ClientID" hidden>
+
+            <div class="form-group" id="existin">
+              <label for="Exist-reciepient">Select payer:</label>&nbsp;<span id="recpID"></span><br>
+              <select class="form-control" id="exiRecipient">
+                <option>Select a payer</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="Invoice_Num">Amount (ZAR):</label>
+              <input type="number" name="Amount" class="form-control" id="Invoice_num" placeholder="Enter payment amount">
+            </div>
+
+            <button type="submit" class="btn btn-success form-control">Submit Payment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up"></i></button>
 
   <!--Script-->
@@ -298,6 +350,7 @@
   <script src="js/updateOrder.js"></script>
   <script src="js/all.js"></script>
   <script src="js/requestfinacials.js"></script>
+  <script src="js/requestClients.js"></script>
 
   <!--chart script-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>

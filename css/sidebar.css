@@ -266,6 +266,11 @@
   color: rgb(51, 142, 202);
 }
 
+.icn-nav:hover{
+  background-color: #bfecfc;
+  transition: ease-in 0.2s;
+}
+
 @media screen and (min-width: 700px){
   #smallscreennavs{
     display: none;
