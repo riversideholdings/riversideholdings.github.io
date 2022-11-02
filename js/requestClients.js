@@ -121,6 +121,7 @@ function init() {
                   var result = nw.filter(obj => {
                     return obj.Name === exiselect.value 
                   })
+
                   recpAddress.value = result[0].Address;
                   recpientId.innerHTML = "(Client ID: "+ result[0].Client_Num+ " )";
                   document.getElementById("recpIdInput").value = result[0].Client_Num;
@@ -129,6 +130,23 @@ function init() {
               catch{
                 //
               }
+
+              try{
+                exiselect.addEventListener('change', function(){
+                  var result = nw.filter(obj => {
+                    return obj.Name === exiselect.value 
+                  })
+                  
+                var idintput = document.getElementById("recpIdInput2")
+
+                idintput.value = result[0].Client_Num;
+              });
+              }
+              catch{
+
+              }
+
+              
              
 
       })        
@@ -398,5 +416,54 @@ function hideviewtbClients(c){
     tablebtn.style.display = "block";
     cardsbtn.style.display = "none";
     
+  }
+}
+
+const scriptURLp = `https://script.google.com/macros/s/AKfycbzxBqZvnQttmTzoneOhfbI9CErGRSvdax-8nvIyp9-yEez-WbJJ7DryIgF5uDlRFwqw/exec`
+
+const formp = document.forms['payform']
+  
+    formp.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURLp, { method: 'POST', body: new FormData(formp)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message)) 
+        onsubmitloader();    
+    })
+
+function onsubmitloader(){
+    var title = document.getElementById("titlepaymod");
+    var outterBodyp = document.getElementById("moddBodypay");
+    var footModp = document.getElementById("modfooterpay");
+   
+    const timerout = setTimeout(loaderpay, 2000);
+
+    //after updatig the status, success message is shown on the modal body outterModBodyIn
+    
+    outterBodyp.innerHTML = `<center><img src="img/loader.gif" width="30%" ></center>`
+    
+    function loaderpay(){
+      title.innerHTML = `<i class="fa-regular fa-circle-check green"></i> Success message `
+      outterBodyp.innerHTML = `<h1>Payment Successfully added</h1>`;
+      footModp.innerHTML = `<button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
+    }
+}
+
+
+function failedr(){
+  var title = document.getElementById("titlepaymod");
+  var outterBodyp = document.getElementById("moddBodypay");
+  var footModp = document.getElementById("modfooterpay");
+ 
+  const timerout = setTimeout(loaderpay, 2000);
+
+  //after updatig the status, success message is shown on the modal body outterModBodyIn
+  
+  outterBodyp.innerHTML = `<center><img src="img/loader.gif" width="30%" ></center>`
+  
+  function loaderpay(){
+    title.innerHTML = `<i class="fa-solid fa-circle-xmark redicon"></i> Error message `
+    outterBodyp.innerHTML = `<h1 class="text-center">Payment failed</h1>`;
+    footModp.innerHTML = `<button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
   }
 }

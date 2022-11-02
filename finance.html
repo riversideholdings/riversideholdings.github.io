@@ -83,11 +83,11 @@
 </header>
 
 <body>
-  
+
   <!--loader-->
   <div id="loader-gif">
     <div id="image-loader-div">
-    <center><img src="img/riverside logo loader.gif" width="40%"></center>
+      <center><img src="img/riverside logo loader.gif" width="40%"></center>
     </div>
   </div>
   <!--end Loader-->
@@ -318,7 +318,7 @@
           </button>
         </div>
         <div class="modal-body" id="moddBodypay">
-          <form>
+          <form id="payform">
 
             <div class="form-group">
               <label for="Invoice_Num">Select Payment Date:</label>
@@ -327,11 +327,12 @@
 
             <div class="form-group">
               <label for="Invoice_Num">Enter Description:</label>
-              <input type="text" name="Description" class="form-control" id="Invoice_num" placeholder="Enter payment description...">
+              <input type="text" name="Description" class="form-control" id="Invoice_num"
+                placeholder="Enter payment description...">
             </div>
 
-            
-            <input type="text" id="recpIdInput" name="ClientID" hidden>
+
+            <input type="text" id="recpIdInput2" name="ClientID" hidden>
 
             <div class="form-group" id="existin">
               <label for="Exist-reciepient">Select payer:</label>&nbsp;<span id="recpID"></span><br>
@@ -342,11 +343,16 @@
 
             <div class="form-group">
               <label for="Invoice_Num">Amount (ZAR):</label>
-              <input type="number" name="Amount" class="form-control" id="Invoice_num" placeholder="Enter payment amount">
+              <input type="number" name="Amount" class="form-control" id="Invoice_num"
+                placeholder="Enter payment amount">
             </div>
 
-            <button type="submit" class="btn btn-success form-control">Submit Payment</button>
+            <button type="submit" class="btn btn-success form-control" >Submit Payment</button><br><br>
+            <button type="button" onclick="clearpayer()" class="btn btn-danger form-control" data-dismiss="modal">Cancel</button>
           </form>
+        </div>
+        <div class="modal-footer" id="modfooterpay">
+
         </div>
       </div>
     </div>
