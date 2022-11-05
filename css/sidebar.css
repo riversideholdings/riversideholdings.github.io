@@ -293,6 +293,18 @@
   }
 }
 
+.nav-iconsRH{
+  width: 65px;
+  height: 65px;
+  background-color: white;
+  color: #44c3f3;
+  font-size: 20px;
+  border-radius: 10px;
+  border-width: 1.6pt;
+  border-style: solid;
+  border-color: #44c3f3;
+}
+
 .icn-nav{
   width: 70px;
   height: 70px;

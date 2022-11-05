@@ -82,7 +82,7 @@
   <!--loader-->
   <div id="loader-gif">
     <div id="image-loader-div">
-    <center><img src="img/riverside logo loader.gif" width="40%"></center>
+      <center><img src="img/riverside logo loader.gif" width="40%"></center>
     </div>
   </div>
   <!--end Loader-->
@@ -90,19 +90,57 @@
   <div class="container-lg body-content">
     <h1>Dashboard <i class="fa-solid fa-gauge"></i></h1>
 
-    <p id="tmecode"></p>
+    <p id="tmecode"></p><hr>
     <p id="lastarr" hidden></p>
     <div class="DontShowmeonsmallScreen">
-      <button type="button" class="btn btn-primary" onclick="shownewInvNum()" data-toggle="modal"
-        data-target="#newOrderFormCenter"><i class="fa fa-plus"></i> Add Order</button>
-      <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#clientCenter"><i
-          class="fa fa-user-plus"></i> Add Client</button>
-      <button type="button" class="btn btn-danger" onclick="printToPdf()"><i class="fa-regular fa-file-pdf"></i> Print
-        invoice</button>
+      <div class="row">
+        <div class="col-sm-1 newRoman">
+          <button class="nav-iconsRH" onclick="shownewInvNum()" data-toggle="modal" data-target="#newOrderFormCenter">
+            <i class="fa-solid fa-file-circle-plus goldenicon"></i>
+          </button>
+          <center>Add order</center>
+        </div>&nbsp;&nbsp;
+
+        <div class="col-sm-1 newRoman">
+          <button class="nav-iconsRH" data-toggle="modal" data-target="#clientCenter">
+            <i class="fa fa-user-plus green"></i>
+          </button>
+          <center>Add Client</center>
+        </div>&nbsp;&nbsp;
+
+        <div class="col-sm-1 newRoman">
+          <button class="nav-iconsRH" onclick="printToPdf()">
+            <i class="fa-regular fa-file-pdf redicon"></i>
+          </button>
+          <center>Print invoice</center>
+        </div>&nbsp;&nbsp;
+
+        <div class="col-sm-1 newRoman">
+          <button class="nav-iconsRH" onclick="window.open('allorders.html', '_self')">
+            <i class="fa-solid fa-dolly"></i>
+          </button>
+          <center>View Orders</center>
+        </div>&nbsp;&nbsp;
+
+        <div class="col-sm-1 newRoman">
+          <button class="nav-iconsRH" onclick="window.open('clients.html', '_self')">
+            <i class="fa-solid fa-users"></i>
+          </button>
+          <center>View Clients</center>
+        </div>&nbsp;&nbsp;
+
+        <div class="col-sm-1 newRoman">
+          <button class="nav-iconsRH" onclick="window.open('finance.html', '_self')">
+            <i class="fa-solid fa-money-bill-trend-up"></i>
+          </button>
+          <center>View Finance</center>
+        </div>&nbsp;&nbsp;
+      </div>
     </div>
 
+
     <br class="DontShowmeonsmallScreen">
-    
+
     <h4 class="newRoman">Finacials</h4>
     <!-- revenue tabs-->
     <div class="row">
