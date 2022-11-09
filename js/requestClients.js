@@ -419,6 +419,8 @@ function hideviewtbClients(c){
   }
 }
 
+try{
+
 const scriptURLp = `https://script.google.com/macros/s/AKfycbzxBqZvnQttmTzoneOhfbI9CErGRSvdax-8nvIyp9-yEez-WbJJ7DryIgF5uDlRFwqw/exec`
 
 const formp = document.forms['payform']
@@ -430,7 +432,11 @@ const formp = document.forms['payform']
         .catch(error => console.error('Error!', error.message)) 
         onsubmitloader();    
     })
+  }
+  catch{
 
+  }
+  
 function onsubmitloader(){
     var title = document.getElementById("titlepaymod");
     var outterBodyp = document.getElementById("moddBodypay");

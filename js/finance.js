@@ -304,7 +304,7 @@ function graphs() {
         //contruction a proper structured array of the data
         dataArr.push({
           "invNumber": invNumber,
-          "invDate": parseFloat(invDate.substring(10, 11)) + 1,
+          "invDate": parseFloat(invDate.substring(10, 12))+1,
           "RecipientName": Recipient,
           "RecipientAddress": RecipientAddress,
           "Pricesused": Pricesused,
@@ -317,13 +317,12 @@ function graphs() {
           "invTotal": invoiceTotal,
           "invStatus": invstatus,
         });
-
+        
       }
-
       //==================================================
       //monthly revenue calculation 
       //===================================================
-
+      
       //variables for monthly values
       var Jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec;
 

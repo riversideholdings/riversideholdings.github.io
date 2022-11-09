@@ -94,88 +94,96 @@
 
 
   <div class="container-lg body-content">
+    <br class="DontShowmeonsmallScreen">
     <section id="summary-section">
-
-      <h1>Finance <i class="fa fa-building-columns"></i></h1>
-
-      <p id="tmecode"></p>
-      <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#addpayCenter"><i
-          class="fa-solid fa-registered"></i> &nbsp; Add Payment</button><br>
-      <p id="lastarr" hidden></p>
-      <br>
-
-      <!-- revenue tabs-->
       <div class="row">
-        <div class="col-sm-4">
-          <div id="rev1" class="tabDivDisplay">
-            <p id="total-salesamnt"></p>
-          </div>
+        <div class="col-sm-3">
+          <h1>Finance <i class="fa fa-building-columns"></i></h1>
+          <p id="tmecode"></p>
+          <button type="button" class="btn btn-success" onclick="" data-toggle="modal" data-target="#addpayCenter"><i
+              class="fa-solid fa-registered"></i> &nbsp; Add Payment</button><br>
+          <p id="lastarr" hidden></p>
+          <br>
         </div>
-        <div class="col-sm-4">
-          <div id="rev3" class="tabDivDisplay">
-            <p id="total-salesamnt-unpaid"></p>
+        <div class="col-sm-9">
+          <br class="DontShowmeonsmallScreen">
+          
+          <!-- revenue tabs-->
+          <div class="row">
+            <div class="col-sm-4">
+              <div id="rev1" class="tabDivDisplay">
+                <p id="total-salesamnt"></p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div id="rev3" class="tabDivDisplay">
+                <p id="total-salesamnt-unpaid"></p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div id="rev2" class="tabDivDisplay">
+                <p id="total-salesamnt-paid"></p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-sm-4">
-          <div id="rev2" class="tabDivDisplay">
-            <p id="total-salesamnt-paid"></p>
+          <br><br>
+
+          <!-- Information tabs-->
+          <div class="row">
+            <div class="col-sm-4">
+              <div id="charty" class="tabDivDisplay text-light">
+                <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Sales Ratio</b></h4>
+                <h6>All Sales Percentage <span id="v1"></span></h6>
+                <div class="bgdiv3">
+                  <div id="ratiobr1"></div>
+                </div>
+                <h6>Total Revenue <span id="v2"></span></h6>
+                <div class="bgdiv3">
+                  <div id="ratiobr2"></div>
+                </div>
+                <h6>Unpaid Percentage <span id="v3"></span></h6>
+                <div class="bgdiv3">
+                  <div id="ratiobr3"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="tabDivDisplay" id="moreif">
+                <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Relative
+                    calculations</b>
+                </h4>
+                <p id="totalin"></p>
+                <p id="allExpTotal-blk"></p>
+                <p id="estProfit"></p>
+                <i class="fa fa-question-circle" id="quest">
+                  <span class="tooltiptext">
+                    The Estimated profit is an estimate of the
+                    total profits including the unpaid orders
+                    that are still pending.
+                  </span>
+                </i>
+                <p id="fprofits"></p>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="tabDivDisplay" id="InvStat">
+                <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Invoice Statistics</b>
+                </h4>
+                <hr>
+                <h4 id="completedorderCount"></h4>
+                <hr>
+                <h4 id="ordercountComplete"></h4>
+                <hr>
+                <h4 id="ordercount2"></h4>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-      <br><br>
 
-      <!-- Information tabs-->
-      <div class="row">
-        <div class="col-sm-4">
-          <div id="charty" class="tabDivDisplay text-light">
-            <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Sales Ratio</b></h4>
-            <h6>All Sales Percentage <span id="v1"></span></h6>
-            <div class="bgdiv3">
-              <div id="ratiobr1"></div>
-            </div>
-            <h6>Total Revenue <span id="v2"></span></h6>
-            <div class="bgdiv3">
-              <div id="ratiobr2"></div>
-            </div>
-            <h6>Unpaid Percentage <span id="v3"></span></h6>
-            <div class="bgdiv3">
-              <div id="ratiobr3"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="tabDivDisplay" id="moreif">
-            <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Relative calculations</b>
-            </h4>
-            <p id="totalin"></p>
-            <p id="allExpTotal-blk"></p>
-            <p id="estProfit"></p>
-            <i class="fa fa-question-circle" id="quest">
-              <span class="tooltiptext">
-                The Estimated profit is an estimate of the
-                total profits including the unpaid orders
-                that are still pending.
-              </span>
-            </i>
-            <hr>
-            <p id="fprofits"></p>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="tabDivDisplay" id="InvStat">
-            <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Invoice Statistics</b></h4>
-            <hr>
-            <h4 id="completedorderCount"></h4>
-            <hr>
-            <h4 id="ordercountComplete"></h4>
-            <hr>
-            <h4 id="ordercount2"></h4>
-          </div>
-        </div>
-
-      </div>
 
     </section>
 
@@ -322,12 +330,12 @@
 
             <div class="form-group">
               <label for="Invoice_Num">Select Payment Date:</label>
-              <input type="date" name="Date" class="form-control" id="Invoice_num">
+              <input type="date" name="Date" class="form-control" id="Invoice_num" required>
             </div>
 
             <div class="form-group">
               <label for="Invoice_Num">Enter Description:</label>
-              <input type="text" name="Description" class="form-control" id="Invoice_num"
+              <input type="text" name="Description" class="form-control" id="description" required
                 placeholder="Enter payment description...">
             </div>
 
@@ -343,12 +351,12 @@
 
             <div class="form-group">
               <label for="Invoice_Num">Amount (ZAR):</label>
-              <input type="number" name="Amount" class="form-control" id="Invoice_num"
-                placeholder="Enter payment amount">
+              <input type="text" name="Amount" class="form-control" id="Invoice_num" required>
             </div>
 
-            <button type="submit" class="btn btn-success form-control" >Submit Payment</button><br><br>
-            <button type="button" onclick="clearpayer()" class="btn btn-danger form-control" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-success form-control">Submit Payment</button><br><br>
+            <button type="button" onclick="clearpayer()" class="btn btn-danger form-control"
+              data-dismiss="modal">Cancel</button>
           </form>
         </div>
         <div class="modal-footer" id="modfooterpay">
