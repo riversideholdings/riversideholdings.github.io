@@ -451,21 +451,25 @@ function graphs() {
           datasets: [{
             fill: false,
             lineTension: 0,
-            backgroundColor: "#3586a6",
-            borderColor: "rgba(0,0,255,0.1)",
-            data: yValues
+            backgroundColor: "white",
+            borderColor: "white",
+            data: yValues,
           }]
         },
         options: {
           legend: { display: false },
           scales: {
-            yAxes: [{ ticks: { min: 0, max: 100000 } }],
+            yAxes: [{ ticks: { min: 0, max: 100000} }],
+              grid: {
+                color: "rgb(255,255,255)"
+              }
           },
           title: {
             display: true,
             text: "Riverside Holdings monthly revenue 2022"
-          }
-        }
+          },
+          
+        },
       });
 
       //pie chart
@@ -493,7 +497,7 @@ function graphs() {
           labels: xValues,
           datasets: [{
             backgroundColor: barColors,
-            data: yValues
+            data: yValues,
           }]
         },
         options: {

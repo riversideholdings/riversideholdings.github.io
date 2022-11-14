@@ -2,7 +2,7 @@
 var d = new Date(); 
 var year  = d.getFullYear();
 var dateTag = document.getElementById("yearDate");
-dateTag.innerHTML =  `Management panel &copy; ${year} - Riverside Holdings.` ;
+dateTag.innerHTML =  `Riverside Holdings management &copy; ${year} -  v1.1.0` ;
 
 try{
   setInterval(myTimer, 1000);
@@ -50,13 +50,13 @@ function topFunction() {
 ///side navigation
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidebar").style.width = "300px";
+  document.getElementById("mySidebar").style.left = "0px";
 
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("mySidebar").style.left = "-310px";
 
 }
 

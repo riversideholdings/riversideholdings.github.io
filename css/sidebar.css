@@ -1,28 +1,20 @@
 /* The sidebar menu */
 .sidebar {
   height: 100%;
-  /* 100% Full-height */
-  width: 0;
-  /* 0 width - change this with JavaScript */
+  width: 300px;
   position: fixed;
-  /* Stay in place */
   z-index: 3;
-  /* Stay on top */
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: -310px;
   background-color: rgb(255, 255, 255);
-  /* Black*/
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  padding-top: 60px;
-  /* Place content 60px from the top */
   transition: 0.5s;
-  /* 0.5 second transition effect to slide in the sidebar */
-  box-shadow: 0px 0px 18px 2px #5e5e5e;
+  box-shadow: 5px 10px 20px  rgba(0,0,0,0.7);
 }
+
 
 #loader-gif{
   position: absolute;
+  top: 0px;
   width: 100%;
   height: 100%;
   background-color: #337cad;
@@ -43,9 +35,9 @@
 
 /* The sidebar links */
 .sidebar a {
-  padding: 0px 0px 0px 32px;
+  padding-left: 32px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   color: #000000;
   display: block;
   transition: 0.3s;
@@ -70,7 +62,7 @@
 
 /* The button used to open the sidebar */
 .openbtn {
-  font-size: 35px;
+  font-size: 30px;
   cursor: pointer;
   background-color: #337cad;
   color: rgb(255, 255, 255);
@@ -126,7 +118,7 @@
     float: right;
   }
   #div-top{
-    height: 80px;
+    height: 70px;
   }
 
   #image-loader-div img{
@@ -146,7 +138,7 @@
   #imageTop {
     float: right;
     border-radius: 80px;
-    width: 21%;
+    width: 19%;
   }
 
   #image-loader-div img{
@@ -368,6 +360,14 @@
 
 .tabDivDisplay:hover {
   transform: translate(0, -10px);
+}
+
+.navimenubtn{
+  transition: transform ease 300ms;
+}
+
+.navimenubtn:hover {
+  transform: translate(0, -8px);
 }
 
 #moreif {

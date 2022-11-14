@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
   <!-- html2canvas library -->
   <script src="js/jspdf/html2canvas.min.js"></script>
   <!-- jsPDF library -->
@@ -52,7 +53,7 @@
         <hr>
       </li>
       <li class="nav-item">
-        <a class="nav-links" href="clients.html"><i class="fa fa-user"></i>&nbsp; Clients</a>
+        <a class="nav-links" href="clients.html"><i class="fa-solid fa-users-gear"></i>&nbsp; Clients</a>
         <hr>
       </li>
       <li class="nav-item">
@@ -62,7 +63,7 @@
     </ul>
     <a href="index.html" style="float: right; padding-right: 15px">Log out <i class="fa fa-right-from-bracket"></i></a>
   </div>
-  </div>
+  
 
   <!--Fixed Header-->
   <div id="div-top">
@@ -72,7 +73,7 @@
     </div>
     <div class="col-sm-8 text-right" id="imagetct">
       <span class="riverHeading" id="hwords">Riverside Holdings</span> &nbsp;
-      <img src="img/Riverside_OG.png" id="imageTop" width="10%">
+      <img src="img/Riverside_OG.png" id="imageTop" width="6%">
     </div>
   </div>
 
@@ -87,6 +88,8 @@
   </div>
   <!--end Loader-->
 
+
+  <!--body contents-->
   <div class="container-lg body-content">
     <div class="row">
       <div class="col-sm-3">
@@ -101,54 +104,54 @@
         <div class="DontShowmeonsmallScreen">
           <div class="row">
             <div class="col-sm-1 newRoman">
-              <button class="nav-iconsRH" onclick="shownewInvNum()" data-toggle="modal"
+              <button class="nav-iconsRH navimenubtn" onclick="shownewInvNum()" data-toggle="modal"
                 data-target="#newOrderFormCenter">
                 <i class="fa-solid fa-file-circle-plus goldenicon"></i>
               </button>
               <center>Add order</center>
-            </div>&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="col-sm-1 newRoman">
-              <button class="nav-iconsRH" data-toggle="modal" data-target="#clientCenter">
+              <button class="nav-iconsRH navimenubtn" data-toggle="modal" data-target="#clientCenter">
                 <i class="fa fa-user-plus green"></i>
               </button>
               <center>Add Client</center>
-            </div>&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="col-sm-1 newRoman">
-              <button class="nav-iconsRH" data-toggle="modal" data-target="#printInvoiceCenter">
+              <button class="nav-iconsRH navimenubtn" data-toggle="modal" data-target="#printInvoiceCenter">
                 <i class="fa-regular fa-file-pdf redicon"></i>
               </button>
               <center>Print invoice</center>
-            </div>&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="col-sm-1 newRoman">
-              <button class="nav-iconsRH" onclick="window.open('allorders.html', '_self')">
+              <button class="nav-iconsRH navimenubtn" onclick="window.open('allorders.html', '_self')">
                 <i class="fa-solid fa-dolly"></i>
               </button>
               <center>View all Orders</center>
-            </div>&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="col-sm-1 newRoman">
-              <button class="nav-iconsRH" onclick="window.open('unpaid.html', '_self')">
+              <button class="nav-iconsRH navimenubtn" onclick="window.open('unpaid.html', '_self')">
                 <i class="fa-solid fa-box-open"></i>
               </button>
               <center>Unpaid Orders</center>
-            </div>&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="col-sm-1 newRoman">
-              <button class="nav-iconsRH" onclick="window.open('clients.html', '_self')">
+              <button class="nav-iconsRH navimenubtn" onclick="window.open('clients.html', '_self')">
                 <i class="fa-solid fa-users"></i>
               </button>
               <center>View Clients</center>
-            </div>&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="col-sm-1 newRoman">
-              <button class="nav-iconsRH" onclick="window.open('finance.html', '_self')">
+              <button class="nav-iconsRH navimenubtn" onclick="window.open('finance.html', '_self')">
                 <i class="fa-solid fa-money-bill-trend-up"></i>
               </button>
               <center>View Finance</center>
-            </div>&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
         </div>
 
@@ -309,11 +312,11 @@
               <h4 style="font-family: 'Times New Roman', Times, serif;" class="text-center"><b>Invoice Statistics</b>
               </h4>
               <hr>
-              <h4 id="completedorderCount"></h4>
+              <h5 id="completedorderCount"></h5>
               <hr>
-              <h4 id="ordercountComplete"></h4>
+              <h5 id="ordercountComplete"></h5>
               <hr>
-              <h4 id="ordercount2"></h4>
+              <h5 id="ordercount2"></h5>
             </div>
           </div>
 
@@ -351,7 +354,6 @@
     <h5><i class="fa-solid fa-people-group"></i> Available clients: &nbsp;<span id="clientCount"></span> </h5>
     <a href="clients.html"><button type="button" class="btn btn-primary">View All &nbsp;<i
           class="fa fa-user"></i></button></a>-->
-    <hr>
     <footer>
       <hr />
       <p id="yearDate"></p>

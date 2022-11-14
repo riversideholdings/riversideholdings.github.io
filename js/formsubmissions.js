@@ -5,6 +5,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbzyAdWjoYajoqHFzwezNf
   
     form.addEventListener('submit', e => {
       e.preventDefault()
+      setprintdetails()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => console.log('Success!', response))
         .catch(error => console.error('Error!', error.message))
@@ -48,4 +49,52 @@ function cicr(){
         <button type="button" onclick="printToPdf()" class="btn btn-success">Download .pdf <i class="fa-solid fa-file-arrow-down"></i></i></button>&nbsp;
         <button type="button" onClick="document.location.reload(true)" class="btn btn-secondary" data-dismiss="modal">Close</button>`;
      };
+}
+
+function setprintdetails(){
+    var invNum = document.getElementById("Invoice_num").value;
+    var invDte = document.getElementById("Invoice_Date").value;
+    var invRecipient = document.getElementById("exiRecipient").value;
+    var invAddress = document.getElementById("Recipient Address").value;
+    var invTotal = document.getElementById("Invoice Total").value;
+    var invNewRecip = document.getElementById("newRecipient").value;
+    var recipientinv = "";
+
+    if (invRecipient != ""){
+        recipientinv = invRecipient; 
+    }
+    else{
+        recipientinv = invNewRecip;
+    };
+
+    //products
+    var inv300mlQty = document.getElementById("300mlinput").value;
+    var inv500mlQty = document.getElementById("500mlinput").value;
+    var inv750mlQty = document.getElementById("750mlinput").value;
+    var inv1lQty = document.getElementById("1linput").value;
+    var inv5lQty = document.getElementById("5linput").value;
+
+    const items = {
+        itm300ml: inv300mlQty,
+        itm500ml: inv500mlQty,
+        itm750ml: inv750mlQty,
+        itm1lt: inv1lQty,
+        itm5lt: inv5lQty
+    };
+
+    const invoicedet = {
+        invNumber: invNum,
+        Date: invDte,
+        Recipient: recipientinv,
+        Address: invAddress,
+        newRecp: invNewRecip,
+        Total: invTotal,
+        itm: items
+    };
+
+    const invoice = JSON.stringify(invoicedet);
+
+    localStorage.setItem("InvoiceDetail", invoice);
+
+    console.log(invoicedet)
 }
