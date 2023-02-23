@@ -2,7 +2,7 @@
 var d = new Date(); 
 var year  = d.getFullYear();
 var dateTag = document.getElementById("yearDate");
-dateTag.innerHTML =  `Riverside Holdings management &copy; ${year} -  v1.1.0` ;
+dateTag.innerHTML =  `Riverside Holdings management &copy; ${year} -  v2.1.0` ;
 
 try{
   setInterval(myTimer, 1000);
@@ -59,18 +59,6 @@ function closeNav() {
   document.getElementById("mySidebar").style.left = "-310px";
 
 }
-
-//loader
-
-//document.onreadystatechange = function() {
-//  if (document.readyState !== "complete") {
-//      
-//      document.querySelector("#loader-gif").style.visibility = "visible";
-//  } else {
-//      document.querySelector("#loader-gif").style.display = "none";
-//      document.querySelector("body").style.visibility = "visible";
-//  }
-//};
 
 var tblordrs = document.getElementById("allOrdersT");
 

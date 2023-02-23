@@ -7,7 +7,7 @@
     <meta name="description" content="MySight Shopping website" />
     <meta name="author" content="Mila Mbopha" />
 
-    <title>Riverside Holdings</title>
+    <title>Riverside Holdings - Log in</title>
 
     <link rel="icon" href="img/Riverside_crop.png">
 
@@ -23,7 +23,6 @@
 
 
 <header>
-
     <!--Nav Bar-->
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -35,23 +34,9 @@
 
         </ul>
     </div>
-    </div>
-
-    <!--Fixed Header-->
-    <div id="div-top">
-        <div class="col-sm-4" hidden>
-            <button class="openbtn" onclick="openNav()">☰</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
-        <div class="col-sm-8 text-right" id="imagetct">
-            <span class="riverHeading" id="hwords">Riverside Holdings</span> &nbsp;
-            <img src="img/Riverside_OG.png" id="imageTop" width="10%">
-        </div>
-    </div>
 </header>
 
-<body>
-
+<body style="background-image: url(img/login-bg-blue.png); background-repeat:no-repeat; background-position:center; background-size: 100% 200%;">
     <!--loader-->
     <div id="loader-gif">
         <div id="image-loader-div">
@@ -62,40 +47,38 @@
 
 
 
-    <div class="container-md body-content">
-        <h1 class="text-center">Riverside Holdings management</h1><br>
-        <p id="tmecode"></p>
-        <h2>Log in <i class="fa-solid fa-right-to-bracket"></i></h2>
-        <p>Enter log in details.</p>
-        <p id="errorMess" style="color: red;"></p>
-        <div class="row">
-            <div class="col-sm-6">
-                <form class="from" id="loginfrm">
-                    <div class="form-group">
-                        <label for="Email-user">Email</label>
-                        <input type="email" name="Email-user" class="form-control" id="Email-user"
-                            placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="user-password">Password</label>
-                        <input type="password" name="user-password" class="form-control" id="user-password-field"
-                            placeholder="Enter your password">
-                        <input type="checkbox" onclick="showPass()"> Show Password<br>
-                    </div>
-                    <button type="button" onclick="submitformP()" class="btn btn-primary">Log in <i
-                            class="fa-solid fa-right-to-bracket"></i></button>&nbsp;
-                    <button type="button" class="btn btn-warning" data-toggle="modal"
-                        data-target="#resetPassCenter">Reset
-                        Password <i class="fa-solid fa-arrow-rotate-right"></i></button>
+    <div class="container">
+        <img src="img/Riverside_OG.png" width="100px" id="logo-img">
+            <div id="login-div">
+                <p id="tmecode"></p>
+                <h2>Log in <i class="fa-solid fa-right-to-bracket"></i></h2>
+                <p>Enter log in details.</p>
+                <p id="errorMess" style="color: red;"></p>
+                
+                <div>
+                    <form class="from" id="loginfrm">
+                        <div class="form-group">
+                            <label for="Email-user">Email</label>
+                            <input type="email" name="Email-user" class="form-control" id="Email-user"
+                                placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-password">Password</label>
+                            <input type="password" name="user-password" class="form-control" id="user-password-field"
+                                placeholder="Enter your password">
+                            <input type="checkbox" onclick="showPass()"> Show Password<br>
+                        </div>
+                        <button type="button" onclick="submitformP()" class="btn btn-primary">Log in <i
+                                class="fa-solid fa-right-to-bracket"></i></button>&nbsp;
+                        <button type="button" class="btn btn-warning" data-toggle="modal"
+                            data-target="#resetPassCenter">Reset
+                            Password <i class="fa-solid fa-arrow-rotate-right"></i></button>
 
-                </form>
+                    </form>
+                </div>
             </div>
-            <div class="col-sm-6">
-                <img src="img/Riverside_OG.png" width="50%"
-                    style="margin: auto; display:flex; align-self: center; justify-self: center;">
-            </div>
-        </div>
-        <h4 id="completedorderCount"></h4>
+            
+            <br>
         <hr />
         <footer>
             <p id="yearDate"></p>
